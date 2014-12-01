@@ -1,0 +1,32 @@
+# A research project based on "Building Context around Biographical Facts: A
+# Process Illustrated by the Backcountry Birth of George F. Ring," by John
+# Philip Colletta.
+
+@base <http://gn.gl/grng> .
+@prefix ro: <http://purl.org/wf4ever/ro#> .
+@prefix roc: <http://purl.org/roc#> .
+@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
+@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix mp: <http://purl.org/mp/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos> .
+@prefix eo: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix time: <http://www.w3.org/2006/time> .
+@prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+
+<>
+  a roc:ResearchProject ;
+  dcterms:creator [ a foaf:Agent ; foaf:name "Chris Chapman"@en ] ;
+  rdfs:label "The Backcountry Birth of George F. Ring" .
+
+<#case-1>
+  a roc:ResearchCase ;
+  rdfs:label "Find out about my grandfather's birth" ;
+  roc:question "Why had these parents waited an uncharacteristically long time to ensure the salvation of their latest offspring's soul?" .
