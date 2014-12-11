@@ -1,32 +1,70 @@
-# A research project based on "Building Context around Biographical Facts: A
-# Process Illustrated by the Backcountry Birth of George F. Ring," by John
-# Philip Colletta.
+#TODO PROV-O info
+#TODO How do case relationships work? While working on one case, questions come up
 
 @base <http://gn.gl/grng> .
-@prefix ro: <http://purl.org/wf4ever/ro#> .
-@prefix roc: <http://purl.org/roc#> .
-@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
-@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
+@prefix biblio: <http://purl.org/net/biblio#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix cito: <http://purl.org/spar/cito/> .
+@prefix dbr: <http://dbpedia.org/resource/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix deo: <http://purl.org/spar/deo/> .
+@prefix eo: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos> .
 @prefix mp: <http://purl.org/mp/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix opmv: <http://purl.org/net/opmv/ns#> .
+@prefix opmw: <http://www.opmw.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos> .
-@prefix eo: <http://purl.org/NET/c4dm/event.owl#> .
-@prefix time: <http://www.w3.org/2006/time> .
+@prefix ro: <http://purl.org/wf4ever/ro#> .
+@prefix roc: <https://w3id.org/roc#> .
+@prefix schema: <http://schema.org/> .
 @prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
+@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix xhv: <http://www.w3.org/1999/xhtml/vocab#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<>
-  a roc:ResearchProject ;
-  dcterms:creator [ a foaf:Agent ; foaf:name "Chris Chapman"@en ] ;
-  rdfs:label "The Backcountry Birth of George F. Ring" .
+<> a roc:ResearchProject, cc:Work, prov:Entity ;
+  dcterms:creator <http://cman.ch/#i> ;
+  rdfs:label "The Backcountry Birth of George F. Ring"@en ;
+  prov:wasDerivedFrom [ a biblio:Article, schema:Article ;
+    dcterms:title "Building Context around Biographical Facts: A Process Illustrated by the Backcountry Birth of George F. Ring"@en ;
+    dcterms:isPartOf <http://www.ngsgenealogy.org/cs/ngsq#journal> ;
+    dcterms:publisher <http://www.ngsgenealogy.org/cs/ngsq#journal> ;
+    schema:author <http://genealogyjohn.com/#me> ;
+    bibo:volume 88 ;
+    bibo:number 4 ;
+    dcterms:issued "2000-12"^^xsd:date ] ;
+  cc:license <http://creativecommons.org/licenses/by-sa/4.0/> .
+  
 
-<#case-1>
-  a roc:ResearchCase ;
-  rdfs:label "Find out about my grandfather's birth" ;
-  roc:question "Why had these parents waited an uncharacteristically long time to ensure the salvation of their latest offspring's soul?" .
+<#case1> a roc:ResearchCase ;
+  rdfs:label "Find out about my grandfather's birth"@en ;
+  roc:question "Why had these parents waited an uncharacteristically long time to ensure the salvation of their latest offspring's soul?"@en .
+
+<http://cman.ch/#i> a foaf:Person ;
+  rdfs:label "Chris Chapman"@en ;
+  foaf:homepage <http://cman.ch> ;
+  foaf:mbox <mailto:chris@pentandra.com> ;
+  foaf:name "Chris Chapman"@en .
+
+<http://www.ngsgenealogy.org/cs/ngsq#journal> a biblio:Journal, schema:CreativeWork ;
+  schema:publisher dbr:National_Genealogical_Society ;
+  foaf:isPrimaryTopicOf <http://www.ngsgenealogy.org/cs/ngsq> ;
+  rdfs:label "National Genealogy Society Quarterly"@en .
+
+<http://www.genealogyjohn.com/#me> a schema:Person, foaf:Person;
+  foaf:homepage <http://www.genealogyjohn.com/> ;
+  foaf:name "John Phillip Colletta"@en ;
+  foaf:mbox <mailto:johncolletta@verizon.net> ;
+  vcard:honorific-suffix "Ph.D."@en .

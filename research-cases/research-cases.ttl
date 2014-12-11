@@ -1,0 +1,22 @@
+@prefix : <https://w3id.org/roc#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix roc: <https://w3id.org/roc#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/roc#>
+  a owl:Ontology ;
+  rdfs:comment "The Research Cases Core vocabulary specification."@en ;
+  rdfs:label "Research Cases Core Vocabulary (roc)" ;
+  rdfs:seeAlso <http://researchcases.org> ;
+  vann:preferredNamespacePrefix "roc" ;
+  vann:preferredNamespaceUri "http://w3id.org/roc#" .
+
+:Project
+  a owl:Class ;
+  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:label "Research Project" ;
+  rdfs:comment ""@en .
