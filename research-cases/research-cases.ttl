@@ -13,16 +13,9 @@
   a owl:Ontology ;
   rdfs:comment "A vocabulary for doing research on the Web."@en ;
   rdfs:label "Research Cases Core Vocabulary"@en ;
-  dc:description """The Research Cases Vocabulary is a lightweight,
-    task-oriented framework for doing research on the Web. Research Cases make
-    knowledge creation explicit and allow research to be built upon and shared
-    openly across platforms and research disciplines.
+  dc:description """The Research Cases Vocabulary is a lightweight, task-oriented framework for doing research on the Web. Research Cases make knowledge creation explicit and allow research to be built upon and shared openly across platforms and research disciplines.
     
-    Research Cases broaden the scope of what has traditionally been thought of
-    as research, modeling it holistically as the process the researcher goes
-    through from an initial research question all the way to the resultant
-    answer. Research Cases are intended to be used in simple to complex
-    situations, but always involve the process of knowledge creation."""@en ;
+  Research Cases broaden the scope of what has traditionally been thought of as research, modeling it holistically as the process the researcher goes through from an initial research question all the way to the resultant answer. Research Cases are intended to be used in simple to complex situations, but always involve the process of knowledge creation."""@en ;
   rdfs:seeAlso <http://researchcases.org/spec/>, <http://pentandra.com/spec/research-cases/> ;
   cc:license <http://creativecommons.org/licenses/by/4.0/> ;
   cc:attributionName "Research Cases Community" ;
