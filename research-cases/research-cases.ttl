@@ -1,22 +1,82 @@
 @prefix : <https://w3id.org/roc#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix roc: <https://w3id.org/roc#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://w3id.org/roc#>
   a owl:Ontology ;
-  rdfs:comment "The Research Cases Core vocabulary specification."@en ;
-  rdfs:label "Research Cases Core Vocabulary (roc)" ;
-  rdfs:seeAlso <http://researchcases.org> ;
+  rdfs:comment "Making knowledge creation explicit on the Web."@en ;
+  rdfs:label "Research Cases Core Vocabulary"@en ;
+  rdfs:seeAlso <http://researchcases.org/spec/>, <http://pentandra.com/spec/research-cases/> ;
+  cc:license <http://creativecommons.org/licenses/by/4.0/> ;
+  cc:attributionName "Research Cases Community" ;
+  cc:attributionURL <http://researchcases.org> ;
   vann:preferredNamespacePrefix "roc" ;
   vann:preferredNamespaceUri "http://w3id.org/roc#" .
 
-:Project
+:ResearchProject
   a owl:Class ;
   rdfs:isDefinedBy <https://w3id.org/roc#> ;
-  rdfs:label "Research Project" ;
-  rdfs:comment ""@en .
+  rdfs:label "Research Project"@en ;
+  rdfs:label "Проект Дослідження"@uk ;
+  rdfs:comment "The context in which a researcher researches."@en .
+# Preliminary research needs to add sources directly to a project, because
+# there may not be a question worth asking yet.
+
+:ResearchCase
+  a owl:Class ;
+  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  owl:disjointWith :ResearchProject ;
+  rdfs:label "Research Case"@en ;
+  rdfs:label "Випадок Дослідження"@uk ;
+  rdfs:comment "The fundamental unit of research, encompassing everything from a question to its conclusion."@en .
+
+:Question
+  a owl:Class ;
+  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:label "Question"@en ;
+  rdfs:label "Питання"@uk ;
+  rdfs:comment "A research question."@en .
+
+:Conclusion
+  a owl:Class ;
+  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:label "Conclusion"@en ;
+  rdfs:label "Висновок"@uk ;
+  rdfs:comment "The answer to a research question."@en .
+
+:Hypothesis
+  a owl:Class ;
+  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:subClassOf :Conclusion ;
+  rdfs:label "Hypothesis"@en ;
+  rdfs:label "Гіпотеза"@uk ;
+  rdfs:comment "A hypothesis is a possible, though unproven, answer to a research question"@en ;
+  vs:term_status "testing".
+
+:purpose
+  a owl:ObjectProperty ;
+  rdfs:domain :ResearchProject ;
+  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:label "purpose"@en ;
+  rdfs:label "мета"@uk ;
+  rdfs:comment "The purpose for engaging in the research project. Could be a general statement of the problem being investigated."@en ;
+  vs:term_status "testing".
+
+:question
+  a owl:ObjectProperty ;
+  rdfs:domain :ResearchCase ;
+  rdfs:range :Question ;
+  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:label "question"@en ;
+  rdfs:label "питання"@uk ;
+  rdfs:comment "A focused research question."@en ;
+  vs:term_status "stable".
+# Does there need to be a cardinality rule here? Like to require a question for
+# a research case?
