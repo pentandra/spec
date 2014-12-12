@@ -28,7 +28,8 @@ Research Cases broaden the scope of what has traditionally been thought of as re
   rdfs:isDefinedBy : ;
   rdfs:label "Research Project"@en ;
   rdfs:label "Проект Дослідження"@uk ;
-  rdfs:comment "The context in which a researcher researches."@en .
+  rdfs:comment "The context in which a researcher researches."@en ;
+  vs:term_status "stable".
 # Preliminary research needs to add sources directly to a project, because
 # there may not be a question worth asking yet.
 
@@ -37,21 +38,24 @@ Research Cases broaden the scope of what has traditionally been thought of as re
   rdfs:isDefinedBy : ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
-  rdfs:comment "The fundamental unit of research, encompassing everything from a question to its conclusion."@en .
+  rdfs:comment "The fundamental unit of research, encompassing everything from a question to its conclusion."@en ;
+  vs:term_status "stable".
 
 :Question
   a owl:Class ;
   rdfs:isDefinedBy : ;
   rdfs:label "Question"@en ;
   rdfs:label "Питання"@uk ;
-  rdfs:comment "A research question."@en .
+  rdfs:comment "A research question."@en ;
+  vs:term_status "stable".
 
 :Conclusion
   a owl:Class ;
   rdfs:isDefinedBy : ;
   rdfs:label "Conclusion"@en ;
   rdfs:label "Висновок"@uk ;
-  rdfs:comment "The answer to a research question."@en .
+  rdfs:comment "The answer to a research question."@en ;
+  vs:term_status "stable".
 
 :Hypothesis
   a owl:Class ;
