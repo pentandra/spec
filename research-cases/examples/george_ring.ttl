@@ -44,7 +44,7 @@
     schema:author <http://genealogyjohn.com/#me> ;
     bibo:volume 88 ;
     bibo:number 4 ;
-    dcterms:issued "2000-12"^^xsd:date ] ;
+    dcterms:issued "2000-12"^^xsd:gYearMonth ] ;
   cc:license <http://creativecommons.org/licenses/by-sa/4.0/> .
   
 
@@ -67,4 +67,4 @@
   foaf:homepage <http://www.genealogyjohn.com/> ;
   foaf:name "John Phillip Colletta"@en ;
   foaf:mbox <mailto:johncolletta@verizon.net> ;
-  vcard:honorific-suffix "Ph.D."@en .
+  vcard:honorific-suffix "Ph.D." .
