@@ -15,7 +15,7 @@
   rdfs:label "Research Cases Core Vocabulary"@en ;
   dc:description """The Research Cases Vocabulary is a lightweight, task-oriented framework for doing research on the World Wide Web. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines.
     
-Research Cases broaden the scope of what has traditionally been thought of as research, modeling it holistically as the process the researcher goes through from an initial research question all the way to the resultant answer. Research Cases are intended to be used in simple to complex situations, but always involve the process of knowledge creation."""@en ;
+Research Cases broaden the scope of what has traditionally been thought of as research, modeling it holistically as the process the researcher goes through from an initial research question all the way to the resultant answer. Research Cases are intended to be powerful enough to handle the most complex and intricate of research problems and flexible enough to be useful in answering simple, solitary questions that formerly we may not have considered to be research. Whatever the scope, research cases always involve the process of knowledge creation."""@en ;
   rdfs:seeAlso <http://researchcases.org/spec/>, <http://pentandra.com/spec/research-cases/> ;
   cc:license <http://creativecommons.org/licenses/by/4.0/> ;
   cc:attributionName "Research Cases Community" ;
