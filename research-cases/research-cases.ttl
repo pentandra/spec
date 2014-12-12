@@ -25,7 +25,7 @@ Research Cases broaden the scope of what has traditionally been thought of as re
 
 :ResearchProject
   a owl:Class ;
-  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:isDefinedBy : ;
   rdfs:label "Research Project"@en ;
   rdfs:label "Проект Дослідження"@uk ;
   rdfs:comment "The context in which a researcher researches."@en .
@@ -34,28 +34,28 @@ Research Cases broaden the scope of what has traditionally been thought of as re
 
 :ResearchCase
   a owl:Class ;
-  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:isDefinedBy : ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
   rdfs:comment "The fundamental unit of research, encompassing everything from a question to its conclusion."@en .
 
 :Question
   a owl:Class ;
-  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:isDefinedBy : ;
   rdfs:label "Question"@en ;
   rdfs:label "Питання"@uk ;
   rdfs:comment "A research question."@en .
 
 :Conclusion
   a owl:Class ;
-  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:isDefinedBy : ;
   rdfs:label "Conclusion"@en ;
   rdfs:label "Висновок"@uk ;
   rdfs:comment "The answer to a research question."@en .
 
 :Hypothesis
   a owl:Class ;
-  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:isDefinedBy : ;
   rdfs:subClassOf :Conclusion ;
   rdfs:label "Hypothesis"@en ;
   rdfs:label "Гіпотеза"@uk ;
@@ -63,9 +63,9 @@ Research Cases broaden the scope of what has traditionally been thought of as re
   vs:term_status "testing".
 
 :purpose
-  a owl:ObjectProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ResearchProject ;
-  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:isDefinedBy : ;
   rdfs:label "purpose"@en ;
   rdfs:label "мета"@uk ;
   rdfs:comment "The purpose for engaging in the research project. Could be a general statement of the problem being investigated."@en ;
@@ -75,7 +75,7 @@ Research Cases broaden the scope of what has traditionally been thought of as re
   a owl:ObjectProperty ;
   rdfs:domain :ResearchCase ;
   rdfs:range :Question ;
-  rdfs:isDefinedBy <https://w3id.org/roc#> ;
+  rdfs:isDefinedBy : ;
   rdfs:label "question"@en ;
   rdfs:label "питання"@uk ;
   rdfs:comment "A focused research question."@en ;
