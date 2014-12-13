@@ -84,5 +84,6 @@ Research Cases broaden the scope of what has traditionally been thought of as re
   rdfs:label "питання"@uk ;
   rdfs:comment "A focused research question."@en ;
   vs:term_status "stable".
-# Does there need to be a cardinality rule here? Like to require a question for
-# a research case?
+
+# There is functionally one question per research case.
+:question a owl:FunctionalProperty .
