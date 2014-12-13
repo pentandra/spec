@@ -26,6 +26,7 @@ Research Cases broaden the scope of what has traditionally been thought of as re
 :ResearchProject
   a owl:Class ;
   rdfs:isDefinedBy : ;
+  owl:disjointWith :ResearchCase ;
   rdfs:label "Research Project"@en ;
   rdfs:label "Проект Дослідження"@uk ;
   rdfs:comment "The context in which a researcher researches."@en ;
@@ -36,6 +37,7 @@ Research Cases broaden the scope of what has traditionally been thought of as re
 :ResearchCase
   a owl:Class ;
   rdfs:isDefinedBy : ;
+  owl:disjointWith :ResearchProject ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
   rdfs:comment "The fundamental unit of research, encompassing everything from a question to its conclusion."@en ;
