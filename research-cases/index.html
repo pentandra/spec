@@ -111,7 +111,70 @@
 
       <p>Research Cases are persistent, curated resources.</p>
 
-      </p>
+      <section>
+
+        <h2>Notational Conventions</h2>
+
+        <p>The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD,
+        SHOULD NOT, RECOMMENDED, NOT RECOMMENDED, MAY, and OPTIONAL in this
+        document are to be interpreted as described in [[!RFC2119]].</p>
+
+      </section>
+      <section class="informative">
+
+        <h2>Namespace Prefixes</h2>
+
+        The following namespace prefixes are used throughout this document.
+
+        <table class="section data-table">
+          <caption><b>Table 1:</b> Prefixes and namespaces used in this document</caption>
+          <thead>
+            <tr><th>Prefix</th><th>Namespace IRI</th><th>Definition</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>rdf</code></td>
+              <td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td>
+              <td>The <abbr title="Resource Description Framework">RDF</abbr>
+              namespace [[!RDF-CONCEPTS]]</td>
+            </tr>
+            <tr>
+              <td><code>xsd</code></td>
+              <td><code>http://www.w3.org/2000/10/XMLSchema#</code></td>
+              <td>The <abbr title="eXtensible Markup Language">XML</abbr>
+              Schema Namespace [[!XMLSCHEMA11-2]]</td>
+            </tr>
+            <tr>
+              <td><code>owl</code></td>
+              <td><code>http://www.w3.org/2002/07/owl#</code></td>
+              <td>The <abbr title="Web Ontology Language">OWL</abbr> namespace
+              [[!OWL2-OVERVIEW]]</td>
+            </tr>
+            <tr>
+              <td><code>prov</code></td>
+              <td><code>http://www.w3.org/ns/prov#</code></td>
+              <td>The <abbr title="W3C Provenance">PROV</abbr> namespace
+              [[!PROV-O]]</td>
+            </tr>
+            <tr>
+              <td><code>roc</code></td>
+              <td><code>https://w3id.org/roc</code></td>
+              <td>The Research Cases namespace (this specification)</td>
+            </tr>
+            <tr>
+              <td>(others)</td>
+              <td>(various)</td>
+              <td>All other namespace prefixes are used in examples only. In
+              particular, <abbr title="Internationalized Resource
+              Identifier">IRI</abbr>s starting with
+              <code>http://example.com</code> represent some
+              application-dependent IRI [[!IRI]].</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
     </section>
 
     <section class="informative">
@@ -132,6 +195,7 @@
     </section>
 
     <section class="normative">
+
       <h2>Terminology</h2>
 
       <section>
@@ -153,15 +217,6 @@
         </dl>
 
       </section>
-
-    </section>
-
-    <section class="normative">
-      <h2>Conformance</h2>
-
-      <p>The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD,
-        SHOULD NOT, RECOMMENDED, NOT RECOMMENDED, MAY, and OPTIONAL in this
-        specification have the meaning defined in [[!RFC2119]].</p>
 
     </section>
 
