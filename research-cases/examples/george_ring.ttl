@@ -18,6 +18,7 @@
 @prefix opmv: <http://purl.org/net/opmv/ns#> .
 @prefix opmw: <http://www.opmw.org/ontology/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -34,16 +35,19 @@
 @prefix xhv: <http://www.w3.org/1999/xhtml/vocab#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+# This file
 <> a roc:ResearchProject, cc:Work, prov:Entity ;
   dcterms:creator <http://cman.ch/#i> ;
   rdfs:label "The Backcountry Birth of George F. Ring"@en ;
-  prov:wasDerivedFrom [ a biblio:Article, schema:Article ;
+  prov:wasDerivedFrom [ a biblio:Article, bibo:AcademicArticle, schema:Article ;
     dcterms:title "Building Context around Biographical Facts: A Process Illustrated by the Backcountry Birth of George F. Ring"@en ;
     dcterms:isPartOf <http://www.ngsgenealogy.org/cs/ngsq#journal> ;
     dcterms:publisher <http://www.ngsgenealogy.org/cs/ngsq#journal> ;
     schema:author <http://genealogyjohn.com/#me> ;
     bibo:volume 88 ;
-    bibo:number 4 ;
+    bibo:issue 4 ;
+    bibo:issuer <http://www.ngsgenealogy.org/cs/ngsq#journal> ;
+    bibo:authorList ( <http://www.genealogyjohn.com/#me> ) ;
     dcterms:issued "2000-12"^^xsd:gYearMonth ] ;
   cc:license <http://creativecommons.org/licenses/by-sa/4.0/> .
   
