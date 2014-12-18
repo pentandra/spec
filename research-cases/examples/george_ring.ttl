@@ -1,7 +1,7 @@
 #TODO PROV-O info
 #TODO How do case relationships work? While working on one case, questions come up
 
-@base <http://gn.gl/grng> .
+@base <https://example.com/project_2#> .
 @prefix biblio: <http://purl.org/net/biblio#> .
 @prefix bibo: <http://purl.org/ontology/bibo/> .
 @prefix cc: <http://creativecommons.org/ns#> .
@@ -41,13 +41,13 @@
   rdfs:label "The Backcountry Birth of George F. Ring"@en ;
   prov:wasDerivedFrom [ a biblio:Article, bibo:AcademicArticle, schema:Article ;
     dcterms:title "Building Context around Biographical Facts: A Process Illustrated by the Backcountry Birth of George F. Ring"@en ;
-    dcterms:isPartOf <http://www.ngsgenealogy.org/cs/ngsq#journal> ;
-    dcterms:publisher <http://www.ngsgenealogy.org/cs/ngsq#journal> ;
-    schema:author <http://genealogyjohn.com/#me> ;
+    dcterms:isPartOf _:ngsq ;
+    dcterms:publisher _:ngsq ;
+    schema:author _:genealogyjohn ;
     bibo:volume 88 ;
     bibo:issue 4 ;
-    bibo:issuer <http://www.ngsgenealogy.org/cs/ngsq#journal> ;
-    bibo:authorList ( <http://www.genealogyjohn.com/#me> ) ;
+    bibo:issuer _:ngsq ;
+    bibo:authorList ( _:genealogyjohn ) ;
     dcterms:issued "2000-12"^^xsd:gYearMonth ] ;
   cc:license <http://creativecommons.org/licenses/by-sa/4.0/> .
   
@@ -62,13 +62,20 @@
   foaf:mbox <mailto:chris@pentandra.com> ;
   foaf:name "Chris Chapman"@en .
 
-<http://www.ngsgenealogy.org/cs/ngsq#journal> a biblio:Journal, schema:CreativeWork ;
+_:ngsq a biblio:Journal, bibo:Journal, schema:CreativeWork ;
   schema:publisher dbr:National_Genealogical_Society ;
   foaf:isPrimaryTopicOf <http://www.ngsgenealogy.org/cs/ngsq> ;
+  foaf:based_near [
+    geo:lat 42.350162 ;
+    geo:lon -71.111810 ;
+    geo:alt 8
+  ] ;
   rdfs:label "National Genealogy Society Quarterly"@en .
 
-<http://www.genealogyjohn.com/#me> a schema:Person, foaf:Person;
+_:genealogyjohn a schema:Person, foaf:Person;
   foaf:homepage <http://www.genealogyjohn.com/> ;
   foaf:name "John Phillip Colletta"@en ;
   foaf:mbox <mailto:johncolletta@verizon.net> ;
   vcard:honorific-suffix "Ph.D." .
+
+<http://example.com/project_1> a roc:ResearchProject .
