@@ -2,9 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Research Cases Vocabulary</title>
+    <title>Research Cases Core Data Model</title>
     <script src="../js/respec-w3c-extensions.js" class="remove"></script>
     <script src="../js/jsonld.js" class="remove"></script>
+    <script src="../js/relode.js" class="remove"></script>
     <script src="http://www.w3.org/Tools/respec/respec-w3c-common" async class="remove"></script>
     <script class="remove">
       var respecConfig = {
@@ -35,6 +36,7 @@
             { uri: "research-cases.jsonld", label: "JSON-LD" },
             { uri: "research-cases.ttl", label: "Turtle" },
             { uri: "research-cases.rdf", label: "RDF/XML" },
+            { uri: "index.html", label: "HTML5/RDFa" },
           ],
           localBiblio: localBibliography
       };
@@ -54,7 +56,7 @@
 
     <section id="abstract">
 
-      <p>The Research Cases Vocabulary is a lightweight, task-oriented
+      <p>The Research Cases vocabulary is a lightweight, task-oriented
       framework for doing research on the World Wide Web. Research Cases make
       knowledge creation explicit and allow research and knowledge to be built
       upon and shared openly and in context across platforms and research
@@ -66,9 +68,9 @@
       to the resultant answer. Research Cases are intended to be powerful
       enough to handle the most complex and intricate of research problems
       using compositions of interrelated research cases, and flexible enough to
-      be useful in answering simple, solitary questions that formerly we may
-      not have considered to be <em>research</em>. Whatever the scope, research
-      cases always involve the process of knowledge creation.</p>
+      be useful in answering simple, solitary questions that, formally, we may
+      not have considered to be research. Whatever the scope, research cases
+      always involve the process of knowledge creation.</p>
 
     </section>
     
@@ -163,8 +165,14 @@
               [[!PROV-O]]</td>
             </tr>
             <tr>
+              <td><code>oa</code></td>
+              <td><code>http://www.w3.org/ns/oa#</code></td>
+              <td>The <abbr title="Open Annotation Data Model">OA</abbr>
+              namespace [[!OA]]</td>
+            </tr>
+            <tr>
               <td><code>roc</code></td>
-              <td><code>https://w3id.org/roc</code></td>
+              <td><code>https://w3id.org/roc#</code></td>
               <td>The Research Cases namespace (this specification)</td>
             </tr>
             <tr>
@@ -213,7 +221,7 @@
 
     </section>
 
-    <section id="cross-reference">
+    <section id="cross-reference" resource="https://w3id.org/roc" typeof="owl:Ontology">
 
       <h2>Cross Reference for Research Cases classes and properties</h2>
 
@@ -228,7 +236,7 @@
       Illustrated by the Backcountry Birth of George F. Ring</cite> in the
       National Genealogical Society Quarterly.</p>
 
-      <pre class="example" data-include="examples/george_ring.ttl"
+      <pre class="example" data-include="examples/george_ring/research_project.ttl"
       data-include-format="text"></pre>
 
     </section>
@@ -242,130 +250,6 @@
     </section>
 
     <section id="tof"></section>
-
-    <script class="remove">
-
-      var vocabularyTerms = function() {
-        var options = { "base": document.location.protocol + "//" +
-          document.location.host + document.location.pathname };
-        var crossReferenceSection = document.getElementById('cross-reference');
-
-
-        var documentLoader = jsonld.documentLoaders.xhr();
-        var promise = documentLoader(options.base + 'research-cases.jsonld');
-
-        promise.then(function(response) {
-          var context = {
-            "roc": "https://w3id.org/roc#",
-            "cc": "http://creativecommons.org/ns#",
-            "dc": "http://purl.org/dc/terms/",
-            "owl": "http://www.w3.org/2002/07/owl#",
-            "prov": "http://www.w3.org/ns/prov#",
-            "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-            "skos": "http://www.w3.org/2004/02/skos/core#",
-            "vann": "http://purl.org/vocab/vann/",
-            "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-            "xsd": "http://www.w3.org/2001/XMLSchema#",
-            "defines": { "@reverse": "rdfs:isDefinedBy" },
-            "comment": "rdfs:comment",
-            "label": "rdfs:label",
-            "domain": { "@id": "rdfs:domain", "@type": "@id" },
-            "range": { "@id": "rdfs:range", "@type": "@id" },
-            "subClassOf": { "@id": "rdfs:subClassOf", "@type": "@id", "@container": "@set" },
-            "subPropertyOf": { "@id": "rdfs:subPropertyOf", "@type": "@id", "@container": "@set" },
-            "seeAlso": { "@id": "rdfs:seeAlso", "@type": "@id" },
-            "status": "vs:term_status"
-          };
-
-          var vocab = JSON.parse(response.document);
-          documentClasses(vocab);
-
-          function documentClasses(vocab) {
-            var fragment = document.createDocumentFragment();
-
-            var classesFrame = {
-              "@context": context,
-              "@type": [ "rdfs:Class", "owl:Class" ],
-              "subClassOf": { "@embed": false }
-            };
-
-            jsonld.frame(vocab, classesFrame, options, function(err, framed) {
-              if (err) {
-                throw new Exception("Had trouble framing classes", err);
-              }
-
-              framed['@graph'].forEach(function(current) {
-                console.log(current);
-
-                var id = decomposeCurie(current['@id'], context);
-                                
-                var section = document.createElement('section');
-                section.id = id.name;
-                section.className = 'entity';
-
-                var sectionHeader = document.createElement('h2');
-                sectionHeader.textContent = "Class: ";
-                sectionHeader.insertAdjacentHTML('beforeend', 
-                  '<a href="#' + id.name + '"><span title="' + id.expanded + '">' + id.curie + '</span></a>');
-                section.appendChild(sectionHeader);
-
-                var idP = document.createElement('p');
-                idP.innerHTML = '<strong class="crossreference">IRI:</strong><code>' + id.expanded + '</code>';
-                section.appendChild(idP);
-
-                var definition = document.createElement('div');
-                definition.innerHTML = '<p>' + current['comment']['@value'] + '</p>';
-                section.appendChild(definition);
-
-                var descriptionList = document.createElement('dl');
-                descriptionList.className = 'description';
-                if (current['subClassOf'].length > 0) {
-                  descriptionList.insertAdjacentHTML('beforeend', '<dt>is subclass of</dt>');
-                  var dd = document.createElement('dd');
-                  descriptionList.appendChild(dd);
-
-                  current['subClassOf'].forEach(function(subClass, index){
-                    if (index > 0) dd.insertAdjacentHTML('beforeend', ', ');
-
-                    var subClassId = decomposeCurie(subClass, context);
-                    dd.insertAdjacentHTML('beforeend', '<a title="' + subClassId.expanded + '" href="#' + subClassId.name + '" class="owlclass">' + subClass + '</a>');
-                  });
-                }
-                section.appendChild(descriptionList);
-
-                fragment.appendChild(section);
-
-              });
-
-              crossReferenceSection.appendChild(fragment);
-            });
-
-          };
-        }, function(err) {
-          console.log("Something funny happened:", err);
-          return;
-        });
-
-        function decomposeCurie(curie, context) {
-          //TODO Check to make sure its a curie
-          var parts = curie.split(":"),
-              prefix = parts[0],
-              name = parts[1];
-
-          return {
-            "curie": curie,
-            "prefix": prefix,
-            "name": name,
-            "expanded": context[prefix] + name
-          };
-        }
-
-      }
-
-      window.addEventListener('DOMContentLoaded', vocabularyTerms);
-
-    </script>
 
   </body>
 </html>

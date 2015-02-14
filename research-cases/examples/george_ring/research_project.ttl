@@ -1,18 +1,23 @@
-#TODO PROV-O info
-#TODO How do case relationships work? While working on one case, questions come up
+# This is a reverse-engineered journey through research. Normally, the paper at
+# the end would link to the research cases backing up the actual research done.
+# Here we link from the research cases to the sections of the paper describing
+# the process that was completed. These links are symmetric though, so it
+# shouldn't matter too much for the final representation of the data.
 
-@base <https://example.com/project_2#> .
 @prefix biblio: <http://purl.org/net/biblio#> .
 @prefix bibo: <http://purl.org/ontology/bibo/> .
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix cito: <http://purl.org/spar/cito/> .
 @prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dcam: <http://purl.org/dc/dcam/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dctype: <http://purl.org/dc/dcmitype/> .
 @prefix deo: <http://purl.org/spar/deo/> .
 @prefix eo: <http://purl.org/NET/c4dm/event.owl#> .
+@prefix exif: <http://www.w3.org/2003/12/exif/ns#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos> .
+@prefix iiif: <http://iiif.io/api/image/2#> .
 @prefix mp: <http://purl.org/mp/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix opmv: <http://purl.org/net/opmv/ns#> .
@@ -24,6 +29,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix ro: <http://purl.org/wf4ever/ro#> .
 @prefix roc: <https://w3id.org/roc#> .
+@prefix sc: <http://iiif.io/api/presentation/2#> .
 @prefix schema: <http://schema.org/> .
 @prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
@@ -35,26 +41,79 @@
 @prefix xhv: <http://www.w3.org/1999/xhtml/vocab#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-# This file
-<> a roc:ResearchProject, cc:Work, prov:Entity ;
+# Introduction of the paper.
+<#introduction> a deo:Introduction .
+
+<projects/2#> a roc:ResearchProject, cc:Work, prov:Entity ;
   dcterms:creator <http://cman.ch/#i> ;
   rdfs:label "The Backcountry Birth of George F. Ring"@en ;
-  prov:wasDerivedFrom [ a biblio:Article, bibo:AcademicArticle, schema:Article ;
-    dcterms:title "Building Context around Biographical Facts: A Process Illustrated by the Backcountry Birth of George F. Ring"@en ;
-    dcterms:isPartOf _:ngsq ;
-    dcterms:publisher _:ngsq ;
-    schema:author _:genealogyjohn ;
-    bibo:volume 88 ;
-    bibo:issue 4 ;
-    bibo:issuer _:ngsq ;
-    bibo:authorList ( _:genealogyjohn ) ;
-    dcterms:issued "2000-12"^^xsd:gYearMonth ] ;
+  prov:wasDerivedFrom <#building_context> ;
+  foaf:isPrimaryTopicOf <#building_context> ;
   cc:license <http://creativecommons.org/licenses/by-sa/4.0/> .
-  
 
-<#case1> a roc:ResearchCase ;
+<#the_basic_facts> a bibo:Chapter, <http://salt.semanticauthoring.org/ontologies/sro#Background> .
+
+<anno1> a oa:Annotation ;
+  oa:motivatedBy sc:painting ;
+  oa:hasBody <1870_US_Census.jpg> ;
+  oa:hasTarget <canvas1> .
+
+<1870_US_Census.jpg> a dctype:Text ; # not a dctype:Image
+  rdfs:label "1870 US Census" ;
+  dcterms:format [ dcam:memberOf dcterms:IMT ; rdf:value "image/jpeg" ] .
+
+<canvas1> a sc:Canvas ;
+  exif:width 3209 ;
+  exif:height 4372 ;
+  rdfs:label "Canvas" .
+
+<#documenting_the_birth> a bibo:Chapter .
+
+<projects/2#question:why_was_George_christened_so_late> a roc:Question ;
+  rdf:value "Why had these parents waited an uncharacteristically long time to ensure the salvation of their latest offspring's soul?"@en .
+
+<projects/2#case_1> a roc:ResearchCase ;
   rdfs:label "Find out about my grandfather's birth"@en ;
-  roc:question "Why had these parents waited an uncharacteristically long time to ensure the salvation of their latest offspring's soul?"@en .
+  #cito:containsAssertionFrom <#documenting_the_birth> ;
+  cito:citesAsSourceDocument <#documenting_the_birth> ;
+  roc:question <projects/2#question:why_was_George_christened_so_late> .
+
+<projects/1#> a roc:ResearchProject ;
+  rdfs:comment "This project is not really discussed in the paper, so its research cases, except for one, have been elided for this example."@en ;
+  rdfs:label "Research on the family before its removal from New York" .
+
+<projects/1#some_case> a roc:ResearchCase ;
+  dcterms:isPartOf <projects/1> ;
+  rdfs:comment "This case is not really discussed in the paper, so its research has been elided for this example."@en ;
+  roc:conclusion <projects/1#some_case:conclusion> .
+
+<projects/1#some_case:conclusion> a roc:Conclusion ;
+  rdf:value "George's parents had three earlier children (two died as infants). All had been baptized into the Roman Catholic faith---if not on the day of their birth, then a day or so later."@en ;
+  dcterms:references <urn:isbn:9780970132703:47-75> ;
+  cito:documents <urn:isbn:9780970132703:47-75> .
+
+<urn:isbn:9780970132703:47-75> a schema:Book, bibo:Book ;
+  schema:creator <#genealogyjohn> ;
+  schema:isbn "9780970132703" ;
+  schema:name "Only a Few Bones: A True Account of the Rolling Fork Tragedy and Its Aftermath"@en ;
+  bibo:title "Only a Few Bones: A True Account of the Rolling Fork Tragedy and Its Aftermath"@en ;
+  bibo:lccn "00190978" ;
+  bibo:isbn13 "9780970132703" ;
+  bibo:pageStart "47" ;
+  bibo:pageEnd "75" .
+  
+<projects/2#question:where_is_the_closest_Catholic_Church> a roc:Question ;
+  rdf:value "Where is the closest Catholic Church to Rolling Fork?"@en .
+
+<#ngsq> a biblio:Journal, bibo:Journal, schema:CreativeWork ;
+  schema:publisher dbr:National_Genealogical_Society ;
+  foaf:isPrimaryTopicOf <http://www.ngsgenealogy.org/cs/ngsq> ;
+  foaf:based_near [
+    geo:lat "42.350162" ;
+    geo:lon "-71.111810" ;
+    geo:alt "8"
+  ] ;
+  rdfs:label "National Genealogy Society Quarterly"@en .
 
 <http://cman.ch/#i> a foaf:Person ;
   rdfs:label "Chris Chapman"@en ;
@@ -62,20 +121,20 @@
   foaf:mbox <mailto:chris@pentandra.com> ;
   foaf:name "Chris Chapman"@en .
 
-_:ngsq a biblio:Journal, bibo:Journal, schema:CreativeWork ;
-  schema:publisher dbr:National_Genealogical_Society ;
-  foaf:isPrimaryTopicOf <http://www.ngsgenealogy.org/cs/ngsq> ;
-  foaf:based_near [
-    geo:lat 42.350162 ;
-    geo:lon -71.111810 ;
-    geo:alt 8
-  ] ;
-  rdfs:label "National Genealogy Society Quarterly"@en .
-
-_:genealogyjohn a schema:Person, foaf:Person;
+<#genealogyjohn> a schema:Person, foaf:Person;
   foaf:homepage <http://www.genealogyjohn.com/> ;
   foaf:name "John Phillip Colletta"@en ;
   foaf:mbox <mailto:johncolletta@verizon.net> ;
   vcard:honorific-suffix "Ph.D." .
 
-<http://example.com/project_1> a roc:ResearchProject .
+<#building_context> a biblio:Article, bibo:AcademicArticle, schema:Article ;
+  dcterms:title "Building Context around Biographical Facts: A Process Illustrated by the Backcountry Birth of George F. Ring"@en ;
+  dcterms:isPartOf <#ngsq> ;
+  dcterms:publisher <#ngsq> ;
+  schema:author <#genealogyjohn> ;
+  bibo:volume 88 ;
+  bibo:issue 4 ;
+  bibo:issuer <#ngsq> ;
+  bibo:authorList ( <#genealogyjohn> ) ;
+  dcterms:issued "2000-12"^^xsd:gYearMonth ;
+  dcterms:hasPart <#introduction> , <#the_basic_facts> .
