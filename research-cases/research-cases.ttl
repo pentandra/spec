@@ -41,7 +41,7 @@ Research Cases broaden the scope of what has traditionally been thought of as re
   rdfs:label "Research Project"@en ;
   rdfs:label "Проект Дослідження"@uk ;
   rdfs:comment "The general outlook for the set of research."@en ;
-  vs:term_status "stable".
+  vs:term_status "stable" .
 # Preliminary research needs to add sources directly to a project, because
 # there may not be a question worth asking yet.
 
@@ -52,16 +52,26 @@ Research Cases broaden the scope of what has traditionally been thought of as re
   owl:disjointWith :ResearchProject ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
-  rdfs:comment "The fundamental unit of research, encompassing everything from a question to its conclusion."@en ;
-  vs:term_status "stable".
+  rdfs:comment "The fundamental unit of research. Also, an affordance to do research."@en ;
+  vs:term_status "stable" .
+
+:Trajectory
+  a owl:Class ;
+  rdfs:isDefinedBy : ;
+  rdfs:label "Trajectory"@en ;
+  rdfs:label "траєкторія"@uk ;
+  rdfs:comment "The trajectory is the path that the researcher takes as research progresses. The researcher's trajectory is adjusted constantly in highly idiosyncratic ways. This term supports the intuition that all researchers have different levels of knowledge and experience, and will eventually (hopefully) converge on truth."@en ;
+  rdfs:seeAlso <http://psztajn.ced.ncsu.edu/ltbi/?page_id=1577> ;
+  vs:term_status "testing" .
 
 :Question
   a owl:Class ;
   rdfs:isDefinedBy : ;
+  rdfs:subClassOf :Trajectory ;
   rdfs:label "Question"@en ;
   rdfs:label "Питання"@uk ;
-  rdfs:comment "A research question. Provides the trajectory for the research to travel."@en ;
-  vs:term_status "stable".
+  rdfs:comment "A research question."@en ;
+  vs:term_status "stable" .
 
 :Conclusion
   a owl:Class ;
