@@ -30,7 +30,7 @@ Research Cases broaden the scope of what has traditionally been thought of as re
   a owl:Class ;
   rdfs:isDefinedBy : ;
   rdfs:label "Research Context"@en ;
-  rdfs:comment "The context in which a researcher researches. Has oftentimes has been implicit."@en ;
+  rdfs:comment "The explicit context in which a researcher researches."@en ;
   vs:term_status "testing".
 
 :ResearchProject
@@ -52,7 +52,7 @@ Research Cases broaden the scope of what has traditionally been thought of as re
   owl:disjointWith :ResearchProject ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
-  rdfs:comment "The fundamental unit of research. Also, an affordance to do research."@en ;
+  rdfs:comment "The fundamental unit of research. Also could be thought of as an affordance to do research."@en ;
   vs:term_status "stable" .
 
 :Trajectory
@@ -78,7 +78,7 @@ Research Cases broaden the scope of what has traditionally been thought of as re
   rdfs:isDefinedBy : ;
   rdfs:label "Conclusion"@en ;
   rdfs:label "Висновок"@uk ;
-  rdfs:comment "The answer to a research question."@en ;
+  rdfs:comment "An answer to a research question."@en ;
   vs:term_status "stable".
 
 :Hypothesis
