@@ -56,33 +56,17 @@
 
     <section id="abstract">
 
-      <p>The Research Cases vocabulary is a lightweight, task-oriented
-      framework for doing research on the World Wide Web. Research Cases make
-      knowledge creation explicit and allow research and knowledge to be built
-      upon and shared openly and in context across platforms and research
-      disciplines.</p>
+      <p>The Research Cases vocabulary is a lightweight, task-oriented framework for doing research on the World Wide Web. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines.</p>
 
-      <p>Research Cases broaden the scope of what has traditionally been
-      thought of as <em>research</em>, modeling it holistically as the process
-      the researcher goes through from an initial research question all the way
-      to the resultant answer. Research Cases are intended to be powerful
-      enough to handle the most complex and intricate of research problems
-      using compositions of interrelated research cases, and flexible enough to
-      be useful in answering simple, solitary questions that, formally, we may
-      not have considered to be research. Whatever the scope, research cases
-      always involve the process of knowledge creation.</p>
+      <p>Research Cases broaden the scope of what has traditionally been thought of as <em>research</em>, modeling it holistically as the process the researcher goes through from an initial research question all the way to the resultant answer. Research Cases are intended to be powerful enough to handle the most complex and intricate of research problems by composing interrelated research cases into one uniform whole, and flexible enough to be useful in answering simple, solitary questions that, formally, we may not have considered to be research. Whatever the scope, research cases always involve the process of knowledge creation.</p>
 
     </section>
     
     <section id="sotd">
 
-      <p class="disclaimer">This draft is very much a work in progress. Please
-      don't critique too harshly while we're working on it. Instead, please
-      join in the effort to improve it!</p>
+      <p class="disclaimer">This draft is very much a work in progress. Please don't critique too harshly while we're working on it. Instead, please join in the effort to improve it!</p>
 
-      <p>To participate in the development of this specification, please visit
-      <a href="http://researchcases.org">http://researchcases.org</a> and join
-      the mailing list.</p>
+      <p>To participate in the development of this specification, please visit <a href="http://researchcases.org">http://researchcases.org</a> and join the mailing list.</p>
 
     </section>
     
@@ -90,31 +74,15 @@
 
       <h2>Introduction</h2>
 
-      <p>Most knowledge found on the Web today is taken at face value. The
-      social reputation built up by a knowledge provider is the only thing that
-      influences trust. For a news provider this might be adequate, yet for
-      other things it would be helpful, or even necessary, to see how that
-      knowledge was created before placing trust in it.</p>
+      <p>Most knowledge found on the Web today is taken at face value. The social reputation built up by a knowledge provider is the only thing that influences trust. For a news provider this might be adequate, yet for other things it would be helpful, or even necessary, to see how that knowledge was created before placing trust in it.</p>
 
-      <p>Research is the creation of knowledge. We see the research process as
-      being made of little building blocks that are put together in various
-      ways as research progresses.</p>
+      <p>Research is the creation of knowledge. We see the research process as being made of little building blocks that are put together in various ways as research progresses.</p>
 
-      <p>Research is the creation of knowledge. Research is everywhere
-      knowledge is found. Theoretically, every piece of knowledge could trace
-      its roots back to some bit of research that discovered it. From informal,
-      such as ad hoc journalism investigations, to consumer reports, to formal
-      research, such as stem cell research, historical research, to ... </p>
+      <p>Research is the creation of knowledge. Research is everywhere knowledge is found. Theoretically, every piece of knowledge could trace its roots back to some bit of research that discovered it. From informal, such as ad hoc journalism investigations, to consumer reports, to formal research, such as stem cell research, historical research, to ... </p>
 
-      <p>Research cases work for any hypothesis-driven research. For hundreds
-      of years, formal research has been published as static paper documents.
-      The advent of the Internet has given us motivation to look at new
-      approaches.</p>
+      <p>Research cases work for any hypothesis-driven research. For hundreds of years, formal research has been published as static paper documents.  The advent of the Internet has given us motivation to look at new approaches.</p>
 
-      <p>Preservation of the research process is key. It enables collaboration
-      and profound, powerful publication. Any researcher should be able to
-      publish. Research should be judged based on its quality. Sharing negative
-      results will improve critical thinking.</p>
+      <p>Preservation of the research process is key. It enables collaboration and profound, powerful publication. Any researcher should be able to publish. Research should be judged based on its quality. Sharing negative results will improve critical thinking.</p>
 
       <p>Research Cases are persistent, curated resources.</p>
 
@@ -122,9 +90,7 @@
 
         <h2>Notational Conventions</h2>
 
-        <p>The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD,
-        SHOULD NOT, RECOMMENDED, NOT RECOMMENDED, MAY, and OPTIONAL in this
-        document are to be interpreted as described in [[!RFC2119]].</p>
+        <p>The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, NOT RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [[!RFC2119]].</p>
 
       </section>
 
@@ -143,32 +109,27 @@
             <tr>
               <td><code>rdf</code></td>
               <td><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></td>
-              <td>The <abbr title="Resource Description Framework">RDF</abbr>
-              namespace [[!RDF-CONCEPTS]]</td>
+              <td>The <abbr title="Resource Description Framework">RDF</abbr> namespace [[!RDF-CONCEPTS]]</td>
             </tr>
             <tr>
               <td><code>xsd</code></td>
               <td><code>http://www.w3.org/2000/10/XMLSchema#</code></td>
-              <td>The <abbr title="eXtensible Markup Language">XML</abbr>
-              Schema Namespace [[!XMLSCHEMA11-2]]</td>
+              <td>The <abbr title="eXtensible Markup Language">XML</abbr> Schema Namespace [[!XMLSCHEMA11-2]]</td>
             </tr>
             <tr>
               <td><code>owl</code></td>
               <td><code>http://www.w3.org/2002/07/owl#</code></td>
-              <td>The <abbr title="Web Ontology Language">OWL</abbr> namespace
-              [[!OWL2-OVERVIEW]]</td>
+              <td>The <abbr title="Web Ontology Language">OWL</abbr> namespace [[!OWL2-OVERVIEW]]</td>
             </tr>
             <tr>
               <td><code>prov</code></td>
               <td><code>http://www.w3.org/ns/prov#</code></td>
-              <td>The <abbr title="W3C Provenance">PROV</abbr> namespace
-              [[!PROV-O]]</td>
+              <td>The <abbr title="W3C Provenance">PROV</abbr> namespace [[!PROV-O]]</td>
             </tr>
             <tr>
               <td><code>oa</code></td>
               <td><code>http://www.w3.org/ns/oa#</code></td>
-              <td>The <abbr title="Open Annotation Data Model">OA</abbr>
-              namespace [[!OA]]</td>
+              <td>The <abbr title="Open Annotation Data Model">OA</abbr> namespace [[!OA]]</td>
             </tr>
             <tr>
               <td><code>roc</code></td>
@@ -178,11 +139,7 @@
             <tr>
               <td>(others)</td>
               <td>(various)</td>
-              <td>All other namespace prefixes are used in examples only. In
-              particular, <abbr title="Internationalized Resource
-              Identifier">IRI</abbr>s starting with
-              <code>http://example.com</code> represent some
-              application-dependent IRI [[!IRI]].</td>
+              <td>All other namespace prefixes are used in examples only. In particular, <abbr title="Internationalized Resource Identifier">IRI</abbr>s starting with <code>http://example.com</code> represent some application-dependent IRI [[!IRI]].</td>
             </tr>
           </tbody>
         </table>
@@ -203,8 +160,7 @@
         <dt>Simplicity</dt>
         <dd>Easy for people to build with.</dd>
         <dt>Domain agnostic</dt>
-        <dd>Should work for any domain of knowledge. Should also be able
-          interoperate across domains of knowledge.</dd>
+        <dd>Should work for any domain of knowledge. Should also be able interoperate across domains of knowledge.</dd>
       </dl>
 
     </section>
@@ -231,21 +187,16 @@
 
       <h2>An Extended Example</h2>
 
-      <p>From a <em>real</em> research project by Dr. John Phillip Colletta,
-      published as <cite>Building Context around Biographical Facts: A Process
-      Illustrated by the Backcountry Birth of George F. Ring</cite> in the
-      National Genealogical Society Quarterly.</p>
+      <p>From a <em>real</em> research project by Dr. John Phillip Colletta, published as <cite>Building Context around Biographical Facts: A Process Illustrated by the Backcountry Birth of George F. Ring</cite> in the National Genealogical Society Quarterly.</p>
 
-      <pre class="example" data-include="examples/george_ring/research_project.ttl"
-      data-include-format="text"></pre>
+      <pre class="example" data-include="examples/george_ring/research_project.ttl" data-include-format="text"></pre>
 
     </section>
 
     <section class="appendix informative">
       <h2>Acknowledgements</h2>
 
-      <p>And, of course, thanks to Robin Berjon for making our lives so much
-        easier with <a href="http://www.w3.org/respec/">ReSpec</a>.</p>
+      <p>And, of course, thanks to Robin Berjon for making our lives so much easier with <a href="http://www.w3.org/respec/">ReSpec</a>.</p>
 
     </section>
 
