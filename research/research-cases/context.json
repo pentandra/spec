@@ -1,6 +1,6 @@
 {    
   "@context": {
-    "roc": "https://w3id.org/roc#",
+    "rc": "https://w3id.org/research/rc#",
     "cc": "http://creativecommons.org/ns#",
     "dc": "http://purl.org/dc/terms/",
     "owl": "http://www.w3.org/2002/07/owl#",

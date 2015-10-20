@@ -1,4 +1,4 @@
 spec
 ======
 
-Draft specifications currently in progress. No specific standards organization.
+Work-in-process specifications. No specific standards organization.

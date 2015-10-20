@@ -2,35 +2,24 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Research Cases Core Data Model</title>
-    <script src="../js/respec-w3c-extensions.js" class="remove"></script>
-    <script src="../js/jsonld.js" class="remove"></script>
-    <script src="../js/relode.js" class="remove"></script>
+    <title>Research Cases Data Model</title>
+    <script src="../../js/respec-w3c-extensions.js" class="remove"></script>
+    <script src="../../js/jsonld.js" class="remove"></script>
+    <script src="../../js/relode.js" class="remove"></script>
     <script src="http://www.w3.org/Tools/respec/respec-w3c-common" async class="remove"></script>
     <script class="remove">
       var respecConfig = {
           specStatus: "unofficial",
           shortName: "research-cases",
-          subtitle: "A vocabulary for doing research on the Web",
+          subtitle: "A vocabulary for open research on the Web",
 
           copyrightStart: "2014",
 
-          edDraftURI: "<%= url_for(@item) %>",
+          edDraftURI: "http://pentandra.com/spec/research/research-cases/",
           editors:  [
               { name: "Chris Chapman", /*url: "http://cman.ch",*/ w3cid: "61593", company: "Pentandra Research Solutions, Inc.", companyURL: "http://pentandra.com/" },
           ],
           
-          // name of the WG
-          //wg:           "",
-          
-          // URI of the public WG page
-          //wgURI:        "http://example.org/really-cool-wg",
-          
-          // name (without the @w3c.org) of the public mailing to which comments are due
-          ///wgPublicList: "public-research-cases",
-          
-          //wgPatentURI:  "",
-          // !!!! IMPORTANT !!!! MAKE THE ABOVE BLINK IN YOUR HEAD
           alternateFormats: [
             { uri: "research-cases.jsonld", label: "JSON-LD" },
             { uri: "research-cases.ttl", label: "Turtle" },
@@ -73,6 +62,10 @@
 
       <h2>Introduction</h2>
 
+      <p>Individuals inquire. Without thinking about it, we spoonfeed our queries into search engines, hoping that somehow an answer will be provided. If we don’t get the answer we’re looking for, we fumble with the words, hoping that the results we want will eventually appear before our eyes. This works well for finding things on the Web, but it doesn't work as well for things that are on the fringe of our collective knowledge spaces—or beyond.</p>
+
+      <p>Research is the process of learning and the creation of knowledge. Research is, at its essence, structured learning and often involves asking a series of ever more refined questions as the research progresses. This series of questions frames the research context and delineates the learning trajectory of the researcher, and is of great value for others that are trying to reconstruct the research later on. Research cases organize and preserve this process.</p>
+
       <p>Most knowledge found on the Web today is taken at face value. The social reputation built up by a knowledge provider is the only thing that influences trust. For a news provider this might be adequate, yet for other things it would be helpful, or even necessary, to see how that knowledge was created before placing trust in it.</p>
 
       <p>Research is the creation of knowledge. We see the research process as being made of little building blocks that are put together in various ways as research progresses.</p>
@@ -83,7 +76,7 @@
 
       <p>Preservation of the research process is key. It enables collaboration and profound, powerful publication. Any researcher should be able to publish. Research should be judged based on its quality. Sharing negative results will improve critical thinking.</p>
 
-      <p>Research Cases are persistent, curated resources.</p>
+      <p>Research Cases are persistent, curated resources. They are more about the <em>process</em> of research than the resultant <em>claims</em>.</p>
 
       <section>
 
@@ -131,8 +124,8 @@
               <td>The <abbr title="Open Annotation Data Model">OA</abbr> namespace [[!OA]]</td>
             </tr>
             <tr>
-              <td><code>roc</code></td>
-              <td><code>https://w3id.org/roc#</code></td>
+              <td><code>rc</code></td>
+              <td><code>https://w3id.org/research/rc#</code></td>
               <td>The Research Cases namespace (this specification)</td>
             </tr>
             <tr>
@@ -174,6 +167,8 @@
 
       <h2>Research Cases Vocabulary Description</h2>
 
+      <pre class="example highlight" data-include="examples/1.ttl" data-include-format="text"></pre>
+
     </section>
 
     <section id="cross-reference" resource="https://w3id.org/roc" typeof="owl:Ontology">
@@ -184,12 +179,14 @@
 
     <section class="appendix informative">
 
-      <h2>An Extended Example</h2>
+      <h2>Extended Examples</h2>
 
-      <p>From a <em>real</em> research project by Dr. John Phillip Colletta, published as <cite>Building Context around Biographical Facts: A Process Illustrated by the Backcountry Birth of George F. Ring</cite> in the National Genealogical Society Quarterly.</p>
+      <dl>
+        <dt><a href="examples/the-backcountry-birth-of-george-f-ring/">Steps to the Future: Researching the Backcountry Birth of George F. Ring</a></dt>
+        <dd>From a <em>real</em> research project by Dr. John Phillip Colletta, published as <cite>Building Context around Biographical Facts: A Process Illustrated by the Backcountry Birth of George F. Ring</cite> in the National Genealogical Society Quarterly.</dd>
+      </dl>
 
-      <pre class="example" data-include="examples/george_ring/research_project.ttl" data-include-format="text"></pre>
-
+      
     </section>
 
     <section class="appendix informative">

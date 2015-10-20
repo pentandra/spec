@@ -9,7 +9,7 @@ var vocabularyTerms = function() {
 
   promise.then(function(response) {
     var context = {
-      "roc": "https://w3id.org/roc#",
+      "rc": "https://w3id.org/research/rc#",
       "cc": "http://creativecommons.org/ns#",
       "dc": "http://purl.org/dc/terms/",
       "owl": "http://www.w3.org/2002/07/owl#",
@@ -54,7 +54,7 @@ var vocabularyTerms = function() {
 
           var id = decomposeCurie(current['@id'], context);
                           
-          var section = document.createElement('section');
+          var section = document.createElement('div');
           section.id = id.name;
           section.className = 'entity';
 
