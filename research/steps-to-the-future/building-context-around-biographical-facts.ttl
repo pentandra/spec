@@ -27,6 +27,7 @@
 @prefix sem: <http://semanticweb.cs.vu.nl/2009/11/sem/> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix this: <http://pentandra.com/spec/research/steps-to-the-future/building-context-around-biographical-facts/> .
 @prefix time: <http://www.w3.org/2006/time#> .
 @prefix wfdesc: <http://purl.org/wf4ever/wfdesc#> .
 @prefix wfprov: <http://purl.org/wf4ever/wfprov#> .

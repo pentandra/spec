@@ -18,10 +18,6 @@ body {
   font-feature-settings: "lnum";
 }
 
-article {
-  counter-reset: table 0;
-}
-
 h1 {
   font-size: 1.75em;
   text-align: center;
@@ -40,15 +36,6 @@ h2 {
 
 h3 {
   font-style: italic;
-}
-
-figure {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-figure img {
-  max-width: 100%;
 }
 
 figcaption {

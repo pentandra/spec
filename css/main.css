@@ -78,7 +78,18 @@ textarea {
     font-style: normal;
 }
 
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
 
+figure img {
+  max-width: 100%;
+}
+
+.subtitle {
+  font-style: italic;
+}
 
 
 
