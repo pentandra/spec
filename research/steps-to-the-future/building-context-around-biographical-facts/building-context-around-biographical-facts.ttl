@@ -42,8 +42,6 @@
   foaf:isPrimaryTopicOf <#building_context> ;
   cc:license <http://creativecommons.org/licenses/by-sa/4.0/> .
 
-<#the_basic_facts> a bibo:Chapter, <http://salt.semanticauthoring.org/ontologies/sro#Background> .
-
 <anno1> a oa:Annotation ;
   oa:motivatedBy sc:painting ;
   oa:hasBody <1870_US_Census.jpg> ;
@@ -94,16 +92,6 @@
 <projects/2#question:where_is_the_closest_Catholic_Church> a rc:Question ;
   rdf:value "Where is the closest Catholic Church to Rolling Fork?"@en .
 
-<#ngsq> a biblio:Journal, bibo:Journal, schema:CreativeWork ;
-  schema:publisher dbr:National_Genealogical_Society ;
-  foaf:isPrimaryTopicOf <http://www.ngsgenealogy.org/cs/ngsq> ;
-  foaf:based_near [
-    geo:lat "42.350162" ;
-    geo:lon "-71.111810" ;
-    geo:alt "8"
-  ] ;
-  rdfs:label "National Genealogy Society Quarterly"@en .
-
 <http://cman.ch/#i> a foaf:Person ;
   rdfs:label "Chris Chapman"@en ;
   foaf:homepage <http://cman.ch> ;
@@ -115,15 +103,3 @@
   foaf:name "John Phillip Colletta"@en ;
   foaf:mbox <mailto:johncolletta@verizon.net> ;
   vcard:honorific-suffix "Ph.D." .
-
-<#building_context> a biblio:Article, bibo:AcademicArticle, schema:Article ;
-  dcterms:title "Building Context around Biographical Facts: A Process Illustrated by the Backcountry Birth of George F. Ring"@en ;
-  dcterms:isPartOf <#ngsq> ;
-  dcterms:publisher <#ngsq> ;
-  schema:author <#genealogyjohn> ;
-  bibo:volume 88 ;
-  bibo:issue 4 ;
-  bibo:issuer <#ngsq> ;
-  bibo:authorList ( <#genealogyjohn> ) ;
-  dcterms:issued "2000-12"^^xsd:gYearMonth ;
-  dcterms:hasPart <#introduction> , <#the_basic_facts> .
