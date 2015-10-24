@@ -1,8 +1,0 @@
-article {
-  counter-reset: section -1;
-}
-
-section h2::before {
-  content: "Step " counter(section) ": ";
-  counter-increment: section;
-}
