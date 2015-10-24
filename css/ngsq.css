@@ -66,6 +66,16 @@ sup {
   font-size: inherit;
 }
 
+.addendum {
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.9em;
+}
+
+.addendum cite {
+  font-style: normal;
+}
+
 .frac {
   font-variant-numeric: diagonal-fractions;
   -moz-font-feature-settings: "frac";
