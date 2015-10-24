@@ -141,10 +141,10 @@
 
         </div>
       </section>
-      <footer id="references" property="schema:hasPart" resource="[this:#references]" typeof="doco:BibliographicReferenceList">
+      <footer id="references" property="schema:hasPart" resource="[this:#references]" typeof="doco:Bibliography">
         <h2>References</h2>
         <div>
-          <ol>
+          <ol property="schema:hasPart" resource="[this:#reference-list]" typeof="doco:BibliographicReferenceList">
             <li id="fn:1">Documentation will be presented in the course of this article. <a class="reverseref" href="#fnref:1">↩</a></li>
             <li id="fn:2">1870 U.S. census, Issaquena County, Mississippi, Schola Precinct, p. 285, dwelling 315, family 315; microfilm publication M593 (Washington: National Archives, n.d.), roll 731. <a class="reverseref" href="#fnref:2">↩</a></li>
             <li id="fn:3">Tabulation by the author based on 1870 census, corroborated by the 22 June 1876 testimony of the Rings’ neighbor and attorney, W. D. Brown, in <cite>Report of the Select Committee to Inquire into the Mississippi Election of 1875, with the Testimony and Documentary Evidence</cite>, 2 vols. (Washington: Government Printing Office, 1876), 1: 702. <a class="reverseref" href="#fnref:3">↩</a></li>
@@ -166,12 +166,12 @@
           </ol>
         </div>
       </footer>
-      <footer class="noted">
+      <footer class="noted" property="schema:hasPart" resource="[this:#back-matter]" typeof="doco:BackMatter">
 
         <p>© John Philip Colletta; <span resource="[this:#genealogyjohn]"><span property="schema:address" typeof="schema:PostalAddress"><span property="schema:streetAddress">1245 Walter Street SE</span>; <span property="schema:addressRegion">Washington, DC</span> <span property="schema:postalCode">20003</span><meta property="schema:addressCountry" content="USA"/></span>. <span property="schema:description">Dr. Colletta, a professional lecturer, researcher, and writer, is the author of two now-classic works, <cite>They Came in Ships</cite> and <cite>Finding Italian Roots</cite>. He assisted with the development of the exhibit “The Peopling of America: 400 Years of Immigration History” at Ellis Island, lectures regularly on genealogy at the National Archives and elsewhere, and was a featured expert on various segments of the two PBS series entitled <cite>Ancestors</cite>.</span><link property="foaf:mbox" href="mailto:johncolletta@verizon.net"/></span> <span property="prov:wasInfluencedBy" resource="urn:isbn:9780970132703" typeof="schema:Book bibo:Book"><span rel="schema:author" resource="[this:#genealogyjohn]">His latest book</span>, <span property="schema:description"><cite property="bibo:title schema:name">Only a Few Bones: A True Account of the Rolling Fork Tragedy and Its Aftermath</cite>, not only examines the mysterious demise of George F. Ring’s father but also demonstrates how to build context—economic, historical, legal, political, religious, social, and otherwise—around a full panoply of genealogical facts.</span><meta property="schema:isbn" content="9780970132703" /></span></p>
 
       </footer>
-      <footer class="addendum" property="schema:hasPart" typeof="doco:Colophon">
+      <footer class="addendum" property="schema:hasPart" resource="[this:#colophon]" typeof="doco:Colophon">
         <div resource="[this:#paper]" typeof="fabio:ResearchPaper">
           <link property="dcterms:creator" resource="[this:#genealogyjohn]"/>
           <div property="frbr:realization" resource="[this:#version-of-record]" typeof="fabio:JournalArticle">
