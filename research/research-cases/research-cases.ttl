@@ -2,7 +2,7 @@
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rc: <https://w3id.org/research/rc#> .
+@prefix rcases: <https://w3id.org/research/cases#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -13,53 +13,51 @@
 
 this:
   a owl:Ontology ;
-  rdfs:comment "A vocabulary for doing research on the Web."@en ;
-  rdfs:label "Research Cases Core Vocabulary"@en ;
+  rdfs:comment "A vocabulary for open research on the Web."@en ;
+  rdfs:label "Research Cases Vocabulary"@en ;
   dc:description """The Research Cases Vocabulary is a lightweight, task-oriented framework for doing research on the World Wide Web. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines.
     
 Research Cases broaden the scope of what has traditionally been thought of as research, modeling it holistically as the process the researcher goes through from an initial research question all the way to the resultant answer. Research Cases are intended to be powerful enough to handle the most complex and intricate of research problems using compositions of interrelated research cases, and flexible enough to be useful in answering simple, solitary questions that formerly we may not have considered to be research. Whatever the scope, research cases always involve the process of knowledge creation."""@en ;
   rdfs:isDefinedBy this: ;
-  rdfs:seeAlso <http://researchcases.org/>, <http://pentandra.com/spec/research-cases/> ;
+  rdfs:seeAlso <http://researchcases.org/>, <http://pentandra.com/spec/research/research-cases/> ;
   cc:license <http://creativecommons.org/licenses/by/4.0/> ;
   cc:attributionName "Research Cases Community" ;
   cc:attributionURL <http://researchcases.org> ;
-  vann:preferredNamespacePrefix "rc" ;
-  vann:preferredNamespaceUri "https://w3id.org/research/rc#" ;
+  vann:preferredNamespacePrefix "rcases" ;
+  vann:preferredNamespaceUri "https://w3id.org/research/cases#" ;
   <% if $generate_timestamp then %>
   prov:generatedAtTime "<%= DateTime.now.to_s %>"^^xsd:dateTime .
   <% end %>
   owl:versionInfo "0.2" .
 
-rc:ResearchContext
+rcases:LearningContext
   a owl:Class ;
   rdfs:isDefinedBy this: ;
-  rdfs:label "Research Context"@en ;
-  rdfs:comment "The explicit context in which a researcher researches."@en ;
-  vs:term_status "testing".
+  rdfs:label "Learning Context"@en ;
+  rdfs:comment "Whatever is being studied, searched, browsed, measured, etc. in order for a human or machine to learn something."@en ;
+  vs:term_status "stable" .
 
-rc:ResearchProject
+rcases:ResearchProject
   a owl:Class ;
   rdfs:isDefinedBy this: ;
-  rdfs:subClassOf rc:ResearchContext ;
-  owl:disjointWith rc:ResearchCase ;
+  owl:disjointWith rcases:ResearchCase ;
   rdfs:label "Research Project"@en ;
   rdfs:label "Проект Дослідження"@uk ;
-  rdfs:comment "The general outlook for the set of research."@en ;
+  rdfs:comment "A collection of research cases that are related somehow."@en ;
   vs:term_status "stable" .
 # Preliminary research needs to add sources directly to a project, because
 # there may not be a question worth asking yet.
 
-rc:ResearchCase
+rcases:ResearchCase
   a owl:Class ;
   rdfs:isDefinedBy this: ;
-  rdfs:subClassOf rc:ResearchContext ;
-  owl:disjointWith rc:ResearchProject ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
+  rdfs:comment "The explicit context in which a researcher researches."@en ;
   rdfs:comment "The fundamental unit of research. Also could be thought of as an affordance to research."@en ;
   vs:term_status "stable" .
 
-rc:Trajectory
+rcases:Trajectory
   a owl:Class ;
   rdfs:isDefinedBy this: ;
   rdfs:label "Trajectory"@en ;
@@ -68,59 +66,68 @@ rc:Trajectory
   rdfs:seeAlso <http://psztajn.ced.ncsu.edu/ltbi/?page_id=1577> ;
   vs:term_status "testing" .
 
-rc:Question
+rcases:Question
   a owl:Class ;
   rdfs:isDefinedBy this: ;
-  rdfs:subClassOf rc:Trajectory ;
+  rdfs:subClassOf rcases:Trajectory ;
   rdfs:label "Question"@en ;
   rdfs:label "Питання"@uk ;
   rdfs:comment "A research question."@en ;
   vs:term_status "stable" .
 
-rc:Conclusion
+rcases:Conclusion
   a owl:Class ;
   rdfs:isDefinedBy this: ;
   rdfs:label "Conclusion"@en ;
   rdfs:label "Висновок"@uk ;
   rdfs:comment "An answer to a research question."@en ;
-  vs:term_status "stable".
+  vs:term_status "stable" .
 
-rc:Hypothesis
+rcases:Hypothesis
   a owl:Class ;
   rdfs:isDefinedBy this: ;
-  rdfs:subClassOf rc:Conclusion ;
+  rdfs:subClassOf rcases:Conclusion ;
   rdfs:label "Hypothesis"@en ;
   rdfs:label "Гіпотеза"@uk ;
   rdfs:comment "A hypothesis is a possible, though unproven, answer to a research question"@en ;
-  vs:term_status "testing".
+  vs:term_status "testing" .
 
-rc:Researcher
+rcases:Researcher
   a owl:Class ;
   rdfs:isDefinedBy this: ;
   rdfs:subClassOf prov:Agent ;
   rdfs:label "Researcher"@en ;
   rdfs:label "Дослідник"@uk ;
   rdfs:comment "A person who researches"@en ;
-  vs:term_status "testing".
+  vs:term_status "testing" .
 
-rc:purpose
+rcases:purpose
   a owl:DatatypeProperty ;
-  rdfs:domain rc:ResearchProject ;
+  rdfs:domain rcases:ResearchProject ;
   rdfs:isDefinedBy this: ;
   rdfs:label "purpose"@en ;
   rdfs:label "мета"@uk ;
   rdfs:comment "The purpose for engaging in the research project. Could be a general statement of the problem being investigated."@en ;
-  vs:term_status "testing".
+  vs:term_status "testing" .
 
-rc:question
+rcases:question
   a owl:ObjectProperty ;
-  rdfs:domain rc:ResearchCase ;
-  rdfs:range rc:Question ;
+  rdfs:domain rcases:ResearchCase ;
+  rdfs:range rcases:Question ;
   rdfs:isDefinedBy this: ;
   rdfs:label "question"@en ;
   rdfs:label "питання"@uk ;
   rdfs:comment "A focused research question."@en ;
-  vs:term_status "stable".
+  vs:term_status "stable" .
 
 # There is functionally one question per research case.
-rc:question a owl:FunctionalProperty .
+rcases:question a owl:FunctionalProperty .
+
+rcases:trigger
+  a owl:ObjectProperty ;
+  rdfs:domain rcases:ResearchCase ;
+  rdfs:range rcases:LearningContext ;
+  rdfs:isDefinedBy this: ;
+  rdfs:label "trigger"@en ;
+  rdfs:comment "The learning context, if any, that triggered the creation of this research context"@en ;
+  vs:term_status "testing" .
