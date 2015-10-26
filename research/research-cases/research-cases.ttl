@@ -40,7 +40,6 @@ rcases:LearningContext
 rcases:ResearchProject
   a owl:Class ;
   rdfs:isDefinedBy this: ;
-  owl:disjointWith rcases:ResearchCase ;
   rdfs:label "Research Project"@en ;
   rdfs:label "Проект Дослідження"@uk ;
   rdfs:comment "A collection of research cases that are related somehow."@en ;
@@ -53,7 +52,7 @@ rcases:ResearchCase
   rdfs:isDefinedBy this: ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
-  rdfs:comment "The explicit context in which a researcher researches."@en ;
+  rdfs:comment "the explicit context in which a researcher researches. Encompasses a question and everything leading to a conclusion."@en ;
   rdfs:comment "The fundamental unit of research. Also could be thought of as an affordance to research."@en ;
   vs:term_status "stable" .
 
