@@ -9,7 +9,7 @@ var vocabularyTerms = function() {
 
   promise.then(function(response) {
     var context = {
-      "rc": "https://w3id.org/research/rc#",
+      "rcases": "https://w3id.org/research/cases#",
       "cc": "http://creativecommons.org/ns#",
       "dc": "http://purl.org/dc/terms/",
       "owl": "http://www.w3.org/2002/07/owl#",
