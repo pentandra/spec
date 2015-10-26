@@ -74,6 +74,15 @@ rcases:Question
   rdfs:comment "A research question."@en ;
   vs:term_status "stable" .
 
+rcases:Hypothesis
+  a owl:Class ;
+  rdfs:isDefinedBy this: ;
+  rdfs:subClassOf rcases:Trajectory ;
+  rdfs:label "Hypothesis"@en ;
+  rdfs:label "Гіпотеза"@uk ;
+  rdfs:comment "A hypothesis is a possible, though unproven, answer to a research question"@en ;
+  vs:term_status "testing" .
+
 rcases:Conclusion
   a owl:Class ;
   rdfs:isDefinedBy this: ;
@@ -81,15 +90,6 @@ rcases:Conclusion
   rdfs:label "Висновок"@uk ;
   rdfs:comment "An answer to a research question."@en ;
   vs:term_status "stable" .
-
-rcases:Hypothesis
-  a owl:Class ;
-  rdfs:isDefinedBy this: ;
-  rdfs:subClassOf rcases:Conclusion ;
-  rdfs:label "Hypothesis"@en ;
-  rdfs:label "Гіпотеза"@uk ;
-  rdfs:comment "A hypothesis is a possible, though unproven, answer to a research question"@en ;
-  vs:term_status "testing" .
 
 rcases:Researcher
   a owl:Class ;
