@@ -47,7 +47,7 @@ var documentJsonLDVocabulary = function(uri, options) {
           section.appendChild(iri);
 
           var definedBy = document.createElement('dl');
-          definedBy.className = 'definedBy inline';
+          definedBy.className = 'definedBy inline invisible';
           definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy"><code>' + resource['isDefinedBy'] + '</code></dd>';
           section.appendChild(definedBy);
 
