@@ -39,7 +39,7 @@ rcases:ResearchProject
   rdfs:isDefinedBy this: ;
   rdfs:label "Research Project"@en ;
   rdfs:label "Проект Дослідження"@uk ;
-  rdfs:comment "A collection of research cases that are related somehow."@en ;
+  rdfs:comment "A collection of research cases that are related somehow. A research context."@en ;
   vs:term_status "stable" .
 # Preliminary research needs to add sources directly to a project, because
 # there may not be a question worth asking yet.
