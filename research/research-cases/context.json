@@ -1,4 +1,5 @@
 {    
+  "@id": "https://w3id.org/research/cases#",
   "@context": {
     "rcases": "https://w3id.org/research/cases#",
     "cc": "http://creativecommons.org/ns#",
