@@ -42,9 +42,14 @@ var documentJsonLDVocabulary = function(uri, options) {
           section.appendChild(sectionHeader);
 
           var iri = document.createElement('dl');
-          iri.className = 'iri inline invisible';
+          iri.className = 'iri inline';
           iri.innerHTML = '<dt>IRI:</dt><dd><code>' + id.expanded + '</code></dd>';
           section.appendChild(iri);
+
+          var definedBy = document.createElement('dl');
+          definedBy.className = 'definedBy inline';
+          definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy"><code>' + resource['isDefinedBy'] + '</code></dd>';
+          section.appendChild(definedBy);
 
           var comment = document.createElement('div');
           comment.className = "comment";
