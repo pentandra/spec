@@ -27,44 +27,51 @@ var documentJsonLDVocabulary = function(uri, options) {
           throw new Exception("Had trouble framing classes", err);
         }
 
-        framed['@graph'].forEach(function(current) {
-          console.log(current);
+        framed['@graph'].forEach(function(resource) {
+          console.log(resource);
 
-          var id = decomposeCurie(current['@id'], context);
+          var id = decomposeCurie(resource['@id'], context);
                           
           var section = document.createElement('div');
           section.id = id.name;
           section.className = 'entity';
+          section.setAttribute('resource', '[' + id.curie + ']');
+          section.setAttribute('typeof', resource['@type']);
 
           var sectionHeader = document.createElement('h2');
-          sectionHeader.textContent = "Class: ";
-          sectionHeader.insertAdjacentHTML('beforeend', 
-            '<a href="#' + id.name + '"><span title="' + id.expanded + '">' + id.curie + '</span></a>');
+          sectionHeader.innerHTML = '<span property="rdfs:label" title="class">' + resource['label']['en'] + '</span>';
           section.appendChild(sectionHeader);
 
-          var idP = document.createElement('p');
-          idP.innerHTML = '<strong class="crossreference">IRI:</strong><code>' + id.expanded + '</code>';
-          section.appendChild(idP);
+          var iri = document.createElement('dl');
+          iri.className = 'iri inline';
+          iri.innerHTML = '<dt>IRI:</dt><dd><code>' + id.expanded + '</code></dd>';
+          section.appendChild(iri);
 
-          var definition = document.createElement('div');
-          definition.innerHTML = '<p>' + current['comment']['@value'] + '</p>';
-          section.appendChild(definition);
+          var definedBy = document.createElement('dl');
+          definedBy.className = 'definedBy inline';
+          definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy"><code>' + resource['isDefinedBy'] + '</code></dd>';
+          section.appendChild(definedBy);
 
-          var descriptionList = document.createElement('dl');
-          descriptionList.className = 'description';
-          if (current['subClassOf'].length > 0) {
-            descriptionList.insertAdjacentHTML('beforeend', '<dt>is subclass of</dt>');
+          var comment = document.createElement('div');
+          comment.className = "comment";
+          comment.innerHTML = '<p property="rdfs:comment">' + resource['comment']['en'] + '</p>';
+          section.appendChild(comment);
+
+          var relationships = document.createElement('dl');
+          relationships.className = 'description';
+          if (resource['subClassOf'].length > 0) {
+            relationships.insertAdjacentHTML('beforeend', '<dt>is subclass of</dt>');
             var dd = document.createElement('dd');
-            descriptionList.appendChild(dd);
+            relationships.appendChild(dd);
 
-            current['subClassOf'].forEach(function(subClass, index){
+            resource['subClassOf'].forEach(function(subClass, index){
               if (index > 0) dd.insertAdjacentHTML('beforeend', ', ');
 
               var subClassId = decomposeCurie(subClass, context);
               dd.insertAdjacentHTML('beforeend', '<a title="' + subClassId.expanded + '" href="#' + subClassId.name + '" class="owlclass">' + subClass + '</a>');
             });
           }
-          section.appendChild(descriptionList);
+          section.appendChild(relationships);
 
           fragment.appendChild(section);
 
@@ -72,7 +79,6 @@ var documentJsonLDVocabulary = function(uri, options) {
 
         crossReferenceSection.appendChild(fragment);
       });
-
     };
   }, function(err) {
     console.log("Something funny happened:", err);
@@ -92,5 +98,4 @@ var documentJsonLDVocabulary = function(uri, options) {
       "expanded": context[prefix] + name
     };
   };
-
 };

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Research Cases Data Model</title>
+    <title>Research Cases Core Data Model</title>
     <script src="../../js/respec-w3c-extensions.js" class="remove"></script>
     <script src="../../js/jsonld.js" class="remove"></script>
     <script src="../../js/relode.js" class="remove"></script>
@@ -34,16 +34,18 @@
       .section { margin-top: 1em; margin-bottom: 1em; }
       .entity { border: 1px solid navy; margin: 5px 0; padding: 5px; }
       .description { border-top: 1px dashed gray; border-bottom: 1px dashed gray; background-color: rgb(242, 243, 244); margin-top: 5px; padding-bottom: 5px; }
-      .crossreference { margin-right: 10px; }
+      dl.inline dt, dl.inline dd { display: inline-block; }
+      dl.inline dd { margin-left: 0.6em; }
+      dl.inline dt { clear: both; }
       table.data-table { font-size: 0.9em; text-align: left; border-style: none; border-collapse: collapse; }
       table.data-table th { background-color: #e8e8e8; font-weight: normal; }
       table.data-table th:hover { background-color: #f0f0f0; }
       table.data-table th, table.data-table td { border: 1px solid #aaa; padding: 0.3em; }
     </style>
   </head>
-  <body>
+  <body about="[this:]" typeof="owl:Ontology" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ prov: http://www.w3.org/ns/prov# schema: http://schema.org/ rcases: https://w3id.org/research/cases# this: https://w3id.org/research/cases#">
 
-    <section id="abstract">
+    <section id="abstract" property="dcterms:abstract">
 
       <p>The Research Cases vocabulary is a lightweight, task-oriented framework for open research utilizing the <a href="https://en.wikipedia.org/wiki/Open_Web_Platform">Open Web Platform</a>. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.</p>
 
@@ -164,7 +166,7 @@
 
     </section>
 
-    <section id="cross-reference" resource="https://w3id.org/research/cases#" typeof="owl:Ontology">
+    <section id="cross-reference">
 
       <h2>Cross Reference for Research Cases classes and properties</h2>
 
@@ -205,11 +207,11 @@
         "vann": "http://purl.org/vocab/vann/",
         "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "defines": { "@reverse": "rdfs:isDefinedBy" },
-        "comment": "rdfs:comment",
-        "label": "rdfs:label",
+        "comment": { "@id": "rdfs:comment", "@container": "@language" },
+        "label": { "@id": "rdfs:label", "@container": "@language" },
         "domain": { "@id": "rdfs:domain", "@type": "@id" },
         "range": { "@id": "rdfs:range", "@type": "@id" },
+        "isDefinedBy": { "@id": "rdfs:isDefinedBy", "@type": "@id" },
         "subClassOf": { "@id": "rdfs:subClassOf", "@type": "@id", "@container": "@set" },
         "subPropertyOf": { "@id": "rdfs:subPropertyOf", "@type": "@id", "@container": "@set" },
         "seeAlso": { "@id": "rdfs:seeAlso", "@type": "@id" },
