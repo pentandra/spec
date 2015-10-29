@@ -19,7 +19,7 @@ var documentJsonLDVocabulary = function(uri, options) {
         "@context": context,
         "@type": [ "rdfs:Class", "owl:Class" ],
         "subClassOf": { "@embed": false },
-        "rdfs:isDefinedBy": { "@embed": false },
+        "isDefinedBy": { "@embed": false },
       };
 
       jsonld.frame(vocab, classesFrame, options, function(err, framed) {
@@ -28,7 +28,6 @@ var documentJsonLDVocabulary = function(uri, options) {
         }
 
         framed['@graph'].forEach(function(resource) {
-          console.log(resource);
 
           var id = decomposeCurie(resource['@id'], context);
                           
