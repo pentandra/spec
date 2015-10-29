@@ -6,7 +6,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix this: <https://w3id.org/research/rc#> .
+@prefix this: <https://w3id.org/research/cases#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -25,9 +25,6 @@ Research Cases broaden the scope of what has traditionally been thought of as re
   cc:attributionURL <http://researchcases.org> ;
   vann:preferredNamespacePrefix "rcases" ;
   vann:preferredNamespaceUri "https://w3id.org/research/cases#" ;
-  <% if $generate_timestamp then %>
-  prov:generatedAtTime "<%= DateTime.now.to_s %>"^^xsd:dateTime .
-  <% end %>
   owl:versionInfo "0.2" .
 
 rcases:LearningContext

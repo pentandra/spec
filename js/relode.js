@@ -1,40 +1,18 @@
-var vocabularyTerms = function() {
-  var options = { "base": document.location.protocol + "//" +
-    document.location.host + document.location.pathname };
-  var crossReferenceSection = document.getElementById('cross-reference');
-
+var documentJsonLDVocabulary = function(uri, options) {
+  options = options || {};
+  options.base = document.location.protocol + "//" + document.location.host + document.location.pathname;
+  
+  var crossReferenceSection = document.getElementById(options.elementId);
 
   var documentLoader = jsonld.documentLoaders.xhr();
-  var promise = documentLoader(options.base + 'research-cases.jsonld');
+  var promise = documentLoader(options.base + uri);
 
   promise.then(function(response) {
-    var context = {
-      "rcases": "https://w3id.org/research/cases#",
-      "cc": "http://creativecommons.org/ns#",
-      "dc": "http://purl.org/dc/terms/",
-      "owl": "http://www.w3.org/2002/07/owl#",
-      "prov": "http://www.w3.org/ns/prov#",
-      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-      "skos": "http://www.w3.org/2004/02/skos/core#",
-      "vann": "http://purl.org/vocab/vann/",
-      "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
-      "xsd": "http://www.w3.org/2001/XMLSchema#",
-      "defines": { "@reverse": "rdfs:isDefinedBy" },
-      "comment": "rdfs:comment",
-      "label": "rdfs:label",
-      "domain": { "@id": "rdfs:domain", "@type": "@id" },
-      "range": { "@id": "rdfs:range", "@type": "@id" },
-      "subClassOf": { "@id": "rdfs:subClassOf", "@type": "@id", "@container": "@set" },
-      "subPropertyOf": { "@id": "rdfs:subPropertyOf", "@type": "@id", "@container": "@set" },
-      "seeAlso": { "@id": "rdfs:seeAlso", "@type": "@id" },
-      "status": "vs:term_status"
-    };
 
     var vocab = JSON.parse(response.document);
-    documentClasses(vocab);
+    documentClasses(vocab, options.context);
 
-    function documentClasses(vocab) {
+    function documentClasses(vocab, context) {
       var fragment = document.createDocumentFragment();
 
       var classesFrame = {
@@ -113,8 +91,6 @@ var vocabularyTerms = function() {
       "name": name,
       "expanded": context[prefix] + name
     };
-  }
+  };
 
-}
-
-window.addEventListener('DOMContentLoaded', vocabularyTerms);
+};

@@ -44,9 +44,9 @@
 
     <section id="abstract">
 
-      <p>The Research Cases vocabulary is a lightweight, task-oriented framework for doing research on the World Wide Web. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines.</p>
+      <p>The Research Cases vocabulary is a lightweight, task-oriented framework for open research utilizing the <a href="https://en.wikipedia.org/wiki/Open_Web_Platform">Open Web Platform</a>. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.</p>
 
-      <p>Research Cases broaden the scope of what has traditionally been thought of as <em>research</em>, modeling it holistically as the process the researcher goes through from an initial research question all the way to the resultant answer. Research Cases are intended to be powerful enough to handle the most complex and intricate of research problems by composing interrelated research cases into one uniform whole, and flexible enough to be useful in answering simple, solitary questions that, formally, we may not have considered to be research. Whatever the scope, research cases always involve the process of knowledge creation.</p>
+      <p>Research cases are intended to be powerful enough to describe the most complex and intricate of research problems, and simple enough to be useful in answering simple, solitary questions that could be thought of more as proactive learning. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines.</p>
 
     </section>
     
@@ -77,7 +77,7 @@
       <p>Preservation of the research process is key. It enables collaboration and profound, powerful publication. Any researcher should be able to publish. Research should be judged based on its quality. Sharing negative results will improve critical thinking.</p>
 
       <p>Research Cases are persistent, curated resources. They are more about the <em>process</em> of research than the resultant <em>claims</em>.</p>
-
+Research Cases broaden the scope of what has traditionally been thought of as <em>research</em>, modeling it holistically as the process the researcher goes through from an initial research question all the way to the resultant answer. 
       <section>
 
         <h2>Notational Conventions</h2>
@@ -171,7 +171,7 @@
 
     </section>
 
-    <section id="cross-reference" resource="https://w3id.org/research/rcases" typeof="owl:Ontology">
+    <section id="cross-reference" resource="https://w3id.org/research/cases#" typeof="owl:Ontology">
 
       <h2>Cross Reference for Research Cases classes and properties</h2>
 
@@ -197,6 +197,40 @@
     </section>
 
     <section id="tof"></section>
+
+    <script>
+
+      var context = {
+        "rcases": "https://w3id.org/research/cases#",
+        "cc": "http://creativecommons.org/ns#",
+        "dc": "http://purl.org/dc/terms/",
+        "owl": "http://www.w3.org/2002/07/owl#",
+        "prov": "http://www.w3.org/ns/prov#",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "skos": "http://www.w3.org/2004/02/skos/core#",
+        "vann": "http://purl.org/vocab/vann/",
+        "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "defines": { "@reverse": "rdfs:isDefinedBy" },
+        "comment": "rdfs:comment",
+        "label": "rdfs:label",
+        "domain": { "@id": "rdfs:domain", "@type": "@id" },
+        "range": { "@id": "rdfs:range", "@type": "@id" },
+        "subClassOf": { "@id": "rdfs:subClassOf", "@type": "@id", "@container": "@set" },
+        "subPropertyOf": { "@id": "rdfs:subPropertyOf", "@type": "@id", "@container": "@set" },
+        "seeAlso": { "@id": "rdfs:seeAlso", "@type": "@id" },
+        "status": "vs:term_status"
+      };
+
+      window.addEventListener('DOMContentLoaded', function() {
+        documentJsonLDVocabulary('research-cases.jsonld', { 
+          context: context,
+          elementId: 'cross-reference'
+        });
+      });
+
+    </script>
 
   </body>
 </html>
