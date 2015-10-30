@@ -10,7 +10,7 @@ var documentJsonLDVocabulary = function(uri, options) {
   promise.then(function(response) {
 
     var vocab = JSON.parse(response.document);
-    documentClasses(vocab, options.context);
+    documentClasses(vocab, vocab['@context']);
 
     function documentClasses(vocab, context) {
       var fragment = document.createDocumentFragment();
