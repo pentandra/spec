@@ -1,5 +1,4 @@
 @prefix cc: <http://creativecommons.org/ns#> .
-@prefix dc: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rcases: <https://w3id.org/research/cases#> .
@@ -13,19 +12,18 @@
 
 this:
   a owl:Ontology ;
-  rdfs:comment "A vocabulary for open research on the Web."@en ;
-  rdfs:label "Research Cases Vocabulary"@en ;
-  dc:description """The Research Cases Vocabulary is a lightweight, task-oriented framework for doing research on the World Wide Web. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines.
-    
-Research Cases broaden the scope of what has traditionally been thought of as research, modeling it holistically as the process the researcher goes through from an initial research question all the way to the resultant answer. Research Cases are intended to be powerful enough to handle the most complex and intricate of research problems using compositions of interrelated research cases, and flexible enough to be useful in answering simple, solitary questions that formerly we may not have considered to be research. Whatever the scope, research cases always involve the process of knowledge creation."""@en ;
+  rdfs:label "Research Cases Core Vocabulary"@en ;
+  rdfs:comment """The Research Cases vocabulary is a lightweight, task-oriented framework for open research utilizing the Open Web Platform. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.
+
+  Research cases are intended to be powerful enough to describe the most complex and intricate of research problems, and simple enough to be useful for informal research that could be thought of more as proactive learning. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines."""@en ;
   rdfs:isDefinedBy this: ;
   rdfs:seeAlso <http://researchcases.org/>, <http://pentandra.com/spec/research/research-cases/> ;
   cc:license <http://creativecommons.org/licenses/by/4.0/> ;
   cc:attributionName "Research Cases Community" ;
-  cc:attributionURL <http://researchcases.org> ;
+  cc:attributionURL <https://researchcases.org> ;
   vann:preferredNamespacePrefix "rcases" ;
   vann:preferredNamespaceUri "https://w3id.org/research/cases#" ;
-  owl:versionInfo "0.2" .
+  owl:versionInfo "0.3.0" .
 
 rcases:LearningContext
   a owl:Class ;
