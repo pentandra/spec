@@ -54,8 +54,8 @@ rcases:Analysis
   a owl:Class ;
   rdfs:isDefinedBy this: ;
   rdfs:label "Analysis"@en ;
-  rdfs:label "Аналіз"@en ;
-  rdfs:comment "An analysis of the evidence"@en ;
+  rdfs:label "Аналіз"@uk ;
+  rdfs:comment "Some sort of presentation of the evidence."@en ;
   vs:term_status "testing" .
 
 rcases:Trajectory
