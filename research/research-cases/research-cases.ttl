@@ -47,7 +47,7 @@ rcases:ResearchCase
   rdfs:isDefinedBy this: ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
-  rdfs:comment "An explicit focus on a single question, encompassing everything leading to its conclusion. The fundamental unit of research. Also could be thought of as an affordance to research."@en ;
+  rdfs:comment "An explicit focus on a single question, encompassing everything leading to its conclusion. Also could be thought of as an affordance to research, or an articulated intention to find an answer to a question. The fundamental unit of research."@en ;
   vs:term_status "stable" .
 
 rcases:Trajectory
