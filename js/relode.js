@@ -67,7 +67,7 @@ var documentJsonLDVocabulary = function(uri, options) {
               if (index > 0) dd.insertAdjacentHTML('beforeend', ', ');
 
               var subClassId = decomposeCurie(subClass, context);
-              dd.insertAdjacentHTML('beforeend', '<a title="' + subClassId.expanded + '" href="#' + subClassId.name + '" class="owlclass">' + subClass + '</a>');
+              dd.insertAdjacentHTML('beforeend', '<a title="Go to ' + subClassId.expanded + '" href="#' + subClassId.expanded + '" class="owlclass">' + subClass + '</a>');
             });
           }
           section.appendChild(relationships);
