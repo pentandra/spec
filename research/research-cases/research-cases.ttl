@@ -127,7 +127,7 @@ rcases:question
   rdfs:isDefinedBy this: ;
   rdfs:label "question"@en ;
   rdfs:label "питання"@uk ;
-  rdfs:comment "A focused research question."@en ;
+  rdfs:comment "The question that will be researched in this research case."@en ;
   vs:term_status "stable" .
 
 # There is functionally one question per research case.
