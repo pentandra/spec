@@ -50,6 +50,14 @@ rcases:ResearchCase
   rdfs:comment "An explicit focus on a single question, encompassing everything leading to its conclusion. Also could be thought of as an affordance to research, or an articulated intention to find an answer to a question. The fundamental unit of research."@en ;
   vs:term_status "stable" .
 
+rcases:Analysis
+  a owl:Class ;
+  rdfs:isDefinedBy this: ;
+  rdfs:label "Analysis"@en ;
+  rdfs:label "Аналіз"@en ;
+  rdfs:comment "An analysis of the evidence"@en ;
+  vs:term_status "testing" .
+
 rcases:Trajectory
   a owl:Class ;
   rdfs:isDefinedBy this: ;
@@ -124,3 +132,21 @@ rcases:triggeredBy
   rdfs:label "triggered by"@en ;
   rdfs:comment "The learning context, if any, that prompted or triggered this question."@en ;
   vs:term_status "testing" .
+
+rcases:conclusion
+  a owl:ObjectProperty ;
+  rdfs:domain rcases:Analysis ;
+  rdfs:range rcases:Conclusion ;
+  rdfs:isDefinedBy this: ;
+  rdfs:label "conclusion"@en ;
+  rdfs:comment "An answer to the question"@en ;
+  vs:term_status "stable" .
+
+rcases:acceptedConclusion
+  a owl:ObjectProperty ;
+  rdfs:domain rcases:ResearchCase ;
+  rdfs:range rcases:Conclusion ;
+  rdfs:isDefinedBy this: ;
+  rdfs:label "accepted conclusion"@en ;
+  rdfs:comment "The currently accepted conclusion to the question in this research case"@en ;
+  vs:term_status "stable" .
