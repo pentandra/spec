@@ -66,6 +66,15 @@ rcases:Evidence
   rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question."@en ;
   vs:term_status "testing" .
 
+rcases:Conclusion
+  a owl:Class ;
+  rdfs:isDefinedBy rcases: ;
+  rdfs:subClassOf rcases:Evidence ;
+  rdfs:label "Conclusion"@en ;
+  rdfs:label "Висновок"@uk ;
+  rdfs:comment "An answer to a research question."@en ;
+  vs:term_status "stable" .
+
 rcases:Intention
   a owl:Class ;
   rdfs:isDefinedBy rcases: ;
@@ -101,14 +110,6 @@ rcases:Hypothesis
   rdfs:label "Гіпотеза"@uk ;
   rdfs:comment "A hypothesis is a possible, though unproven, answer to a research question"@en ;
   vs:term_status "testing" .
-
-rcases:Conclusion
-  a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
-  rdfs:label "Conclusion"@en ;
-  rdfs:label "Висновок"@uk ;
-  rdfs:comment "An answer to a research question."@en ;
-  vs:term_status "stable" .
 
 rcases:Researcher
   a owl:Class ;
