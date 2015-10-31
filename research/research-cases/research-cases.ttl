@@ -81,8 +81,8 @@ rcases:Trajectory
   rdfs:label "Trajectory"@en ;
   rdfs:label "траєкторія"@uk ;
   rdfs:comment "The trajectory is the path that the researcher takes as research progresses. The researcher's trajectory is adjusted constantly in highly idiosyncratic ways. This term supports the intuition that all researchers have different levels of knowledge and experience, and will eventually (hopefully) converge on truth."@en ;
-  rdfs:seeAlso <http://psztajn.ced.ncsu.edu/ltbi/?page_id=1577> ;
-  vs:term_status "unstable" .
+  vs:term_status "unstable" ;
+  vs:moreinfo <http://psztajn.ced.ncsu.edu/ltbi/?page_id=1577> .
 
 rcases:Question
   a owl:Class ;
