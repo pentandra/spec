@@ -59,15 +59,15 @@ rcases:Analysis
   vs:term_status "testing" .
 
 rcases:Evidence
-  a owl:Class
+  a owl:Class ;
   rdfs:isDefinedBy this: ;
   rdfs:label "Evidence"@en ;
   rdfs:label "Свідоцтво"@uk ;
-  rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question"@en ;
+  rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question."@en ;
   vs:term_status "testing" .
 
 rcases:Intention
-  a owl:Class
+  a owl:Class ;
   rdfs:subClassOf prov:Plan ;
   rdfs:isDefinedBy this: ;
   rdfs:label "Intention"@en ;
