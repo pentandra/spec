@@ -33,7 +33,7 @@ var documentJsonLDVocabulary = function(uri, options) {
                           
           var section = document.createElement('div');
           section.id = id.name;
-          section.className = 'entity';
+          section.className = 'resource';
           section.setAttribute('resource', '[' + id.curie + ']');
           section.setAttribute('typeof', resource['@type']);
 
