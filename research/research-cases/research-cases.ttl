@@ -102,15 +102,6 @@ rcases:Researcher
   rdfs:comment "A person who researches"@en ;
   vs:term_status "testing" .
 
-rcases:purpose
-  a owl:DatatypeProperty ;
-  rdfs:domain rcases:ResearchProject ;
-  rdfs:isDefinedBy this: ;
-  rdfs:label "purpose"@en ;
-  rdfs:label "мета"@uk ;
-  rdfs:comment "The purpose for engaging in the research project. Could be a general statement of the problem being investigated."@en ;
-  vs:term_status "testing" .
-
 rcases:question
   a owl:ObjectProperty ;
   rdfs:domain rcases:ResearchCase ;
