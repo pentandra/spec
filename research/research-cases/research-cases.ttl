@@ -5,18 +5,17 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix this: <https://w3id.org/research/cases#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-this:
+rcases:
   a owl:Ontology ;
   rdfs:label "Research Cases Core Vocabulary"@en ;
   rdfs:comment """The Research Cases vocabulary is a lightweight, task-oriented framework for open research utilizing the Open Web Platform. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.
 
   Research cases are intended to be powerful enough to describe the most complex and intricate of research problems, and simple enough to be useful for informal research that could be thought of more as proactive learning. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines."""@en ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:seeAlso <http://researchcases.org/>, <http://pentandra.com/spec/research/research-cases/> ;
   cc:license <http://creativecommons.org/licenses/by/4.0/> ;
   cc:attributionName "Research Cases Community" ;
@@ -27,14 +26,14 @@ this:
 
 rcases:LearningContext
   a owl:Class ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:label "Learning Context"@en ;
   rdfs:comment "Whatever is being studied, searched, browsed, measured, etc. in order for a human or machine to learn something."@en ;
   vs:term_status "stable" .
 
 rcases:ResearchContext
   a owl:Class ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:label "Research Context"@en ;
   rdfs:label "Контекст Дослідження"@uk ;
   rdfs:comment "A collection of research cases that are related somehow. A research context."@en ;
@@ -44,7 +43,7 @@ rcases:ResearchContext
 
 rcases:ResearchCase
   a owl:Class ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:subClassOf prov:Plan ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
@@ -53,7 +52,7 @@ rcases:ResearchCase
 
 rcases:Analysis
   a owl:Class ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:label "Analysis"@en ;
   rdfs:label "Аналіз"@uk ;
   rdfs:comment "Some sort of presentation of the evidence."@en ;
@@ -61,7 +60,7 @@ rcases:Analysis
 
 rcases:Evidence
   a owl:Class ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:label "Evidence"@en ;
   rdfs:label "Свідоцтво"@uk ;
   rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question."@en ;
@@ -69,7 +68,7 @@ rcases:Evidence
 
 rcases:Intention
   a owl:Class ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:label "Intention"@en ;
   rdfs:label "Намір"@uk ;
   rdfs:comment "The next step in the research process. The next thing that needs to be explored, or direction the research needs to go."@en ;
@@ -78,7 +77,7 @@ rcases:Intention
 
 rcases:Trajectory
   a owl:Class ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:label "Trajectory"@en ;
   rdfs:label "траєкторія"@uk ;
   rdfs:comment "The trajectory is the path that the researcher takes as research progresses. The researcher's trajectory is adjusted constantly in highly idiosyncratic ways. This term supports the intuition that all researchers have different levels of knowledge and experience, and will eventually (hopefully) converge on truth."@en ;
@@ -87,7 +86,7 @@ rcases:Trajectory
 
 rcases:Question
   a owl:Class ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:subClassOf rcases:Intention ;
   rdfs:label "Question"@en ;
   rdfs:label "Питання"@uk ;
@@ -96,7 +95,7 @@ rcases:Question
 
 rcases:Hypothesis
   a owl:Class ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:subClassOf rcases:Intention ;
   rdfs:label "Hypothesis"@en ;
   rdfs:label "Гіпотеза"@uk ;
@@ -105,7 +104,7 @@ rcases:Hypothesis
 
 rcases:Conclusion
   a owl:Class ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:label "Conclusion"@en ;
   rdfs:label "Висновок"@uk ;
   rdfs:comment "An answer to a research question."@en ;
@@ -113,7 +112,7 @@ rcases:Conclusion
 
 rcases:Researcher
   a owl:Class ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:subClassOf prov:Agent ;
   rdfs:label "Researcher"@en ;
   rdfs:label "Дослідник"@uk ;
@@ -124,7 +123,7 @@ rcases:question
   a owl:ObjectProperty ;
   rdfs:domain rcases:ResearchCase ;
   rdfs:range rcases:Question ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:label "question"@en ;
   rdfs:label "питання"@uk ;
   rdfs:comment "The question that will be researched in this research case."@en ;
@@ -137,7 +136,7 @@ rcases:triggeredBy
   a owl:ObjectProperty ;
   rdfs:domain rcases:Question ;
   rdfs:range rcases:LearningContext ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:label "triggered by"@en ;
   rdfs:comment "The learning context, if any, that prompted or triggered this question."@en ;
   vs:term_status "testing" .
@@ -146,7 +145,7 @@ rcases:conclusion
   a owl:ObjectProperty ;
   rdfs:domain rcases:Analysis ;
   rdfs:range rcases:Conclusion ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:label "conclusion"@en ;
   rdfs:comment "An answer to the question"@en ;
   vs:term_status "stable" .
@@ -155,7 +154,7 @@ rcases:acceptedConclusion
   a owl:ObjectProperty ;
   rdfs:domain rcases:ResearchCase ;
   rdfs:range rcases:Conclusion ;
-  rdfs:isDefinedBy this: ;
+  rdfs:isDefinedBy rcases: ;
   rdfs:label "accepted conclusion"@en ;
   rdfs:comment "The currently accepted conclusion to the question in this research case"@en ;
   vs:term_status "stable" .
