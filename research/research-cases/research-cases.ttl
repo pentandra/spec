@@ -116,11 +116,11 @@ rcases:question
 # There is functionally one question per research case.
 rcases:question a owl:FunctionalProperty .
 
-rcases:trigger
+rcases:triggeredBy
   a owl:ObjectProperty ;
-  rdfs:domain rcases:ResearchCase ;
+  rdfs:domain rcases:Question ;
   rdfs:range rcases:LearningContext ;
   rdfs:isDefinedBy this: ;
-  rdfs:label "trigger"@en ;
-  rdfs:comment "The learning context, if any, that triggered the creation of this research context"@en ;
+  rdfs:label "triggered by"@en ;
+  rdfs:comment "The learning context, if any, that prompted or triggered this question"@en ;
   vs:term_status "testing" .
