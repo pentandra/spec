@@ -150,3 +150,7 @@ rcases:acceptedConclusion
   rdfs:label "accepted conclusion"@en ;
   rdfs:comment "The currently accepted conclusion to the question in this research case"@en ;
   vs:term_status "stable" .
+
+# There is functionally one accepted conclusion per research case.
+rcases:acceptedConclusion a owl:FunctionalProperty .
+
