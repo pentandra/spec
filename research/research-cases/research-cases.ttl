@@ -58,6 +58,24 @@ rcases:Analysis
   rdfs:comment "Some sort of presentation of the evidence."@en ;
   vs:term_status "testing" .
 
+rcases:Evidence
+  a owl:Class
+  rdfs:isDefinedBy this: ;
+  rdfs:label "Evidence"@en ;
+  rdfs:label "Свідоцтво"@uk ;
+  rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question"@en ;
+  vs:term_status "testing" .
+
+rcases:Intention
+  a owl:Class
+  rdfs:subClassOf prov:Plan ;
+  rdfs:isDefinedBy this: ;
+  rdfs:label "Intention"@en ;
+  rdfs:label "Намір"@uk ;
+  rdfs:comment "The next step in the research process. The next thing that needs to be explored, or direction the research needs to go."@en ;
+  vs:term_status "testing" .
+  
+
 rcases:Trajectory
   a owl:Class ;
   rdfs:isDefinedBy this: ;
@@ -65,12 +83,12 @@ rcases:Trajectory
   rdfs:label "траєкторія"@uk ;
   rdfs:comment "The trajectory is the path that the researcher takes as research progresses. The researcher's trajectory is adjusted constantly in highly idiosyncratic ways. This term supports the intuition that all researchers have different levels of knowledge and experience, and will eventually (hopefully) converge on truth."@en ;
   rdfs:seeAlso <http://psztajn.ced.ncsu.edu/ltbi/?page_id=1577> ;
-  vs:term_status "testing" .
+  vs:term_status "unstable" .
 
 rcases:Question
   a owl:Class ;
   rdfs:isDefinedBy this: ;
-  rdfs:subClassOf rcases:Trajectory ;
+  rdfs:subClassOf rcases:Intention ;
   rdfs:label "Question"@en ;
   rdfs:label "Питання"@uk ;
   rdfs:comment "A research question."@en ;
@@ -79,7 +97,7 @@ rcases:Question
 rcases:Hypothesis
   a owl:Class ;
   rdfs:isDefinedBy this: ;
-  rdfs:subClassOf rcases:Trajectory ;
+  rdfs:subClassOf rcases:Intention ;
   rdfs:label "Hypothesis"@en ;
   rdfs:label "Гіпотеза"@uk ;
   rdfs:comment "A hypothesis is a possible, though unproven, answer to a research question"@en ;
