@@ -9,10 +9,10 @@ var documentJsonLDVocabulary = function(uri, options) {
 
   promise.then(function(response) {
 
-    var vocab = JSON.parse(response.document);
-    documentClasses(vocab, vocab['@context']);
+    var doc = JSON.parse(response.document);
+    documentClasses(doc, doc['@context']);
 
-    function documentClasses(vocab, context) {
+    function documentClasses(doc, context) {
       var fragment = document.createDocumentFragment();
 
       var classesFrame = {
@@ -22,7 +22,7 @@ var documentJsonLDVocabulary = function(uri, options) {
         "isDefinedBy": { "@embed": false },
       };
 
-      jsonld.frame(vocab, classesFrame, options, function(err, framed) {
+      jsonld.frame(doc, classesFrame, options, function(err, framed) {
         if (err) {
           throw new Exception("Had trouble framing classes", err);
         }
