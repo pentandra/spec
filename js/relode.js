@@ -93,7 +93,7 @@ var relode = (function(jsonld) {
 
     var assemblePropertySection = function(resource) {
 
-      var propertySection = assembleCommon(resource);
+      var propertySection = assembleCommon(resource, context);
 
       return propertySection;
     };
