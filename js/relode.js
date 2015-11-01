@@ -79,6 +79,64 @@ var relode = (function(jsonld) {
     };
   };
 
+  var documentProperties = function(doc, context) {
+
+    var properties = document.createDocumentFragment();
+
+    var frame = {
+      "@context": context,
+      "@type": [ "rdf:Property", "owl:ObjectProperty", "owl:DatatypeProperty", "owl:AnnotationProperty" ],
+      "isDefinedBy": { "@embed": false },
+    }; 
+
+    var promise = promises.frame(doc, frame);
+
+    promise.then(function(framed) {
+
+      framed['@graph'].forEach(function(resource) {
+        var propertySection = assemblePropertySection(resource);
+        properties.appendChild(propertySection);
+      });
+
+      my.crossReferenceSection.appendChild(properties);
+
+    }, function(err) {
+      throw new Exception("Had trouble framing properties", err);
+    });
+
+    var assemblePropertySection = function(resource) {
+
+      var id = decomposeCurie(resource['@id'], context);
+
+      var propertySection = document.createElement('div');
+      propertySection.id = id.name;
+      propertySection.className = 'resource';
+      propertySection.setAttribute('resource', '[' + id.curie + ']');
+      propertySection.setAttribute('typeof', resource['@type']);
+
+      var sectionHeader = document.createElement('h2');
+      sectionHeader.innerHTML = '<span property="rdfs:label" title="property">' + resource['label']['en'] + '</span>';
+      propertySection.appendChild(sectionHeader);
+
+      var iri = document.createElement('dl');
+      iri.className = 'iri inline';
+      iri.innerHTML = '<dt>IRI:</dt><dd><code>' + id.expanded + '</code></dd>';
+      propertySection.appendChild(iri);
+
+      var definedBy = document.createElement('dl');
+      definedBy.className = 'definedBy inline invisible';
+      definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy"><code>' + resource['isDefinedBy'] + '</code></dd>';
+      propertySection.appendChild(definedBy);
+
+      var comment = document.createElement('div');
+      comment.className = "comment";
+      comment.innerHTML = '<p property="rdfs:comment">' + resource['comment']['en'] + '</p>';
+      propertySection.appendChild(comment);
+
+      return propertySection;
+    };
+  };
+
   var decomposeCurie = function(curie, context) {
     //TODO Check to make sure its a curie
     var parts = curie.split(":"),
@@ -105,10 +163,9 @@ var relode = (function(jsonld) {
     var promise = documentLoader(options.base + options.vocabURI);
 
     promise.then(function(response) {
-
       var doc = JSON.parse(response.document);
       documentClasses(doc, doc['@context']);
-
+      documentProperties(doc, doc['@context']);
     });
 
   };
