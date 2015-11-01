@@ -73,7 +73,7 @@ rcases:Conclusion
   rdfs:label "Conclusion"@en ;
   rdfs:label "Висновок"@uk ;
   rdfs:comment "An answer to a research question."@en ;
-  vs:term_status "stable" .
+  vs:term_status "testing" .
 
 rcases:Intention
   a owl:Class ;
@@ -149,7 +149,7 @@ rcases:conclusion
   rdfs:isDefinedBy rcases: ;
   rdfs:label "conclusion"@en ;
   rdfs:comment "An answer to the question"@en ;
-  vs:term_status "stable" .
+  vs:term_status "testing" .
 
 rcases:acceptedConclusion
   a owl:ObjectProperty ;
