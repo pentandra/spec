@@ -8,6 +8,11 @@ var relode = (function(jsonld) {
 
     var classes = document.createDocumentFragment();
 
+    var classesSection = document.createElement('section');
+    var classesHeader = document.createElement('h2');
+    classesHeader.textContent = 'Classes';
+    classesSection.appendChild(classesHeader);
+
     var frame = {
       "@context": context,
       "@type": [ "rdfs:Class", "owl:Class" ],
@@ -21,9 +26,10 @@ var relode = (function(jsonld) {
 
       framed['@graph'].forEach(function(resource) {
         var classSection = assembleClassSection(resource);
-        classes.appendChild(classSection);
+        classesSection.appendChild(classSection);
       });
 
+      classes.appendChild(classesSection);
       my.crossReferenceSection.appendChild(classes);
 
     }, function(err) {
@@ -83,9 +89,14 @@ var relode = (function(jsonld) {
 
     var properties = document.createDocumentFragment();
 
+    var propertiesSection = document.createElement('section');
+    var propertiesHeader = document.createElement('h2');
+    propertiesHeader.textContent = 'Object Properties';
+    propertiesSection.appendChild(propertiesHeader);
+
     var frame = {
       "@context": context,
-      "@type": [ "rdf:Property", "owl:ObjectProperty", "owl:DatatypeProperty", "owl:AnnotationProperty" ],
+      "@type": [ "owl:ObjectProperty" ],
       "isDefinedBy": { "@embed": false },
     }; 
 
@@ -95,9 +106,10 @@ var relode = (function(jsonld) {
 
       framed['@graph'].forEach(function(resource) {
         var propertySection = assemblePropertySection(resource);
-        properties.appendChild(propertySection);
+        propertiesSection.appendChild(propertySection);
       });
 
+      properties.appendChild(propertiesSection);
       my.crossReferenceSection.appendChild(properties);
 
     }, function(err) {

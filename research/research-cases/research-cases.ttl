@@ -82,7 +82,6 @@ rcases:Intention
   rdfs:label "Намір"@uk ;
   rdfs:comment "The next step that the researcher intends to take in the research process. The next thing that needs to be explored, or direction the research needs to go."@en ;
   vs:term_status "testing" .
-  
 
 rcases:Trajectory
   a owl:Class ;
