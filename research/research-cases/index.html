@@ -197,7 +197,8 @@
     <script class="remove">
 
       window.addEventListener('DOMContentLoaded', function() {
-        documentJsonLDVocabulary('research-cases.jsonld', { 
+        relode.init({ 
+          vocabURI: 'research-cases.jsonld',
           elementId: 'cross-reference'
         });
       });
