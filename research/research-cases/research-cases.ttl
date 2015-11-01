@@ -163,3 +163,20 @@ rcases:acceptedConclusion
 # There is functionally one accepted conclusion per research case.
 rcases:acceptedConclusion a owl:FunctionalProperty .
 
+rcases:analysis
+  a owl:ObjectProperty ;
+  rdfs:domain rcases:ResearchCase ;
+  rdfs:range rcases:Analysis ;
+  rdfs:isDefinedBy rcases: ;
+  rdfs:label "analysis"@en ;
+  rdfs:comment "An analysis of evidence pertinent to the question in this research case"@en ;
+  vs:term_status "stable" .
+
+rcases:evidence
+  a owl:ObjectProperty ;
+  rdfs:domain rcases:Analysis ;
+  rdfs:range rcases:Evidence ;
+  rdfs:isDefinedBy rcases: ;
+  rdfs:label "evidence"@en ;
+  rdfs:comment "Evidence used in an analysis"@en ;
+  vs:term_status "testing" .
