@@ -80,7 +80,7 @@ rcases:Intention
   rdfs:isDefinedBy rcases: ;
   rdfs:label "Intention"@en ;
   rdfs:label "Намір"@uk ;
-  rdfs:comment "The next step in the research process. The next thing that needs to be explored, or direction the research needs to go."@en ;
+  rdfs:comment "The next step that the researcher intends to take in the research process. The next thing that needs to be explored, or direction the research needs to go."@en ;
   vs:term_status "testing" .
   
 
