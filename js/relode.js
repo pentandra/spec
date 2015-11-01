@@ -38,32 +38,7 @@ var relode = (function(jsonld) {
 
     var assembleClassSection = function(resource) {
 
-      var id = decomposeCurie(resource['@id'], context);
-
-      var classSection = document.createElement('div');
-      classSection.id = id.name;
-      classSection.className = 'resource';
-      classSection.setAttribute('resource', '[' + id.curie + ']');
-      classSection.setAttribute('typeof', resource['@type']);
-
-      var sectionHeader = document.createElement('h2');
-      sectionHeader.innerHTML = '<span property="rdfs:label" title="class">' + resource['label']['en'] + '</span>';
-      classSection.appendChild(sectionHeader);
-
-      var iri = document.createElement('dl');
-      iri.className = 'iri inline';
-      iri.innerHTML = '<dt>IRI:</dt><dd><code>' + id.expanded + '</code></dd>';
-      classSection.appendChild(iri);
-
-      var definedBy = document.createElement('dl');
-      definedBy.className = 'definedBy inline invisible';
-      definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy"><code>' + resource['isDefinedBy'] + '</code></dd>';
-      classSection.appendChild(definedBy);
-
-      var comment = document.createElement('div');
-      comment.className = "comment";
-      comment.innerHTML = '<p property="rdfs:comment">' + resource['comment']['en'] + '</p>';
-      classSection.appendChild(comment);
+      var classSection = assembleCommon(resource, context);
 
       var relationships = document.createElement('dl');
       relationships.className = 'description';
@@ -118,35 +93,42 @@ var relode = (function(jsonld) {
 
     var assemblePropertySection = function(resource) {
 
-      var id = decomposeCurie(resource['@id'], context);
-
-      var propertySection = document.createElement('div');
-      propertySection.id = id.name;
-      propertySection.className = 'resource';
-      propertySection.setAttribute('resource', '[' + id.curie + ']');
-      propertySection.setAttribute('typeof', resource['@type']);
-
-      var sectionHeader = document.createElement('h2');
-      sectionHeader.innerHTML = '<span property="rdfs:label" title="property">' + resource['label']['en'] + '</span>';
-      propertySection.appendChild(sectionHeader);
-
-      var iri = document.createElement('dl');
-      iri.className = 'iri inline';
-      iri.innerHTML = '<dt>IRI:</dt><dd><code>' + id.expanded + '</code></dd>';
-      propertySection.appendChild(iri);
-
-      var definedBy = document.createElement('dl');
-      definedBy.className = 'definedBy inline invisible';
-      definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy"><code>' + resource['isDefinedBy'] + '</code></dd>';
-      propertySection.appendChild(definedBy);
-
-      var comment = document.createElement('div');
-      comment.className = "comment";
-      comment.innerHTML = '<p property="rdfs:comment">' + resource['comment']['en'] + '</p>';
-      propertySection.appendChild(comment);
+      var propertySection = assembleCommon(resource);
 
       return propertySection;
     };
+  };
+
+  var assembleCommon = function(resource, context) {
+
+    var id = decomposeCurie(resource['@id'], context);
+
+    var section = document.createElement('div');
+    section.id = id.name;
+    section.className = 'resource';
+    section.setAttribute('resource', '[' + id.curie + ']');
+    section.setAttribute('typeof', resource['@type']);
+
+    var sectionHeader = document.createElement('h2');
+    sectionHeader.innerHTML = '<span property="rdfs:label" title="property">' + resource['label']['en'] + '</span>';
+    section.appendChild(sectionHeader);
+
+    var iri = document.createElement('dl');
+    iri.className = 'iri inline';
+    iri.innerHTML = '<dt>IRI:</dt><dd><code>' + id.expanded + '</code></dd>';
+    section.appendChild(iri);
+
+    var definedBy = document.createElement('dl');
+    definedBy.className = 'definedBy inline invisible';
+    definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy"><code>' + resource['isDefinedBy'] + '</code></dd>';
+    section.appendChild(definedBy);
+
+    var comment = document.createElement('div');
+    comment.className = "comment";
+    comment.innerHTML = '<p property="rdfs:comment">' + resource['comment']['en'] + '</p>';
+    section.appendChild(comment);
+
+    return section;
   };
 
   var decomposeCurie = function(curie, context) {
