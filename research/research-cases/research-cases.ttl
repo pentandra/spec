@@ -63,7 +63,7 @@ rcases:Evidence
   rdfs:isDefinedBy rcases: ;
   rdfs:label "Evidence"@en ;
   rdfs:label "Свідоцтво"@uk ;
-  rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question, or have bearing on the answer to a question. Evidence only exists in the context of a question."@en ;
+  rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question, or that has bearing on the answer to a question. Evidence only exists in the context of a question."@en ;
   vs:term_status "testing" .
 
 rcases:Conclusion
