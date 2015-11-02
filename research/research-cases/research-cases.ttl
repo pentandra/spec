@@ -63,7 +63,7 @@ rcases:Evidence
   rdfs:isDefinedBy rcases: ;
   rdfs:label "Evidence"@en ;
   rdfs:label "Свідоцтво"@uk ;
-  rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question."@en ;
+  rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question, or have bearing on the answer to a question. Evidence only exists in the context of a question."@en ;
   vs:term_status "testing" .
 
 rcases:Conclusion
@@ -173,7 +173,7 @@ rcases:analysis
 
 rcases:evidence
   a owl:ObjectProperty ;
-  rdfs:domain rcases:Analysis ;
+  rdfs:domain rcases:Analysis ; # Or is it a property of the research case?
   rdfs:range rcases:Evidence ;
   rdfs:isDefinedBy rcases: ;
   rdfs:label "evidence"@en ;
