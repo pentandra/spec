@@ -79,7 +79,7 @@ rcases:Information
 rcases:Conclusion
   a owl:Class ;
   rdfs:isDefinedBy rcases: ;
-  rdfs:subClassOf rcases:Evidence ;
+  rdfs:subClassOf rcases:Information ;
   rdfs:label "Conclusion"@en ;
   rdfs:label "Висновок"@uk ;
   rdfs:comment "An answer to a research question."@en ;
