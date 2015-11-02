@@ -55,7 +55,7 @@ rcases:Analysis
   rdfs:isDefinedBy rcases: ;
   rdfs:label "Analysis"@en ;
   rdfs:label "Аналіз"@uk ;
-  rdfs:comment "Some sort of presentation of the evidence."@en ;
+  rdfs:comment "Some sort of presentation of the evidence. Could be a domain-specific representation."@en ;
   vs:term_status "testing" .
 
 rcases:Evidence
