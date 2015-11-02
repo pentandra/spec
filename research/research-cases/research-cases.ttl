@@ -64,7 +64,17 @@ rcases:Evidence
   rdfs:label "Evidence"@en ;
   rdfs:label "Свідоцтво"@uk ;
   rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question, or that has bearing on the answer to a question. Evidence only exists in the context of a question."@en ;
-  vs:term_status "testing" .
+  vs:term_status "testing" ;
+  vs:moreinfo <http://pentandra.com/research/process/#dfn:evidence> .
+
+rcases:Information
+  a owl:Class ;
+  rdfs:isDefinedBy rcases: ;
+  rdfs:label "Information"@en ;
+  rdfs:label "Інформація"@uk ;
+  rdfs:comment "Data with context and meaning. Much of the stuff on the document web is information."@en ;
+  vs:term_status "testing" ;
+  vs:moreinfo <http://pentandra.com/research/process/#dfn:information> .
 
 rcases:Conclusion
   a owl:Class ;
