@@ -129,14 +129,14 @@ rcases:Researcher
   rdfs:comment "A person who researches"@en ;
   vs:term_status "testing" .
 
-rcases:question
+rcases:intent
   a owl:ObjectProperty ;
   rdfs:domain rcases:ResearchCase ;
-  rdfs:range rcases:Question ;
+  rdfs:range rcases:Intention ;
   rdfs:isDefinedBy rcases: ;
-  rdfs:label "question"@en ;
-  rdfs:label "питання"@uk ;
-  rdfs:comment "The question that will be researched in this research case."@en ;
+  rdfs:label "intent"@en ;
+  rdfs:label "Замір"@uk ;
+  rdfs:comment "What the researcher is intending to do next. The next step the researcher is taking."@en ;
   vs:term_status "stable" .
 
 # There is functionally one question per research case.
