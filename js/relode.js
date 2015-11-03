@@ -112,7 +112,7 @@ var relode = (function(jsonld) {
     section.setAttribute('typeof', resource['@type']);
 
     var sectionHeader = document.createElement('h2');
-    sectionHeader.innerHTML = '<span property="rdfs:label" title="property">' + resource['label']['en'] + '</span>';
+    sectionHeader.innerHTML = '<span property="rdfs:label" title="' + getTypeDescription(resource) + '">' + resource['label']['en'] + '</span>';
     section.appendChild(sectionHeader);
 
     var iri = document.createElement('dl');
@@ -131,6 +131,13 @@ var relode = (function(jsonld) {
     section.appendChild(comment);
 
     return section;
+  };
+
+  var getTypeDescription = function(resource) {
+    var type = resource['@type'];
+
+    if (type === "rdfs:Class" || type === "owl:Class") return 'class';
+    else return 'property';
   };
 
   var decomposeCurie = function(curie, context) {
