@@ -2,7 +2,9 @@
 
 var relode = (function(jsonld) {
 
-  var my = {}, promises = jsonld.promises;
+  var my = {}, 
+      target, 
+      promises = jsonld.promises;
 
   var documentClasses = function(doc, context) {
 
@@ -30,7 +32,7 @@ var relode = (function(jsonld) {
       });
 
       classes.appendChild(classesSection);
-      my.crossReferenceSection.appendChild(classes);
+      target.appendChild(classes);
 
     }, function(err) {
       throw new Exception("Had trouble framing classes", err);
@@ -85,7 +87,7 @@ var relode = (function(jsonld) {
       });
 
       properties.appendChild(propertiesSection);
-      my.crossReferenceSection.appendChild(properties);
+      target.appendChild(properties);
 
     }, function(err) {
       throw new Exception("Had trouble framing properties", err);
@@ -151,7 +153,7 @@ var relode = (function(jsonld) {
 
     options.base = options.base || document.location.protocol + "//" + document.location.host + document.location.pathname;
     
-    my.crossReferenceSection = document.getElementById(options.elementId);
+    target = document.getElementById(options.targetId);
 
     var documentLoader = options.documentLoader || jsonld.documentLoaders.xhr();
     var promise = documentLoader(options.base + options.vocabURI);
