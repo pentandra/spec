@@ -41,7 +41,7 @@ var relode = (function(jsonld) {
       var classSection = assembleCommon(resource, context);
 
       var relationships = document.createElement('dl');
-      relationships.className = 'description';
+      relationships.className = 'relationships';
       if (resource['subClassOf'].length > 0) {
         relationships.insertAdjacentHTML('beforeend', '<dt>is subclass of</dt>');
         var dd = document.createElement('dd');
