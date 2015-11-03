@@ -9,7 +9,7 @@
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-rcases:
+<https://w3id.org/research/cases#>
   a owl:Ontology ;
   rdfs:label "Research Cases Core Vocabulary"@en ;
   rdfs:comment """The Research Cases vocabulary is a lightweight, task-oriented framework for open research utilizing the Open Web Platform. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.
