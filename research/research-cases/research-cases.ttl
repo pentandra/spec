@@ -117,7 +117,7 @@ rcases:Hypothesis
   rdfs:subClassOf rcases:Intention ;
   rdfs:label "Hypothesis"@en ;
   rdfs:label "Гіпотеза"@uk ;
-  rdfs:comment "A hypothesis is a possible, though unproven, answer to a research question"@en ;
+  rdfs:comment "A statement to test. A possible, though unproven, answer to a research question."@en ;
   vs:term_status "testing" .
 
 rcases:Researcher
