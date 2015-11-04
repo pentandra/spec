@@ -122,7 +122,7 @@ var relode = (function(jsonld) {
 
     var definedBy = document.createElement('dl');
     definedBy.className = 'definedBy inline invisible';
-    definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy"><code>' + resource['rdfs:isDefinedBy'] + '</code></dd>';
+    definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy" resource="' + resource['rdfs:isDefinedBy'] + '"><code>' + resource['rdfs:isDefinedBy'] + '</code></dd>';
     section.appendChild(definedBy);
 
     var comment = document.createElement('div');
