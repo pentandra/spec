@@ -19,7 +19,7 @@ var relode = (function(jsonld) {
       "@context": context,
       "@type": [ "rdfs:Class", "owl:Class" ],
       "subClassOf": { "@embed": false },
-      "isDefinedBy": { "@embed": false },
+      "rdfs:isDefinedBy": { "@embed": false },
     }; 
 
     var promise = promises.frame(doc, frame);
@@ -74,7 +74,7 @@ var relode = (function(jsonld) {
     var frame = {
       "@context": context,
       "@type": [ "owl:ObjectProperty" ],
-      "isDefinedBy": { "@embed": false },
+      "rdfs:isDefinedBy": { "@embed": false },
     }; 
 
     var promise = promises.frame(doc, frame);
@@ -122,7 +122,7 @@ var relode = (function(jsonld) {
 
     var definedBy = document.createElement('dl');
     definedBy.className = 'definedBy inline invisible';
-    definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy"><code>' + resource['isDefinedBy'] + '</code></dd>';
+    definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy"><code>' + resource['rdfs:isDefinedBy'] + '</code></dd>';
     section.appendChild(definedBy);
 
     var comment = document.createElement('div');
