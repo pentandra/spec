@@ -157,7 +157,7 @@ rcases:conclusion
   rdfs:range rcases:Conclusion ;
   rdfs:isDefinedBy rcases: ;
   rdfs:label "conclusion"@en ;
-  rdfs:comment "An answer to the question"@en ;
+  rdfs:comment "The conclusion of an analytical process that provides an answer to the question in this research case."@en ;
   vs:term_status "testing" .
 
 rcases:acceptedConclusion
@@ -166,7 +166,7 @@ rcases:acceptedConclusion
   rdfs:range rcases:Conclusion ;
   rdfs:isDefinedBy rcases: ;
   rdfs:label "accepted conclusion"@en ;
-  rdfs:comment "The currently accepted conclusion to the question in this research case"@en ;
+  rdfs:comment "The currently accepted conclusion to the question in this research case."@en ;
   vs:term_status "stable" .
 
 # There is functionally one accepted conclusion per research case.
@@ -178,7 +178,7 @@ rcases:analysis
   rdfs:range rcases:Analysis ;
   rdfs:isDefinedBy rcases: ;
   rdfs:label "analysis"@en ;
-  rdfs:comment "An analysis of evidence pertinent to the question in this research case"@en ;
+  rdfs:comment "An analysis of evidence pertinent to the question in this research case."@en ;
   vs:term_status "stable" .
 
 rcases:evidence
@@ -187,5 +187,5 @@ rcases:evidence
   rdfs:range rcases:Evidence ;
   rdfs:isDefinedBy rcases: ;
   rdfs:label "evidence"@en ;
-  rdfs:comment "Evidence used in an analysis"@en ;
+  rdfs:comment "A bit of evidence used in an analysis."@en ;
   vs:term_status "testing" .
