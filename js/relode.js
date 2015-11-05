@@ -109,7 +109,7 @@ var relode = (function(jsonld) {
     section.id = id.name;
     section.className = 'resource';
     section.setAttribute('resource', '[' + id.curie + ']');
-    section.setAttribute('typeof', resource['@type']);
+    section.setAttribute('typeof', getAttribute(resource['@type']));
 
     var sectionHeader = document.createElement('h2');
     sectionHeader.innerHTML = '<span property="rdfs:label" title="' + getTypeDescription(resource) + '">' + resource['label']['en'] + '</span>';
@@ -138,6 +138,10 @@ var relode = (function(jsonld) {
 
     if (type === "rdfs:Class" || type === "owl:Class") return 'class';
     else return 'property';
+  };
+
+  var getAttribute = function(attribute) {
+    return Array.isArray(attribute) ? attribute.join(' ') : attribute;
   };
 
   var decomposeCurie = function(curie, context) {
