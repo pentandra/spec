@@ -53,14 +53,18 @@
       table.data-table th.extended { min-width: 24em; }
     </style>
   </head>
-  <body typeof="schema:TechArticle fabio:TechnicalStandard" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ prov: http://www.w3.org/ns/prov# schema: http://schema.org/ fabio: http://purl.org/spar/fabio# rcases: https://w3id.org/research/cases#">
+  <body typeof="schema:TechArticle fabio:TechnicalStandard" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# rdfa: http://www.w3.org/ns/rdfa# foaf: http://xmlns.com/foaf/0.1/ dcterms: http://purl.org/dc/terms/ prov: http://www.w3.org/ns/prov# schema: http://schema.org/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ fabio: http://purl.org/spar/fabio# rcases: https://w3id.org/research/cases#">
 
-    <section id="abstract" property="rdfs:comment">
+    <section id="abstract" resource="#abstract" property="dcterms:hasPart" typeof="doco:Abstract">
+      <div property="schema:description">
+        <div resource="#vocab-description" typeof="rdfa:Pattern">
 
-      <p>The Research Cases vocabulary is a lightweight, task-oriented framework for open research utilizing the <a href="https://en.wikipedia.org/wiki/Open_Web_Platform">Open Web Platform</a>. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.</p>
+          <p property="rdfs:comment">The Research Cases vocabulary is a lightweight, task-oriented framework for open research utilizing the <a href="https://en.wikipedia.org/wiki/Open_Web_Platform">Open Web Platform</a>. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.</p>
 
-      <p>Research cases are intended to be powerful enough to describe the most complex and intricate of research problems, and simple enough to be useful for informal research that could be thought of more as proactive learning. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines.</p>
+          <p>Research cases are intended to be powerful enough to describe the most complex and intricate of research problems, and simple enough to be useful for informal research that could be thought of more as proactive learning. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines.</p>
 
+        </div>
+      </div>
     </section>
     
     <section id="sotd">
@@ -71,7 +75,7 @@
 
     </section>
     
-    <section>
+    <section id="introduction" resource="#introduction" property="dcterms:hasPart" typeof="deo:Introduction">
 
       <h2>Introduction</h2>
 
@@ -206,9 +210,11 @@
 
     </section>
 
-    <section id="cross-reference" resource="[rcases:]" typeof="owl:Ontology">
+    <section id="cross-reference" property="foaf:primaryTopic" resource="[rcases:]" typeof="owl:Ontology">
 
       <h2>Cross Reference for Research Cases Vocabulary</h2>
+
+      <link property="rdfa:copy" href="#vocab-description"/>
 
     </section>
 
