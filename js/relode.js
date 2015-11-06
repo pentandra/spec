@@ -189,14 +189,25 @@ var relode = (function(jsonld) {
     section.appendChild(iri);
 
     var definedBy = document.createElement('dl');
-    definedBy.className = 'definedBy inline invisible';
-    definedBy.innerHTML = '<dt>is defined by</dt><dd property="rdfs:isDefinedBy" resource="' + resource['rdfs:isDefinedBy'] + '"><code>' + resource['rdfs:isDefinedBy'] + '</code></dd>';
+    definedBy.className = 'defined-by inline invisible';
+    definedBy.innerHTML = '<dt>Is defined by:</dt><dd property="rdfs:isDefinedBy" resource="' + resource['rdfs:isDefinedBy'] + '"><code>' + resource['rdfs:isDefinedBy'] + '</code></dd>';
     section.appendChild(definedBy);
 
-    var comment = document.createElement('div');
-    comment.className = "comment";
-    comment.innerHTML = '<p property="rdfs:comment">' + resource['comment']['en'] + '</p>';
-    section.appendChild(comment);
+    var comment = resource['comment'];
+    if (comment) {
+      var commentElement = document.createElement('div');
+      commentElement.className = "comment";
+      commentElement.innerHTML = '<p property="rdfs:comment">' + comment['en'] + '</p>';
+      section.appendChild(commentElement);
+    }
+
+    var moreInfo = resource['moreInfo'];
+    if (moreInfo) {
+      var moreInfoElement = document.createElement('dl');
+      moreInfoElement.className = 'more-info inline';
+      moreInfoElement.innerHTML = '<dt>For more info:</dt><dd><a property="vs:moreinfo" href="' + resource['moreInfo'] + '">' + resource['moreInfo'] + '</a></dd>';
+      section.appendChild(moreInfoElement);
+    }
 
     return section;
   };

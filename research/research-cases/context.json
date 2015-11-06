@@ -20,6 +20,7 @@
     "defines": { "@reverse": "rdfs:isDefinedBy" },
     "comment": { "@id": "rdfs:comment", "@container": "@language" },
     "label": { "@id": "rdfs:label", "@container": "@language" },
-    "status": "vs:term_status"
+    "status": "vs:term_status",
+    "moreInfo": { "@id": "vs:moreinfo", "@type": "@id" }
   }
 }
