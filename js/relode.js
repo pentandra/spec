@@ -19,6 +19,7 @@ var relode = (function(jsonld) {
       "@type": [ "rdfs:Class", "owl:Class" ],
       "subClassOf": { "@embed": false },
       "rdfs:isDefinedBy": { "@embed": false },
+      "seeAlso": { "@embed": false },
     }; 
 
     var promise = promises.frame(doc, frame);
@@ -53,8 +54,8 @@ var relode = (function(jsonld) {
 
           superClasses.forEach(function(superClass){
             var dd = document.createElement('dd'),
-                superClassId = decomposeCurie(superClass, context);
-            dd.innerHTML = '<a title="Go to ' + superClassId.expanded + '" href="' + superClassId.expanded + '" class="class">' + superClass + '</a>';
+                link = getExpandedUri(superClass, context);
+            dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="class">' + superClass + '</a>';
             relationships.appendChild(dd);
           });
         }
@@ -88,6 +89,7 @@ var relode = (function(jsonld) {
       "@type": [ "owl:ObjectProperty" ],
       "subPropertyOf": { "@embed": false },
       "rdfs:isDefinedBy": { "@embed": false },
+      "seeAlso": { "@embed": false },
       "domain": { "@embed": false },
       "range": { "@embed": false },
     }; 
@@ -124,8 +126,9 @@ var relode = (function(jsonld) {
 
           superProperties.forEach(function(superProperty){
             var dd = document.createElement('dd'),
-                superPropertyId = decomposeCurie(superProperty, context);
-            dd.innerHTML = '<a title="Go to ' + superPropertyId.expanded + '" href="' + superPropertyId.expanded + '" class="superproperty">' + superProperty + '</a>';
+                link = getExpandedUri(superProperty, context);
+
+            dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="superproperty">' + superProperty + '</a>';
             relationships.appendChild(dd);
           });
         }
@@ -137,8 +140,9 @@ var relode = (function(jsonld) {
           relationships.appendChild(dt);
 
           var dd = document.createElement('dd'),
-              domainId = decomposeCurie(domain, context);
-          dd.innerHTML = '<a title="Go to ' + domainId.expanded + '" href="' + domainId.expanded + '" class="domain">' + domain + '</a>';
+              link = getExpandedUri(domain, context);
+
+          dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="domain">' + domain + '</a>';
           relationships.appendChild(dd);
         }
 
@@ -149,8 +153,8 @@ var relode = (function(jsonld) {
           relationships.appendChild(dt);
 
           var dd = document.createElement('dd'),
-              rangeId = decomposeCurie(range, context);
-          dd.innerHTML = '<a title="Go to ' + rangeId.expanded + '" href="' + rangeId.expanded + '" class="range">' + range + '</a>';
+              link = getExpandedUri(range, context);
+          dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="range">' + range + '</a>';
           relationships.appendChild(dd);
         }
 
@@ -173,43 +177,53 @@ var relode = (function(jsonld) {
 
     var id = decomposeCurie(resource['@id'], context);
 
-    var section = document.createElement('div');
-    section.id = id.name;
-    section.className = 'resource ' + getTypeClassification(resource);
-    section.setAttribute('resource', '[' + id.curie + ']');
-    section.setAttribute('typeof', getAttribute(resource['@type']));
+    console.log(resource);
 
-    var sectionHeader = document.createElement('h2');
-    sectionHeader.innerHTML = '<span property="rdfs:label">' + resource['label']['en'] + '</span>';
-    section.appendChild(sectionHeader);
+    var resourceElement = document.createElement('div');
+    resourceElement.id = id.name;
+    resourceElement.className = 'resource ' + getTypeClassification(resource);
+    resourceElement.setAttribute('resource', '[' + id.curie + ']');
+    resourceElement.setAttribute('typeof', getAttribute(resource['@type']));
+
+    var resourceElementHeader = document.createElement('h2');
+    resourceElementHeader.innerHTML = '<span property="rdfs:label">' + resource['label']['en'] + '</span>';
+    resourceElement.appendChild(resourceElementHeader);
 
     var iri = document.createElement('dl');
     iri.className = 'iri inline';
     iri.innerHTML = '<dt>IRI:</dt><dd><code>' + id.expanded + '</code></dd>';
-    section.appendChild(iri);
+    resourceElement.appendChild(iri);
 
     var definedBy = document.createElement('dl');
     definedBy.className = 'defined-by inline invisible';
     definedBy.innerHTML = '<dt>Is defined by:</dt><dd property="rdfs:isDefinedBy" resource="' + resource['rdfs:isDefinedBy'] + '"><code>' + resource['rdfs:isDefinedBy'] + '</code></dd>';
-    section.appendChild(definedBy);
+    resourceElement.appendChild(definedBy);
 
     var comment = resource['comment'];
     if (comment) {
       var commentElement = document.createElement('div');
       commentElement.className = "comment";
       commentElement.innerHTML = '<p property="rdfs:comment">' + comment['en'] + '</p>';
-      section.appendChild(commentElement);
+      resourceElement.appendChild(commentElement);
+    }
+
+    var seeAlso = resource['seeAlso'];
+    if (seeAlso) {
+      var seeAlsoElement = document.createElement('dl');
+      seeAlsoElement.className = 'see-also inline';
+      seeAlsoElement.innerHTML = '<dt>See also:</dt><dd><a property="rdfs:seeAlso" href="' + getExpandedUri(seeAlso, context) + '">' + seeAlso + '</a></dd>';
+      resourceElement.appendChild(seeAlsoElement);
     }
 
     var moreInfo = resource['moreInfo'];
     if (moreInfo) {
       var moreInfoElement = document.createElement('dl');
       moreInfoElement.className = 'more-info inline';
-      moreInfoElement.innerHTML = '<dt>For more info:</dt><dd><a property="vs:moreinfo" href="' + resource['moreInfo'] + '">' + resource['moreInfo'] + '</a></dd>';
-      section.appendChild(moreInfoElement);
+      moreInfoElement.innerHTML = '<dt>More status info:</dt><dd><a property="vs:moreinfo" href="' + getExpandedUri(moreInfo, context) + '">' + moreInfo + '</a></dd>';
+      resourceElement.appendChild(moreInfoElement);
     }
 
-    return section;
+    return resourceElement;
   };
 
   var getTypeClassification = function(resource) {
@@ -233,7 +247,10 @@ var relode = (function(jsonld) {
   };
 
   var decomposeCurie = function(curie, context) {
-    //TODO Check to make sure its a curie
+    if (!isCurie(curie)) {
+      throw new Error("'" + curie + "' is not a curie!");
+    }
+
     var parts = curie.split(":"),
     prefix = parts[0],
     name = parts[1];
