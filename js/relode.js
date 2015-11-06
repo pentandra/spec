@@ -46,19 +46,20 @@ var relode = (function(jsonld) {
         var relationships = document.createElement('dl');
         relationships.className = 'relationships';
 
-        var subClasses = resource['subClassOf'];
-        if (subClasses.length > 0) {
+        var superClasses = resource['subClassOf'];
+        if (superClasses.length > 0) {
           var dt = document.createElement('dt');
-          dt.textContent = "is subclass of";
+          dt.textContent = "has super-classes";
           relationships.appendChild(dt);
 
-          subClasses.forEach(function(subClass, index){
-            var dd = document.createElement('dd');
-            var subClassId = decomposeCurie(subClass, context);
-            dd.innerHTML = '<a title="Go to ' + subClassId.expanded + '" href="' + subClassId.expanded + '" class="owlclass">' + subClass + '</a>';
+          superClasses.forEach(function(superClass){
+            var dd = document.createElement('dd'),
+                superClassId = decomposeCurie(superClass, context);
+            dd.innerHTML = '<a title="Go to ' + superClassId.expanded + '" href="' + superClassId.expanded + '" class="owlclass">' + superClass + '</a>';
             relationships.appendChild(dd);
           });
         }
+
         classSection.appendChild(relationships);
       }
 
