@@ -87,7 +87,10 @@ var relode = (function(jsonld) {
     var frame = {
       "@context": context,
       "@type": [ "owl:ObjectProperty" ],
+      "subPropertyOf": { "@embed": false },
       "rdfs:isDefinedBy": { "@embed": false },
+      "domain": { "@embed": false },
+      "range": { "@embed": false },
     }; 
 
     var promise = promises.frame(doc, frame);
@@ -110,7 +113,60 @@ var relode = (function(jsonld) {
 
       var propertySection = assembleCommon(resource, context);
 
+      if (hasRelationships(resource)) {
+        var relationships = document.createElement('dl');
+        relationships.className = 'relationships';
+
+        var superProperties = resource['subPropertyOf'];
+        if (superProperties.length > 0) {
+          var dt = document.createElement('dt');
+          dt.textContent = "has super-properties";
+          relationships.appendChild(dt);
+
+          superProperties.forEach(function(superProperty){
+            var dd = document.createElement('dd'),
+                superPropertyId = decomposeCurie(superProperty, context);
+            dd.innerHTML = '<a title="Go to ' + superPropertyId.expanded + '" href="' + superPropertyId.expanded + '" class="superproperty">' + superProperty + '</a>';
+            relationships.appendChild(dd);
+          });
+        }
+
+        var domain = resource['domain'];
+        if (domain) {
+          var dt = document.createElement('dt');
+          dt.textContent = 'has domain';
+          relationships.appendChild(dt);
+
+          var dd = document.createElement('dd'),
+              domainId = decomposeCurie(domain, context);
+          dd.innerHTML = '<a title="Go to ' + domainId.expanded + '" href="' + domainId.expanded + '" class="domain">' + domain + '</a>';
+          relationships.appendChild(dd);
+        }
+
+        var range = resource['range'];
+        if (range) {
+          var dt = document.createElement('dt');
+          dt.textContent = 'has range';
+          relationships.appendChild(dt);
+
+          var dd = document.createElement('dd'),
+              rangeId = decomposeCurie(range, context);
+          dd.innerHTML = '<a title="Go to ' + rangeId.expanded + '" href="' + rangeId.expanded + '" class="range">' + range + '</a>';
+          relationships.appendChild(dd);
+        }
+
+        propertySection.appendChild(relationships);
+      }
+
       return propertySection;
+    };
+
+    var supportedRelationships = ['subPropertyOf', 'domain', 'range'];
+
+    var hasRelationships = function(resource) {
+      return supportedRelationships.some(function(relationship) {
+        return Array.isArray(resource[relationship]) ? resource[relationship].length > 0 : !!resource[relationship];
+      });
     };
   };
 
