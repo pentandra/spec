@@ -5,7 +5,7 @@ var relode = (function(jsonld) {
   var my = {}, 
       promises = jsonld.promises;
 
-  var documentClasses = function(doc, context, target) {
+  var documentClasses = function(doc, context, targetElement) {
 
     var classes = document.createDocumentFragment();
 
@@ -31,7 +31,7 @@ var relode = (function(jsonld) {
       });
 
       classes.appendChild(classesSection);
-      target.appendChild(classes);
+      targetElement.appendChild(classes);
 
     }, function(err) {
       throw new Exception("Had trouble framing classes", err);
@@ -74,7 +74,7 @@ var relode = (function(jsonld) {
     };
   };
 
-  var documentProperties = function(doc, context, target) {
+  var documentProperties = function(doc, context, targetElement) {
 
     var properties = document.createDocumentFragment();
 
@@ -102,7 +102,7 @@ var relode = (function(jsonld) {
       });
 
       properties.appendChild(propertiesSection);
-      target.appendChild(properties);
+      targetElement.appendChild(properties);
 
     }, function(err) {
       throw new Exception("Had trouble framing properties", err);
@@ -246,8 +246,17 @@ var relode = (function(jsonld) {
     };
   };
 
-  var isRelativeUri = function(uri) {
-    return (uri.indexOf('http:') !== 0 && uri.indexOf('https:') !== 0);
+  // Not comprehensive...
+  var isCurie = function(uri) {
+    return typeof uri === 'string' && !isAbsoluteWebUri(uri);
+  };
+
+  var getExpandedUri = function(uri, context) {
+    return isCurie(uri) ? decomposeCurie(uri, context).expanded : uri ;
+  };
+
+  var isAbsoluteWebUri = function(uri) {
+    return (uri.indexOf('http://') === 0 || uri.indexOf('https://') === 0);
   };
 
   my.init = function(vocabUrl, targetId, options) {
@@ -269,14 +278,14 @@ var relode = (function(jsonld) {
     }
 
     var documentLoader = options.documentLoader || jsonld.documentLoaders.xhr(),
-        vocabUrl = isRelativeUri(vocabUrl) ? options.base + vocabUrl : vocabUrl,
-        target = document.getElementById(targetId);
+        vocabUrl = isAbsoluteWebUri(vocabUrl) ? vocabUrl : options.base + vocabUrl,
+        targetElement = document.getElementById(targetId);
 
     documentLoader(vocabUrl).then(function(response) {
       var doc = JSON.parse(response.document);
 
-      documentClasses(doc, doc['@context'], target);
-      documentProperties(doc, doc['@context'], target);
+      documentClasses(doc, doc['@context'], targetElement);
+      documentProperties(doc, doc['@context'], targetElement);
 
     }, function(err) {
       console.warn("There was a problem: ", err);
