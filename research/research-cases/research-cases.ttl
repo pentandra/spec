@@ -139,8 +139,8 @@ rcases:intent
   rdfs:comment "What the researcher is intending to do next. The next step the researcher is taking."@en ;
   vs:term_status "stable" .
 
-# There is functionally one question per research case.
-rcases:question a owl:FunctionalProperty .
+# Each research case has only one intent.
+rcases:intent a owl:FunctionalProperty .
 
 rcases:triggeredBy
   a owl:ObjectProperty ;
