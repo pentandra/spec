@@ -48,15 +48,15 @@ var relode = (function(jsonld) {
 
         var subClasses = resource['subClassOf'];
         if (subClasses.length > 0) {
-          relationships.insertAdjacentHTML('beforeend', '<dt>is subclass of</dt>');
-          var dd = document.createElement('dd');
-          relationships.appendChild(dd);
+          var dt = document.createElement('dt');
+          dt.textContent = "is subclass of";
+          relationships.appendChild(dt);
 
           subClasses.forEach(function(subClass, index){
-            if (index > 0) dd.insertAdjacentHTML('beforeend', ', ');
-
+            var dd = document.createElement('dd');
             var subClassId = decomposeCurie(subClass, context);
-            dd.insertAdjacentHTML('beforeend', '<a title="Go to ' + subClassId.expanded + '" href="' + subClassId.expanded + '" class="owlclass">' + subClass + '</a>');
+            dd.innerHTML = '<a title="Go to ' + subClassId.expanded + '" href="' + subClassId.expanded + '" class="owlclass">' + subClass + '</a>';
+            relationships.appendChild(dd);
           });
         }
         classSection.appendChild(relationships);
