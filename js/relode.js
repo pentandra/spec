@@ -3,10 +3,9 @@
 var relode = (function(jsonld) {
 
   var my = {}, 
-      target, 
       promises = jsonld.promises;
 
-  var documentClasses = function(doc, context) {
+  var documentClasses = function(doc, context, target) {
 
     var classes = document.createDocumentFragment();
 
@@ -75,7 +74,7 @@ var relode = (function(jsonld) {
     };
   };
 
-  var documentProperties = function(doc, context) {
+  var documentProperties = function(doc, context, target) {
 
     var properties = document.createDocumentFragment();
 
@@ -227,21 +226,40 @@ var relode = (function(jsonld) {
     };
   };
 
-  my.init = function(options) {
+  var isRelativeUri = function(uri) {
+    return (uri.indexOf('http:') !== 0 && uri.indexOf('https:') !== 0);
+  };
+
+  my.init = function(vocabUrl, targetId, options) {
+
+    if (!vocabUrl) {
+      throw new Error("A vocabUrl parameter is needed. This should resolve to a valid JSON-LD representation of the ontology that you wish to relode.");
+    }
+    if (!targetId) {
+      throw new Error("A targetId parameter is needed. This id the id of the element to which the ontology description shall be appended.");
+    }
 
     options = options || {};
 
-    options.base = options.base || document.location.protocol + "//" + document.location.host + document.location.pathname;
-    
-    target = document.getElementById(options.targetId);
+    if (!('base' in options)) {
+      options.base = document.location.protocol + "//" + document.location.host + document.location.pathname;
+    }
+    if (!('documentLoader' in options)) {
+      options.documentLoader = jsonld.documentLoaders.xhr();
+    }
 
-    var documentLoader = options.documentLoader || jsonld.documentLoaders.xhr();
-    var promise = documentLoader(options.base + options.vocabURI);
+    var documentLoader = options.documentLoader || jsonld.documentLoaders.xhr(),
+        vocabUrl = isRelativeUri(vocabUrl) ? options.base + vocabUrl : vocabUrl,
+        target = document.getElementById(targetId);
 
-    promise.then(function(response) {
+    documentLoader(vocabUrl).then(function(response) {
       var doc = JSON.parse(response.document);
-      documentClasses(doc, doc['@context']);
-      documentProperties(doc, doc['@context']);
+
+      documentClasses(doc, doc['@context'], target);
+      documentProperties(doc, doc['@context'], target);
+
+    }, function(err) {
+      console.warn("There was a problem: ", err);
     });
 
   };
