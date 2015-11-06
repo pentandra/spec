@@ -98,7 +98,7 @@ rcases:Trajectory
   rdfs:isDefinedBy rcases: ;
   rdfs:label "Trajectory"@en ;
   rdfs:label "траєкторія"@uk ;
-  rdfs:comment "The trajectory is the path that the researcher takes as research progresses. The researcher's trajectory is adjusted constantly in highly idiosyncratic ways. This term supports the intuition that all researchers have different levels of knowledge and experience, and will eventually (hopefully) converge on truth."@en ;
+  rdfs:comment "The trajectory is the path that the researcher moves along as research progresses. The researcher's trajectory is adjusted constantly in highly idiosyncratic ways. This term supports the intuition that all researchers have different levels of knowledge and experience, and will eventually (hopefully) converge on truth."@en ;
   vs:term_status "unstable" ;
   vs:moreinfo <http://psztajn.ced.ncsu.edu/ltbi/?page_id=1577> .
 
@@ -136,7 +136,8 @@ rcases:intent
   rdfs:isDefinedBy rcases: ;
   rdfs:label "intent"@en ;
   rdfs:label "Замір"@uk ;
-  rdfs:comment "What the researcher is intending to do next. The next step the researcher is taking."@en ;
+  rdfs:comment "What the researcher is intending to do next. The aim the researcher is taking for his, her, or its next step. The angle of inclination that will determine the trajectory that the research will take."@en ;
+  rdfs:seeAlso rcases:Trajectory ;
   vs:term_status "stable" .
 
 # Each research case has only one intent.
