@@ -42,23 +42,35 @@ var relode = (function(jsonld) {
 
       var classSection = assembleCommon(resource, context);
 
-      var relationships = document.createElement('dl');
-      relationships.className = 'relationships';
-      if (resource['subClassOf'].length > 0) {
-        relationships.insertAdjacentHTML('beforeend', '<dt>is subclass of</dt>');
-        var dd = document.createElement('dd');
-        relationships.appendChild(dd);
+      if (hasRelationships(resource)) {
+        var relationships = document.createElement('dl');
+        relationships.className = 'relationships';
 
-        resource['subClassOf'].forEach(function(subClass, index){
-          if (index > 0) dd.insertAdjacentHTML('beforeend', ', ');
+        var subClasses = resource['subClassOf'];
+        if (subClasses.length > 0) {
+          relationships.insertAdjacentHTML('beforeend', '<dt>is subclass of</dt>');
+          var dd = document.createElement('dd');
+          relationships.appendChild(dd);
 
-          var subClassId = decomposeCurie(subClass, context);
-          dd.insertAdjacentHTML('beforeend', '<a title="Go to ' + subClassId.expanded + '" href="' + subClassId.expanded + '" class="owlclass">' + subClass + '</a>');
-        });
+          subClasses.forEach(function(subClass, index){
+            if (index > 0) dd.insertAdjacentHTML('beforeend', ', ');
+
+            var subClassId = decomposeCurie(subClass, context);
+            dd.insertAdjacentHTML('beforeend', '<a title="Go to ' + subClassId.expanded + '" href="' + subClassId.expanded + '" class="owlclass">' + subClass + '</a>');
+          });
+        }
+        classSection.appendChild(relationships);
       }
-      classSection.appendChild(relationships);
 
       return classSection;
+    };
+
+    var supportedRelationships = ['subClassOf'];
+
+    var hasRelationships = function(resource) {
+      return supportedRelationships.some(function(relationship) {
+        return resource[relationship].length > 0;
+      });
     };
   };
 
