@@ -54,7 +54,7 @@ var relode = (function(jsonld) {
           superClasses.forEach(function(superClass){
             var dd = document.createElement('dd'),
                 superClassId = decomposeCurie(superClass, context);
-            dd.innerHTML = '<a title="Go to ' + superClassId.expanded + '" href="' + superClassId.expanded + '" class="owlclass">' + superClass + '</a>';
+            dd.innerHTML = '<a title="Go to ' + superClassId.expanded + '" href="' + superClassId.expanded + '" class="class">' + superClass + '</a>';
             relationships.appendChild(dd);
           });
         }
@@ -175,12 +175,12 @@ var relode = (function(jsonld) {
 
     var section = document.createElement('div');
     section.id = id.name;
-    section.className = 'resource';
+    section.className = 'resource ' + getTypeClassification(resource);
     section.setAttribute('resource', '[' + id.curie + ']');
     section.setAttribute('typeof', getAttribute(resource['@type']));
 
     var sectionHeader = document.createElement('h2');
-    sectionHeader.innerHTML = '<span property="rdfs:label" title="' + getTypeDescription(resource) + '">' + resource['label']['en'] + '</span>';
+    sectionHeader.innerHTML = '<span property="rdfs:label">' + resource['label']['en'] + '</span>';
     section.appendChild(sectionHeader);
 
     var iri = document.createElement('dl');
@@ -212,11 +212,20 @@ var relode = (function(jsonld) {
     return section;
   };
 
-  var getTypeDescription = function(resource) {
-    var type = resource['@type'];
+  var getTypeClassification = function(resource) {
+    var classTypes = ['rdfs:Class', 'owl:Class'],
+        objectPropertyTypes = ['owl:ObjectProperty'],
+        datatypePropertyTypes = ['owl:DatatypeProperty'],
+        type = (typeof resource === 'string') ? resource : resource['@type'];
 
-    if (type === "rdfs:Class" || type === "owl:Class") return 'class';
-    else return 'property';
+    if (Array.isArray(type)) {
+      return type.map(getTypeClassification).join(' ');
+    }
+    
+    if (classTypes.indexOf(type) > -1) return 'class';
+    else if (objectPropertyTypes.indexOf(type) > -1) return 'object-property';
+    else if (datatypePropertyTypes.indexOf(type) > -1) return 'data-property';
+    else if (type === 'owl:FunctionalProperty') return 'functional';
   };
 
   var getAttribute = function(attribute) {
