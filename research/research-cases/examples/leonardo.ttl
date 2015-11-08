@@ -1,0 +1,37 @@
+@prefix example-project: <http://example.org/example-project/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rcases: <https://w3id.org/research/cases#> .
+@prefix wikipedia: <https://en.wikipedia.org/wiki/> .
+
+example-project: a rcases:ResearchContext ;
+  dcterms:creator example-project:user1 .
+
+example-project:question1 a rcases:Question ;
+  rcases:text "Who was Leonardo da Vinci?"@en .
+
+example-project:rcase1 a rcases:ResearchCase ;
+  dcterms:creator example-project:user1 ;
+  rcases:intent example-project:question1 ;
+  rcases:context example-project: ;
+  rcases:acceptedConclusion example-project:conclusion1 .
+
+example-project:analysis1 a rcases:Analysis ;
+  rcases:hasDirectEvidence example-project:information1 ;
+  rcases:hasConclusion example-project:conclusion1 .
+
+example-project:conclusion1 a rcases:Conclusion ;
+  rcases:hasAnalysis example-project:analysis1 ;
+  rcases:text "He is mainly a scientist and artist."@en .
+
+example-project:information1 a rcases:Information ;
+  rcases:text "He has been variously called the father of paleontology, ichnology, and architecture, and is widely considered one of the greatest painters of all time."@en ;
+  rcases:hasSource wikipedia:Leonardo_da_Vinci .
+
+wikipedia:Leonardo_da_Vinci a rcases:LearningContext .
+
+example-project:user1 a foaf:Person ;
+  foaf:name "Sara B." ;
+  foaf:nick "user1" .
+
