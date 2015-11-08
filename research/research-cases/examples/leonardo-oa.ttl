@@ -23,6 +23,7 @@ example-project:analysis1 a rcases:Analysis ; # Is analysis rdfs:subclassOf oa:h
     a rcases:Evidence ;
     rcases:hasInformation [
       a oa:Annotation ;
+      oa:motivatedBy oa:analyzing ;
       oa:hasTarget [
         oa:hasSource wikipedia:Leonardo_da_Vinci ;
         oa:hasSelector [
