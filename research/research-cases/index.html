@@ -84,7 +84,7 @@
 
       <h2>Introduction</h2>
 
-      <p>One of the most common things we do on the Web is to go to our favorite search engine and look something up. Then we click through the results hoping to find what we are looking for. Yet the queries we so generously feed to the search engines do not become part of the Web. They get sent to the search engine service, and they don't come back. This is probably fine when searching for a specific resource on the Web and we can't remember the [[URL]], or trying to learn more about a specific concept that is considered public knowledge, for example, in a Wikipedia article, but it doesn't work as well for things that are on the fringe of our collective knowledge spaces—or beyond. We need some way to keep track of where we are in our search for knowledge. Sometimes we don't remember after a half-an-hour of researching has passed by, what it was exactly that we were looking for in the first place. <em>Context matters</em>. It needs to be part of the Web.</p>
+      <p>One of the most common things we do on the Web is to go to our favorite search engine and look something up. Then we click through the results hoping to find what we are looking for. Yet the queries we so generously feed to the search engines do not become part of the Web. They get sent to the search engine service, and they don't come back. This is probably fine when searching for a specific resource on the Web and we can't remember the <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Locator"><abbr title="Uniform Resource Locator">URL</abbr></a> [[rfc1738]], or trying to learn more about a specific concept that is considered public knowledge, for example, in a Wikipedia article, but it doesn't work as well for things that are on the fringe of our collective knowledge spaces—or beyond. We need some way to keep track of where we are in our search for knowledge. Sometimes we don't remember after a half-an-hour of researching has passed by, what it was exactly that we were looking for in the first place. <em>Context matters</em>. It needs to be part of the Web.</p>
 
       <p>The end goal of research is to create some new bit of knowledge. This knowledge may be an earth-shattering idea that revolutionizes how we, collectively, think of the world around us (such as the general theory of relativity), or it may be already known to others, and only new to the particular researcher that just discovered it for himself or herself. Research is, at its essence, structured learning and often involves asking a series of ever more refined questions as the research progresses. This series of questions frames the research context and delineates the learning trajectory of the researcher, and is of great value for others that are trying to understand or reconstruct the research later on. Theoretically, every piece of knowledge could trace its roots back to some bit of research that discovered it. Research cases organize and preserve this process. They broaden the scope of what has traditionally been thought of as <i>research</i>, modeling it holistically as the process the researcher goes through from an initial research question all the way to the resultant answer. Anyone can then step backwards and forwards <em>through time</em>, as it were, to see how that bit of knowledge came about.</p>
 
@@ -174,6 +174,27 @@
           <p>A research case embodies one and only one intention. This focus on one discrete intention at a time is a unique characteristic of research cases.</p>
 
           <pre class="example highlight" data-include="examples/1.ttl" data-include-format="text"></pre>
+
+        </section>
+
+        <section>
+
+          <h2>Research Context</h2>
+
+          <p>The research context keeps track of where the researcher is in the research process.</p>
+
+          <div class="nanotabs">
+            <ul>
+              <li><a href="#ttl">Turtle</a></li>
+              <li><a href="#jsonld">JSON-LD</a></li>
+            </ul>
+            <div class="ttl">
+              <pre class="example highlight" title="Question (Turtle)" data-include="examples/question.ttl" data-include-format="text"></pre>
+            </div>
+            <div class="jsonld">
+              <pre class="example highlight" title="Question (JSON-LD)" data-include="examples/question.jsonld" data-include-format="text"></pre>
+            </div>
+          </div>
 
         </section>
 
