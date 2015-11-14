@@ -51,6 +51,11 @@
       table.data-table th:hover { background-color: #f0f0f0; }
       table.data-table th, table.data-table td { border: 1px solid #aaa; padding: 0.3em; }
       table.data-table th.extended { min-width: 24em; }
+
+      .nanotabs li { float: left; list-style: none; }
+      .nanotabs a { display: block; padding: 4px 6px; margin-right: 3px; background: #fff; color: #b9ab2d; text-decoration: none; }
+      .nanotabs a:hover { background: #fffce5; color: #550; }
+      .nanotabs a.selected { background: #fcfaee; }
     </style>
   </head>
   <body typeof="schema:TechArticle fabio:TechnicalStandard" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# rdfa: http://www.w3.org/ns/rdfa# vs: http://www.w3.org/2003/06/sw-vocab-status/ns# foaf: http://xmlns.com/foaf/0.1/ dcterms: http://purl.org/dc/terms/ prov: http://www.w3.org/ns/prov# schema: http://schema.org/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ fabio: http://purl.org/spar/fabio# rcases: https://w3id.org/research/cases#">
@@ -140,6 +145,27 @@
       <section>
         
         <h2>The Basic Framework</h2>
+
+        <section>
+
+          <h2>Question</h2>
+
+          <p></p>
+
+          <div class="nanotabs">
+            <ul>
+              <li><a href="#ttl">Turtle</a></li>
+              <li><a href="#jsonld">JSON-LD</a></li>
+            </ul>
+            <div class="ttl">
+              <pre class="example highlight" title="Question (Turtle)" data-include="examples/question.ttl" data-include-format="text"></pre>
+            </div>
+            <div class="jsonld">
+              <pre class="example highlight" title="Question (JSON-LD)" data-include="examples/question.jsonld" data-include-format="text"></pre>
+            </div>
+          </div>
+
+        </section>
 
         <section>
 
@@ -239,6 +265,12 @@
         relode.init('research-cases.jsonld', 'cross-reference');
       });
 
+    </script>
+    <script>
+      /* nanotabs ~ Sean Catchpole - Version 0.9 - MIT/GPL */
+      (function(){var q=function(a){return document.getElementsByClassName(a)};if(!document.getElementsByClassName)var f=document.getElementsByTagName("*"),q=function(a){var b=[];a=" "+a+" ";for(var c=0;c<f.length;c++)0<=(" "+f[c].className+" ").indexOf(a)&&b.push(f[c]);return b};var n=function(a){var b;return(b=document.getElementById(a))&&[b]||q(a)},t=function(a){var b=this;return function(){return a.apply(b,arguments)}},h=function(a,b,c){for(var e=0;e<b.length;e++)a.apply(b[e],c||[])},u=function(a){this.className=
+        this.className.replace(new RegExp("(^|\\s)"+a+"(\\s|$)","g"),"")},v=function(){this.style.display="none"},w=function(){this.style.display="block"},r=function(a,b,c,e){h(u,b,[e.s]);this.className+=e.s;h(v,c);h(w,n(a))};nanotabs=function(a){var b;a=a||{};var c=["c","e","s","d","f"];for(b in c)a[c[b]]=a[c[b]]||nanotabs.settings[c[b]];var c=n(a.c),e=function(){var b=this[0],c=[this[1],this[2],this[3],this[4]];a.f&&!1===a.f.apply(b,c)||r.apply(b,c);return!1};for(b=0;b<c.length;b++){for(var l=0,f=[],g=
+          [],k=[],m=c[b].getElementsByTagName("a"),d=0;d<m.length;d++)if(m[d].href.match(/#/)){k.push(m[d].href.split("#")[1]);"string"==typeof a.d&&k[l]==a.d&&(a.d=l);g.push(m[d]);for(var h=n(k[l]),p=0;p<h.length;p++)f.push(h[p]);l++}for(d=0;d<g.length;d++)g[d]["on"+a.e]=t.call([g[d],k[d],g,f,a],e);"number"==typeof a.d&&0<=a.d&&r.call(g[a.d],k[a.d],g,f,a)}};nanotabs.settings={c:"nanotabs",e:"click",s:"selected",d:0,f:!1};nanotabs()})();
     </script>
 
   </body>
