@@ -52,10 +52,11 @@
       table.data-table th, table.data-table td { border: 1px solid #aaa; padding: 0.3em; }
       table.data-table th.extended { min-width: 24em; }
 
-      .nanotabs li { float: left; list-style: none; }
-      .nanotabs a { display: block; padding: 0.5em; margin-right: 0.25em; background: #fff; color: #b9ab2d; text-decoration: none; }
+      .nanotabs ul { padding: 0; margin-top: 0.5em; font-size: 0.8em; }
+      .nanotabs li { display: inline-block; list-style: none; }
+      .nanotabs a { display: block; padding: 0.4em 0.8em; border-radius: 2em; background: #fcfaee; color: #b9ab2d; text-decoration: none; }
       .nanotabs a:hover { background: #fffce5; color: #550; }
-      .nanotabs a.selected { background: #fcfaee; }
+      .nanotabs a.selected { background: #fff; }
     </style>
   </head>
   <body typeof="schema:TechArticle fabio:TechnicalStandard" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# rdfa: http://www.w3.org/ns/rdfa# vs: http://www.w3.org/2003/06/sw-vocab-status/ns# foaf: http://xmlns.com/foaf/0.1/ dcterms: http://purl.org/dc/terms/ prov: http://www.w3.org/ns/prov# schema: http://schema.org/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ fabio: http://purl.org/spar/fabio# rcases: https://w3id.org/research/cases#">
@@ -152,18 +153,38 @@
 
           <p></p>
 
-          <div class="nanotabs">
+          <aside title="Who is Leonardo da Vinci?" class="example nanotabs">
             <ul>
               <li><a href="#ttl">Turtle</a></li>
-              <li><a href="#jsonld">JSON-LD</a></li>
+              <li><a href="#jsonld"><abbr title="JavaScript Object Notation for Linked Data">JSON-LD</abbr></a></li>
+              <li><a href="#rdfxml">RDF/XML</a></li>
             </ul>
             <div class="ttl">
-              <pre class="example highlight" title="Question (Turtle)" data-include="examples/question.ttl" data-include-format="text"></pre>
+              <pre class="highlight">
+&lt;http://example.org/question1&gt; a rcases:Question ;
+  rcases:text "Who is Leonardo da Vinci?"@en .
+              </pre>
             </div>
             <div class="jsonld">
-              <pre class="example highlight" title="Question (JSON-LD)" data-include="examples/question.jsonld" data-include-format="text"></pre>
+              <pre class="highlight">
+{
+  "@context": "https://w3id.org/research/cases/context.json",
+  "@id": "http://example.org/question1",
+  "@type": "Question",
+  "text": {
+    "en": "Who is Leonardo da Vinci?"
+  }
+}
+              </pre>
             </div>
-          </div>
+            <div class="rdfxml">
+              <pre class="highlight">
+&lt;Question rdf:about='http://example.org/question1'&gt;
+  &lt;text xml:lang='en'&gt;Who is Leonardo da Vinci?&lt;/text&gt;
+&lt;/Question&gt;
+              </pre>
+            </div>
+          </aside>
 
         </section>
 
@@ -187,12 +208,16 @@
             <ul>
               <li><a href="#ttl">Turtle</a></li>
               <li><a href="#jsonld">JSON-LD</a></li>
+              <li><a href="#rdfxml">RDF/XML</a></li>
             </ul>
             <div class="ttl">
               <pre class="example highlight" title="Question (Turtle)" data-include="examples/question.ttl" data-include-format="text"></pre>
             </div>
             <div class="jsonld">
               <pre class="example highlight" title="Question (JSON-LD)" data-include="examples/question.jsonld" data-include-format="text"></pre>
+            </div>
+            <div class="rdfxml">
+              <pre class="example highlight" title="Question (RDF/XML)" data-include="examples/question.rdf" data-include-format="text"></pre>
             </div>
           </div>
 
