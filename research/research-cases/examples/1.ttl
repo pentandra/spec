@@ -1,3 +1,0 @@
-@prefix rcases: <https://w3id.org/research/cases#> .
-
-<> a rcases:ResearchCase .
