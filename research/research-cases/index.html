@@ -57,6 +57,13 @@
       .nanotabs a { display: block; padding: 0.4em 0.8em; border-radius: 2em; background: #fcfaee; color: #b9ab2d; text-decoration: none; }
       .nanotabs a:hover { background: #fffce5; color: #550; }
       .nanotabs a.selected { background: #fff; }
+
+      .syntaxmenu { border: 1px dotted black; padding: 0.5em; }
+      .syntaxmenu.nanotabs ul { font-size: inherit; }
+      .syntaxmenu.nanotabs a { background: #e0cb52; color: #fff; }
+      .syntaxmenu.nanotabs a:hover { background: #e0cb52; color: #fff; }
+      .syntaxmenu.nanotabs a.selected { background: #c83500; }
+
     </style>
   </head>
   <body typeof="schema:TechArticle fabio:TechnicalStandard" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# rdfa: http://www.w3.org/ns/rdfa# vs: http://www.w3.org/2003/06/sw-vocab-status/ns# foaf: http://xmlns.com/foaf/0.1/ dcterms: http://purl.org/dc/terms/ prov: http://www.w3.org/ns/prov# schema: http://schema.org/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ fabio: http://purl.org/spar/fabio# rcases: https://w3id.org/research/cases#">
@@ -96,6 +103,27 @@
         <h2>Terminology</h2>
 
         <p>The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, NOT RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [[!rfc2119]].</p>
+
+      </section>
+
+      <section>
+        
+        <h2>Syntaxes</h2>
+
+        <p>The examples below can be represented by any of the available syntaxes for RDF [[rdf11-primer]], and we provide <abbr title="HyperText Markup Language">HTML</abbr>/<abbr title="Resource Description Language in Attributes">RDFa</abbr> [[html-rdfa]], Turtle [[turtle]], <abbr title="JavaScript Object Notation for Linked Data">JSON-LD</abbr> [[json-ld]], and RDF/XML [[rdf-syntax-grammar-20040210]] representations of the RDF-based model. You can control which syntaxes are shown throughout the document by using the buttons below.</p>
+
+        <div class="syntaxmenu nanotabs">
+
+          <p>The buttons below can be used to select between the available syntaxes.</p>
+
+          <ul>
+            <li><a href="#rdfa">HTML/RDFa Syntax</a></li>
+            <li><a href="#ttl">Turtle Syntax</a></li>
+            <li><a href="#jsonld">JSON-LD Syntax</a></li>
+            <li><a href="#rdfxml">RDF/XML Syntax</a></li>
+          </ul>
+
+        </div>
 
       </section>
 
@@ -153,22 +181,22 @@
 
           <p></p>
 
-          <aside title="Who is Leonardo da Vinci?" class="example nanotabs">
-            <ul>
-              <li><a href="#ttl">Turtle</a></li>
-              <li><a href="#jsonld"><abbr title="JavaScript Object Notation for Linked Data">JSON-LD</abbr></a></li>
-              <li><a href="#rdfxml">RDF/XML</a></li>
-            </ul>
+          <aside title="Who is Leonardo da Vinci?" class="example">
+            <div class="rdfa">
+              <pre class="highlight" title="Who is Leonardo da Vinci? (RDFa syntax)">
+&lt;p resource="#question1" typeof="rcases:Question"&gt;Who is Leonardo da Vinci?&lt;/p&gt; .
+              </pre>
+            </div>
             <div class="ttl">
-              <pre class="highlight">
+              <pre class="highlight" title="Who is Leonardo da Vinci? (Turtle syntax)">
 &lt;http://example.org/question1&gt; a rcases:Question ;
   rcases:text "Who is Leonardo da Vinci?"@en .
               </pre>
             </div>
             <div class="jsonld">
-              <pre class="highlight">
+              <pre class="highlight" title="Who is Leonardo da Vinci? (JSON-LD syntax)">
 {
-  "@context": "https://w3id.org/research/cases/context.json",
+  "@context": "http://pentandra.com/spec/research/research-cases/examples/context.json",
   "@id": "http://example.org/question1",
   "@type": "Question",
   "text": {
@@ -178,9 +206,9 @@
               </pre>
             </div>
             <div class="rdfxml">
-              <pre class="highlight">
-&lt;Question rdf:about='http://example.org/question1'&gt;
-  &lt;text xml:lang='en'&gt;Who is Leonardo da Vinci?&lt;/text&gt;
+              <pre class="highlight" title="Who is Leonardo da Vinci? (RDF/XML syntax)">
+&lt;Question rdf:about="http://example.org/question1"&gt;
+  &lt;text xml:lang="en"&gt;Who is Leonardo da Vinci?&lt;/text&gt;
 &lt;/Question&gt;
               </pre>
             </div>
@@ -202,20 +230,32 @@
 
           <p>The research context keeps track of where the researcher is in the research process.</p>
 
-          <div class="nanotabs">
-            <ul>
-              <li><a href="#ttl">Turtle</a></li>
-              <li><a href="#jsonld">JSON-LD</a></li>
-              <li><a href="#rdfxml">RDF/XML</a></li>
-            </ul>
+          <aside title="A Research Context" class="example">
+            <div class="rdfa">
+              <pre class="highlight" title="A Research Context (HTML/RDFa)">
+&lt;h1 resource="#project1" typeof="rcases:ResearchContext"&gt;Research Project: &lt;span property="dc:title"&gt;Leonardo da Vinci&lt;/span&gt;&lt;/h1&gt; .
+              </pre>
+            </div>
             <div class="ttl">
-              <pre class="example highlight" title="Question (Turtle)" data-include="examples/question.ttl" data-include-format="text"></pre>
+              <pre class="highlight" title="A Research Context (Turtle)">
+&lt;http://example.org/project1&gt; a rcases:ResearchContext .
+              </pre>
             </div>
             <div class="jsonld">
-              <pre class="example highlight" title="Question (JSON-LD)" data-include="examples/question.jsonld" data-include-format="text"></pre>
+              <pre class="highlight" title="A Research Context (JSON-LD)">
+{
+  "@context": "http://pentandra.com/spec/research/research-cases/examples/context.json",
+  "@id": "http://example.org/project1",
+  "@type": "ResearchContext"
+}
+              </pre>
             </div>
             <div class="rdfxml">
-              <pre class="example highlight" title="Question (RDF/XML)" data-include="examples/question.rdf" data-include-format="text"></pre>
+              <pre class="highlight" title="A Research Context (RDF/XML)">
+&lt;Question rdf:about="http://example.org/question1"&gt;
+  &lt;text xml:lang="en"&gt;Who is Leonardo da Vinci?&lt;/text&gt;
+&lt;/Question&gt;
+              </pre>
             </div>
           </div>
 
@@ -286,12 +326,35 @@
 
       <h2>Extended Examples</h2>
 
-      <dl>
-        <dt><a href="">Steps to the Future: Researching the Backcountry Birth of George F. Ring</a></dt>
-        <dd>From a <em>real</em> research project by Dr. John Phillip Colletta, published as <cite>Building Context around Biographical Facts: A Process Illustrated by the Backcountry Birth of George F. Ring</cite> in the National Genealogical Society Quarterly.</dd>
-      </dl>
+      <section>
 
+        <h2>Leonardo da Vinci Full Example</h2>
+
+        <aside title="Who is Leonardo da Vinci? (full example)" class="example">
+          <div class="rdfa">
+            <pre class="highlight" title="Who is Leonardo da Vinci? (full example in HTML5/RDFa)" data-include="examples/leonardo-rdfa/index.html" data-include-format="text"></pre>
+          </div>
+          <div class="ttl">
+            <pre class="highlight" title="Who is Leonardo da Vinci? (full example in Turtle)" data-include="examples/leonardo-oa.ttl" data-include-format="text"></pre>
+          </div>
+          <div class="jsonld">
+            <pre class="highlight" title="Who is Leonardo da Vinci? (full example in JSON-LD)" data-include="examples/leonardo-oa.jsonld" data-include-format="text"></pre>
+          </div>
+          <div class="rdfxml">
+            <pre class="highlight" title="Who is Leonardo da Vinci? (full example in RDF/XML)" data-include="examples/leonardo-oa.rdf" data-include-format="text"></pre>
+          </div>
+        </aside>
+
+      </section>
       
+      <section>
+
+        <h2>Steps to the Future: Researching the Backcountry Birth of George F. Ring</h2>
+
+        <p>From a <em>real</em> research project by Dr. John Phillip Colletta, published as <cite>Building Context around Biographical Facts: A Process Illustrated by the Backcountry Birth of George F. Ring</cite> in the National Genealogical Society Quarterly.</p>
+
+      </section>
+
     </section>
 
     <section class="appendix informative">
