@@ -29,10 +29,10 @@
           }],
 
           alternateFormats: [
-            { uri: ".", label: "HTML5/RDFa" },
             { uri: "research-cases.ttl", label: "Turtle" },
             { uri: "research-cases.jsonld", label: "JSON-LD" },
             { uri: "research-cases.rdf", label: "RDF/XML" },
+            { uri: ".", label: "HTML5/RDFa" },
           ],
           localBiblio: localBibliography,
           doRDFa: false // Let's do our own for now...
@@ -110,17 +110,17 @@
         
         <h2>Syntaxes</h2>
 
-        <p>The examples below can be represented by any of the available syntaxes for RDF [[rdf11-primer]], and we provide <abbr title="HyperText Markup Language">HTML</abbr>/<abbr title="Resource Description Language in Attributes">RDFa</abbr> [[html-rdfa]], Turtle [[turtle]], <abbr title="JavaScript Object Notation for Linked Data">JSON-LD</abbr> [[json-ld]], and RDF/XML [[rdf-syntax-grammar-20040210]] representations of the RDF-based model. You can control which syntaxes are shown throughout the document by using the buttons below.</p>
+        <p>The examples below can be represented by any of the available syntaxes for RDF [[rdf11-primer]], and we provide Turtle [[turtle]], <abbr title="JavaScript Object Notation for Linked Data">JSON-LD</abbr> [[json-ld]], RDF/XML [[rdf-syntax-grammar-20040210]], and <abbr title="HyperText Markup Language">HTML</abbr>/<abbr title="Resource Description Language in Attributes">RDFa</abbr> [[html-rdfa]] representations of the RDF-based model. You can control which syntaxes are shown throughout the document by using the buttons below.</p>
 
         <div class="syntaxmenu nanotabs">
 
           <p>The buttons below can be used to select between the available syntaxes.</p>
 
           <ul>
-            <li><a href="#rdfa">HTML/RDFa Syntax</a></li>
             <li><a href="#ttl">Turtle Syntax</a></li>
             <li><a href="#jsonld">JSON-LD Syntax</a></li>
             <li><a href="#rdfxml">RDF/XML Syntax</a></li>
+            <li><a href="#rdfa">HTML/RDFa Syntax</a></li>
           </ul>
 
         </div>
@@ -182,11 +182,6 @@
           <p></p>
 
           <aside title="Who was Leonardo da Vinci?" class="example">
-            <div class="rdfa">
-              <pre class="highlight" title="Who was Leonardo da Vinci? (RDFa syntax)">
-&lt;p resource="#question1" typeof="rcases:Question"&gt;Who was Leonardo da Vinci?&lt;/p&gt; .
-              </pre>
-            </div>
             <div class="ttl">
               <pre class="highlight" title="Who was Leonardo da Vinci? (Turtle syntax)">
 &lt;http://example.org/question1&gt; a rcases:Question ;
@@ -212,6 +207,11 @@
 &lt;/Question&gt;
               </pre>
             </div>
+            <div class="rdfa">
+              <pre class="highlight" title="Who was Leonardo da Vinci? (RDFa syntax)">
+&lt;p resource="#question1" typeof="rcases:Question"&gt;Who was Leonardo da Vinci?&lt;/p&gt; .
+              </pre>
+            </div>
           </aside>
 
         </section>
@@ -231,11 +231,6 @@
           <p>The research context keeps track of where the researcher is in the research process.</p>
 
           <aside title="A Research Context" class="example">
-            <div class="rdfa">
-              <pre class="highlight" title="A Research Context (HTML/RDFa)">
-&lt;h1 resource="#project1" typeof="rcases:ResearchContext"&gt;Research Project: &lt;span property="dc:title"&gt;Leonardo da Vinci&lt;/span&gt;&lt;/h1&gt; .
-              </pre>
-            </div>
             <div class="ttl">
               <pre class="highlight" title="A Research Context (Turtle)">
 &lt;http://example.org/project1&gt; a rcases:ResearchContext .
@@ -255,6 +250,11 @@
 &lt;Question rdf:about="http://example.org/question1"&gt;
   &lt;text xml:lang="en"&gt;Who was Leonardo da Vinci?&lt;/text&gt;
 &lt;/Question&gt;
+              </pre>
+            </div>
+            <div class="rdfa">
+              <pre class="highlight" title="A Research Context (HTML/RDFa)">
+&lt;h1 resource="#project1" typeof="rcases:ResearchContext"&gt;Research Project: &lt;span property="dc:title"&gt;Leonardo da Vinci&lt;/span&gt;&lt;/h1&gt; .
               </pre>
             </div>
           </div>
@@ -331,9 +331,6 @@
         <h2>Leonardo da Vinci Full Example</h2>
 
         <aside title="Who was Leonardo da Vinci? (full example)" class="example">
-          <div class="rdfa">
-            <pre class="highlight" title="Who was Leonardo da Vinci? (full example in HTML5/RDFa)" data-include="examples/leonardo-rdfa/index.html" data-include-format="text"></pre>
-          </div>
           <div class="ttl">
             <pre class="highlight" title="Who was Leonardo da Vinci? (full example in Turtle)" data-include="examples/leonardo-oa.ttl" data-include-format="text"></pre>
           </div>
@@ -342,6 +339,9 @@
           </div>
           <div class="rdfxml">
             <pre class="highlight" title="Who was Leonardo da Vinci? (full example in RDF/XML)" data-include="examples/leonardo-oa.rdf" data-include-format="text"></pre>
+          </div>
+          <div class="rdfa">
+            <pre class="highlight" title="Who was Leonardo da Vinci? (full example in HTML5/RDFa)" data-include="examples/leonardo-rdfa/index.html" data-include-format="text"></pre>
           </div>
         </aside>
 
