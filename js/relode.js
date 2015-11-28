@@ -2,12 +2,39 @@
 
 var relode = (function(jsonld) {
 
-  var my = {}, 
-      promises = jsonld.promises;
+  var my = {}, promises = jsonld.promises;
+  
+  var framingContext = {    
+    "cc": "http://creativecommons.org/ns#",
+    "dcterms": "http://purl.org/dc/terms",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "vann": "http://purl.org/vocab/vann/",
+    "vs": "http://www.w3.org/2003/06/sw-vocab-status/ns#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs:domain": { "@type": "@id" },
+    "rdfs:range": { "@type": "@id" },
+    "rdfs:comment": { "@container": "@language" },
+    "rdfs:label": { "@container": "@language" },
+    "rdfs:isDefinedBy": { "@type": "@id" },
+    "rdfs:subClassOf": { "@type": "@id", "@container": "@set" },
+    "rdfs:subPropertyOf": { "@type": "@id", "@container": "@set" },
+    "rdfs:seeAlso": { "@type": "@id" },
+    "creator": { "@id": "dcterms:creator", "@type": "@id" },
+    "contributor": { "@id": "dcterms:contributor", "@type": "@id" },
+    "publisher": { "@id": "dcterms:publisher", "@type": "@id" },
+    "title": { "@id": "dcterms:title", "@container": "@language" },
+    "description": { "@id": "dcterms:description", "@container": "@language" },
+    "rights": { "@id": "dcterms:rights" },
+    "status": "vs:term_status",
+    "moreInfo": { "@id": "vs:moreinfo", "@type": "@id" }
+  };
 
-  var documentClasses = function(doc, context, targetElement) {
+  var documentClasses = function(doc, targetElement) {
 
-    var classes = document.createDocumentFragment();
+    var originalContext = doc['@context'], 
+        classes = document.createDocumentFragment();
 
     var classesSection = document.createElement('section');
     var classesHeader = document.createElement('h2');
@@ -15,11 +42,11 @@ var relode = (function(jsonld) {
     classesSection.appendChild(classesHeader);
 
     var frame = {
-      "@context": context,
+      "@context": framingContext,
       "@type": [ "rdfs:Class", "owl:Class" ],
-      "subClassOf": { "@embed": false },
+      "rdfs:subClassOf": { "@embed": false },
       "rdfs:isDefinedBy": { "@embed": false },
-      "seeAlso": { "@embed": false },
+      "rdfs:seeAlso": { "@embed": false },
     }; 
 
     var promise = promises.frame(doc, frame);
@@ -40,13 +67,13 @@ var relode = (function(jsonld) {
 
     var assembleClassSection = function(resource) {
 
-      var classSection = assembleCommon(resource, context);
+      var classSection = assembleCommon(resource, originalContext);
 
       if (hasRelationships(resource)) {
         var relationships = document.createElement('dl');
         relationships.className = 'relationships';
 
-        var superClasses = resource['subClassOf'];
+        var superClasses = resource['rdfs:subClassOf'];
         if (superClasses.length > 0) {
           var dt = document.createElement('dt');
           dt.textContent = "has super-classes";
@@ -54,8 +81,8 @@ var relode = (function(jsonld) {
 
           superClasses.forEach(function(superClass){
             var dd = document.createElement('dd'),
-                link = getExpandedUri(superClass, context);
-            dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="class">' + superClass + '</a>';
+                link = getExpandedUri(superClass, originalContext);
+            dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="class">' + getCompactUri(superClass, originalContext) + '</a>';
             relationships.appendChild(dd);
           });
         }
@@ -66,7 +93,7 @@ var relode = (function(jsonld) {
       return classSection;
     };
 
-    var supportedRelationships = ['subClassOf'];
+    var supportedRelationships = ['rdfs:subClassOf'];
 
     var hasRelationships = function(resource) {
       return supportedRelationships.some(function(relationship) {
@@ -75,23 +102,31 @@ var relode = (function(jsonld) {
     };
   };
 
-  var documentProperties = function(doc, context, targetElement) {
+  var documentProperties = function(doc, targetElement) {
 
-    var properties = document.createDocumentFragment();
+    var originalContext = doc['@context'], 
+        properties = document.createDocumentFragment();
 
-    var propertiesSection = document.createElement('section');
-    var propertiesHeader = document.createElement('h2');
+    var propertiesSection = document.createElement('section'),
+        propertiesHeader = document.createElement('h2'),
+        propertiesToc = document.createElement('nav'),
+        propertiesTocList = document.createElement('ol');
+
     propertiesHeader.textContent = 'Object Properties';
     propertiesSection.appendChild(propertiesHeader);
 
+    propertiesToc.className = 'properties';
+    propertiesToc.appendChild(propertiesTocList);
+    propertiesSection.appendChild(propertiesToc);
+
     var frame = {
-      "@context": context,
+      "@context": framingContext,
       "@type": [ "owl:ObjectProperty" ],
-      "subPropertyOf": { "@embed": false },
+      "rdfs:subPropertyOf": { "@embed": false },
       "rdfs:isDefinedBy": { "@embed": false },
-      "seeAlso": { "@embed": false },
-      "domain": { "@embed": false },
-      "range": { "@embed": false },
+      "rdfs:seeAlso": { "@embed": false },
+      "rdfs:domain": { "@embed": false },
+      "rdfs:range": { "@embed": false },
     }; 
 
     var promise = promises.frame(doc, frame);
@@ -112,13 +147,13 @@ var relode = (function(jsonld) {
 
     var assemblePropertySection = function(resource) {
 
-      var propertySection = assembleCommon(resource, context);
+      var propertySection = assembleCommon(resource, originalContext);
 
       if (hasRelationships(resource)) {
         var relationships = document.createElement('dl');
         relationships.className = 'relationships';
 
-        var superProperties = resource['subPropertyOf'];
+        var superProperties = resource['rdfs:subPropertyOf'];
         if (superProperties.length > 0) {
           var dt = document.createElement('dt');
           dt.textContent = "has super-properties";
@@ -126,35 +161,36 @@ var relode = (function(jsonld) {
 
           superProperties.forEach(function(superProperty){
             var dd = document.createElement('dd'),
-                link = getExpandedUri(superProperty, context);
+                link = getExpandedUri(superProperty, originalContext);
 
-            dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="superproperty">' + superProperty + '</a>';
+            dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="superproperty">' + getCompactUri(superProperty, originalContext) + '</a>';
             relationships.appendChild(dd);
           });
         }
 
-        var domain = resource['domain'];
+        var domain = resource['rdfs:domain'];
         if (domain) {
           var dt = document.createElement('dt');
           dt.textContent = 'has domain';
           relationships.appendChild(dt);
 
           var dd = document.createElement('dd'),
-              link = getExpandedUri(domain, context);
+              link = getExpandedUri(domain, originalContext);
 
-          dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="domain">' + domain + '</a>';
+          dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="domain">' + getCompactUri(domain, originalContext) + '</a>';
           relationships.appendChild(dd);
         }
 
-        var range = resource['range'];
+        var range = resource['rdfs:range'];
         if (range) {
           var dt = document.createElement('dt');
           dt.textContent = 'has range';
           relationships.appendChild(dt);
 
           var dd = document.createElement('dd'),
-              link = getExpandedUri(range, context);
-          dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="range">' + range + '</a>';
+              link = getExpandedUri(range, originalContext);
+
+          dd.innerHTML = '<a title="Go to ' + link + '" href="' + link + '" class="range">' + getCompactUri(range, originalContext) + '</a>';
           relationships.appendChild(dd);
         }
 
@@ -164,7 +200,7 @@ var relode = (function(jsonld) {
       return propertySection;
     };
 
-    var supportedRelationships = ['subPropertyOf', 'domain', 'range'];
+    var supportedRelationships = ['rdfs:subPropertyOf', 'rdfs:domain', 'rdfs:range'];
 
     var hasRelationships = function(resource) {
       return supportedRelationships.some(function(relationship) {
@@ -186,7 +222,7 @@ var relode = (function(jsonld) {
     resourceElement.setAttribute('typeof', getAttribute(resource['@type']));
 
     var resourceElementHeader = document.createElement('h2');
-    resourceElementHeader.innerHTML = '<span property="rdfs:label">' + resource['label']['en'] + '</span>';
+    resourceElementHeader.innerHTML = '<span property="rdfs:label">' + resource['rdfs:label']['en'] + '</span>';
     resourceElement.appendChild(resourceElementHeader);
 
     var iri = document.createElement('dl');
@@ -199,7 +235,7 @@ var relode = (function(jsonld) {
     definedBy.innerHTML = '<dt>Is defined by:</dt><dd property="rdfs:isDefinedBy" resource="' + resource['rdfs:isDefinedBy'] + '"><code>' + resource['rdfs:isDefinedBy'] + '</code></dd>';
     resourceElement.appendChild(definedBy);
 
-    var comment = resource['comment'];
+    var comment = resource['rdfs:comment'];
     if (comment) {
       var commentElement = document.createElement('div');
       commentElement.className = "comment";
@@ -207,7 +243,7 @@ var relode = (function(jsonld) {
       resourceElement.appendChild(commentElement);
     }
 
-    var seeAlso = resource['seeAlso'];
+    var seeAlso = resource['rdfs:seeAlso'];
     if (seeAlso) {
       var seeAlsoElement = document.createElement('dl');
       seeAlsoElement.className = 'see-also inline';
@@ -248,12 +284,20 @@ var relode = (function(jsonld) {
 
   var decomposeCurie = function(curie, context) {
     if (!isCurie(curie)) {
-      throw new Error("'" + curie + "' is not a curie!");
+      for (var term in context) {
+        var prefix = context[term];
+        if (typeof prefix === 'string' && curie.indexOf(prefix) !== -1) {
+          curie = term + ":" + curie.substring(prefix.length);
+        }
+      }
+
+      if (!isCurie(curie))
+        throw new Error("<" + curie + "> is not a curie!");
     }
 
     var parts = curie.split(":"),
-    prefix = parts[0],
-    name = parts[1];
+        prefix = parts[0],
+        name = parts[1];
 
     return {
       "curie": curie,
@@ -271,6 +315,10 @@ var relode = (function(jsonld) {
   var getExpandedUri = function(uri, context) {
     return isCurie(uri) ? decomposeCurie(uri, context).expanded : uri ;
   };
+
+  var getCompactUri = function(uri, context) {
+    return isCurie(uri) ? uri : decomposeCurie(uri, context).curie ;
+  }
 
   var isAbsoluteWebUri = function(uri) {
     return (uri.indexOf('http://') === 0 || uri.indexOf('https://') === 0);
@@ -301,8 +349,8 @@ var relode = (function(jsonld) {
     documentLoader(vocabUrl).then(function(response) {
       var doc = JSON.parse(response.document);
 
-      documentClasses(doc, doc['@context'], targetElement);
-      documentProperties(doc, doc['@context'], targetElement);
+      documentClasses(doc, targetElement);
+      documentProperties(doc, targetElement);
 
     }, function(err) {
       console.warn("There was a problem: ", err);
