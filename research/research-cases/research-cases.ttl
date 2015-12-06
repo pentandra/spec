@@ -30,7 +30,9 @@
   dcterms:creator pentandra:chris-chapman ;
   dcterms:contributor pentandra:katie-chapman ;
   dcterms:publisher pentandra:company ;
-  owl:versionInfo "0.3.0" .
+  owl:versionInfo "0.3.0" ;
+  voaf:hasEquivalencesWith <http://purl.org/mp/> ;
+  voaf:similar <http://purl.org/mp/> .
 
 rcases:LearningContext
   a owl:Class ;
