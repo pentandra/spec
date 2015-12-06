@@ -66,7 +66,7 @@
 
     </style>
   </head>
-  <body typeof="schema:TechArticle fabio:TechnicalStandard" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# rdfa: http://www.w3.org/ns/rdfa# vs: http://www.w3.org/2003/06/sw-vocab-status/ns# foaf: http://xmlns.com/foaf/0.1/ dcterms: http://purl.org/dc/terms/ prov: http://www.w3.org/ns/prov# schema: http://schema.org/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ fabio: http://purl.org/spar/fabio# rcases: https://w3id.org/research/cases#">
+  <body typeof="schema:TechArticle fabio:TechnicalStandard" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# rdfa: http://www.w3.org/ns/rdfa# vs: http://www.w3.org/2003/06/sw-vocab-status/ns# foaf: http://xmlns.com/foaf/0.1/ dcterms: http://purl.org/dc/terms/ voaf: http://purl.org/vocommons/voaf# prov: http://www.w3.org/ns/prov# schema: http://schema.org/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ fabio: http://purl.org/spar/fabio# rcases: https://w3id.org/research/cases#">
 
     <section id="abstract" resource="#abstract" property="dcterms:hasPart" typeof="doco:Abstract">
       <div property="schema:description">
@@ -100,7 +100,7 @@
 
       <section>
 
-        <h2>Terminology</h2>
+        <h2>Conformance</h2>
 
         <p>The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD, SHOULD NOT, RECOMMENDED, NOT RECOMMENDED, MAY, and OPTIONAL in this document are to be interpreted as described in [[!rfc2119]].</p>
 
@@ -110,7 +110,7 @@
         
         <h2>Syntaxes</h2>
 
-        <p>The examples below can be represented by any of <a href="http://www.w3.org/TR/rdf11-primer/#section-graph-syntax">the available syntaxes for RDF</a> [[rdf11-primer]], and we provide Turtle [[turtle]], <abbr title="JavaScript Object Notation for Linked Data">JSON-LD</abbr> [[json-ld]], RDF/XML [[rdf-syntax-grammar-20040210]], and <abbr title="HyperText Markup Language">HTML</abbr>/<abbr title="Resource Description Language in Attributes">RDFa</abbr> [[html-rdfa]] representations of the RDF-based model. You can control which syntaxes are shown throughout the document by using the buttons below.</p>
+        <p>The examples below can be represented by any of <a href="http://www.w3.org/TR/rdf11-primer/#section-graph-syntax">the available syntaxes for RDF</a> [[rdf11-primer]], and we provide Turtle [[turtle]], <abbr title="JavaScript Object Notation for Linked Data">JSON-LD</abbr> [[json-ld]], RDF/XML [[rdf-syntax-grammar-20040210]], and <abbr title="HyperText Markup Language">HTML</abbr>/<abbr title="Resource Description Language in Attributes">RDFa</abbr> [[html-rdfa]] representations of the RDF model. You can control which syntaxes are shown throughout the document by using the buttons below.</p>
 
         <div class="syntaxmenu nanotabs">
 
@@ -175,11 +175,11 @@
         
         <h2>The Basic Framework</h2>
 
-        <section>
+        <section class="informative">
 
           <h2>Question</h2>
 
-          <p></p>
+          <p>There SHOULD only be one question per research case.</p>
 
           <aside title="Who was Leonardo da Vinci?" class="example">
             <div class="ttl">
@@ -216,7 +216,7 @@
 
         </section>
 
-        <section>
+        <section class="informative">
 
           <h2>Research Case</h2>
 
@@ -224,11 +224,11 @@
 
         </section>
 
-        <section>
+        <section class="informative">
 
           <h2>Research Context</h2>
 
-          <p>The research context keeps track of where the researcher is in the research process.</p>
+          <p>The research context keeps track of where the researcher is in the research process. It’s intention is to model real-world research processes, which may be composed of one person researching alone, or of several people working together as is commonplace in research or open-source software development collaborations.</p>
 
           <aside title="A Research Context" class="example">
             <div class="ttl">
@@ -265,7 +265,7 @@
 
     </section>
 
-    <section id="cross-reference" property="foaf:primaryTopic" resource="[rcases:]" typeof="owl:Ontology">
+    <section id="cross-reference" property="foaf:primaryTopic" resource="[rcases:]" typeof="owl:Ontology voaf:Vocabulary">
 
       <h2>Vocabulary Cross-Reference</h2>
 
@@ -360,7 +360,7 @@
     <section class="appendix informative">
       <h2>Acknowledgments</h2>
 
-      <p>And, of course, thanks to Robin Berjon for making our lives so much easier with <a href="http://www.w3.org/respec/">ReSpec</a>.</p>
+      <p>And, of course, thanks to Robin Berjon for making our lives so much easier with <a property="prov:wasGeneratedBy" href="http://www.w3.org/respec/">ReSpec</a>.</p>
 
     </section>
 
