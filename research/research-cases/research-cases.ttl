@@ -93,14 +93,6 @@ rcases:Conclusion
   rdfs:comment "An answer to a research question."@en ;
   vs:term_status "testing" .
 
-rcases:Intention
-  a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
-  rdfs:label "Intention"@en ;
-  rdfs:label "Намір"@uk ;
-  rdfs:comment "The next step that the researcher intends to take in the research process. The next thing that needs to be explored, or direction the research needs to go."@en ;
-  vs:term_status "testing" .
-
 rcases:Trajectory
   a owl:Class ;
   rdfs:isDefinedBy rcases: ;
@@ -113,16 +105,15 @@ rcases:Trajectory
 rcases:Question
   a owl:Class ;
   rdfs:isDefinedBy rcases: ;
-  rdfs:subClassOf rcases:Intention ;
   rdfs:label "Question"@en ;
   rdfs:label "Питання"@uk ;
-  rdfs:comment "A research question."@en ;
+  rdfs:comment "A research question. Represents the direction that the researcher intends to take the research. The next thing that needs to be explored, or direction that the research needs to go."@en ;
   vs:term_status "stable" .
 
 rcases:Hypothesis
   a owl:Class ;
   rdfs:isDefinedBy rcases: ;
-  rdfs:subClassOf rcases:Intention ;
+  rdfs:subClassOf rcases:Conclusion ;
   rdfs:label "Hypothesis"@en ;
   rdfs:label "Гіпотеза"@uk ;
   rdfs:comment "A statement to test. A possible, though unproven, answer to a research question."@en ;
@@ -137,19 +128,19 @@ rcases:Researcher
   rdfs:comment "A person who researches"@en ;
   vs:term_status "testing" .
 
-rcases:intent
+rcases:question
   a owl:ObjectProperty ;
   rdfs:domain rcases:ResearchCase ;
-  rdfs:range rcases:Intention ;
+  rdfs:range rcases:Question ;
   rdfs:isDefinedBy rcases: ;
-  rdfs:label "intent"@en ;
-  rdfs:label "Замір"@uk ;
-  rdfs:comment "What the researcher is intending to do next. The aim the researcher is taking for his, her, or its next step. The angle of inclination that will determine the trajectory that the research will take."@en ;
+  rdfs:label "question"@en ;
+  rdfs:label "питання"@uk ;
+  rdfs:comment "The question the researcher is intending to answer next. The aim the researcher is taking for his, her, or its next step. The angle of inclination that will determine the trajectory that the research will take."@en ;
   rdfs:seeAlso rcases:Trajectory ;
   vs:term_status "stable" .
 
-# Each research case has only one intent.
-rcases:intent a owl:FunctionalProperty .
+# Each research case has only one question.
+rcases:question a owl:FunctionalProperty .
 
 rcases:triggeredBy
   a owl:ObjectProperty ;
@@ -198,3 +189,25 @@ rcases:evidence
   rdfs:label "evidence"@en ;
   rdfs:comment "A bit of evidence used in an analysis."@en ;
   vs:term_status "testing" .
+
+rcases:source
+  a owl:ObjectProperty ;
+  rdfs:domain rcases:Information ;
+#  rdfs:range rcases:LearningContext ;
+  rdfs:isDefinedBy rcases: ;
+  rdfs:label "source"@en ;
+  rdfs:comment "The source of the information."@en ;
+  vs:term_status "unstable" .
+
+pentandra:chris-chapman
+  a foaf:Person ;
+  foaf:name "Chris Chapman" .
+
+pentandra:katie-chapman
+  a foaf:Person ;
+  foaf:name "Katie Chapman" .
+
+pentandra:company
+  a foaf:Organization ;
+  foaf:name "Pentandra Research Solutions, Inc." ;
+  foaf:homepage <http://pentandra.com/> .
