@@ -9,7 +9,7 @@
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix pentandra: <http://pentandra.com/company/#> .
+@prefix pentandra: <https://pentandra.com/company/#> .
 @prefix rcases: <https://w3id.org/research/cases#> .
 
 <https://w3id.org/research/cases#>
@@ -20,7 +20,7 @@
 
   Research cases are intended to be powerful enough to describe the most complex and intricate of research problems, and simple enough to be useful for informal research that could be thought of more as proactive learning. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines."""@en ;
   rdfs:isDefinedBy rcases: ;
-  rdfs:seeAlso <http://researchcases.org/>, <http://pentandra.com/spec/research/research-cases/> ;
+  rdfs:seeAlso <https://researchcases.org/>, <https://pentandra.com/spec/research/research-cases/> ;
   cc:license <http://creativecommons.org/licenses/by/4.0/> ;
   cc:attributionName "Research Cases Community" ;
   cc:attributionURL <https://researchcases.org> ;
@@ -75,7 +75,7 @@ rcases:Evidence
   rdfs:label "Свідоцтво"@uk ;
   rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question, or that has bearing on the answer to a question. Evidence only exists in the context of a question."@en ;
   vs:term_status "testing" ;
-  vs:moreinfo <http://pentandra.com/research/process/#dfn:evidence> .
+  vs:moreinfo <https://pentandra.com/research/process/#dfn:evidence> .
 
 rcases:Information
   a owl:Class ;
@@ -84,7 +84,7 @@ rcases:Information
   rdfs:label "Інформація"@uk ;
   rdfs:comment "Data with context and meaning. Much of the stuff on the document web is information."@en ;
   vs:term_status "testing" ;
-  vs:moreinfo <http://pentandra.com/research/process/#dfn:information> .
+  vs:moreinfo <https://pentandra.com/research/process/#dfn:information> .
 
 rcases:Conclusion
   a owl:Class ;
@@ -212,4 +212,4 @@ pentandra:katie-chapman
 pentandra:company
   a foaf:Organization ;
   foaf:name "Pentandra Research Solutions, Inc." ;
-  foaf:homepage <http://pentandra.com/> .
+  foaf:homepage <https://pentandra.com/> .
