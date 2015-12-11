@@ -286,7 +286,7 @@ var relode = (function(jsonld) {
     if (!isCurie(curie)) {
       for (var term in context) {
         var prefix = context[term];
-        if (typeof prefix === 'string' && curie.indexOf(prefix) !== -1) {
+        if (typeof prefix === 'string' && term.indexOf('@') !== 0 && curie.indexOf(prefix) !== -1) {
           curie = term + ":" + curie.substring(prefix.length);
         }
       }
