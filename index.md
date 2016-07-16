@@ -1,16 +1,17 @@
 ---
-title: Work-in-process Specifications
-description: Specifications, mostly ontologies, at various levels of development.
+title: Specifications
+description: Specifications, mostly ontologies, at various stages of development.
 ---
 
-# Work-in-process Specifications
+# Specifications
 
-Mostly ontologies, at various levels of development. Some of these we are
+Mostly ontologies, at various stages of development. Some of these we are
 actively developing, and some some are links to specifications that others have
-started, are important to us, and to which we are actively contributing.
+started, are important to us, and to which we are actively contributing or
+incubating. All deal somehow with _knowledge design_.
 
 * [Research specifications](research/)
-* [IBIS ontology]()
+* [Design specifications](design/)
 * [REST specifications](rest/)
 * [Business specifications](business/)
 
