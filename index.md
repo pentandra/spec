@@ -14,6 +14,3 @@ incubating. All deal somehow with _knowledge design_.
 * [Design specifications](design/)
 * [Machine interface specifications](mi/)
 * [Business specifications](business/)
-
-*[REST]: Representational State Transfer
-*[IBIS]: Issue-based Information System
