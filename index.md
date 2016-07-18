@@ -12,7 +12,7 @@ incubating. All deal somehow with _knowledge design_.
 
 * [Research specifications](research/)
 * [Design specifications](design/)
-* [REST specifications](rest/)
+* [Machine interface specifications](mi/)
 * [Business specifications](business/)
 
 *[REST]: Representational State Transfer
