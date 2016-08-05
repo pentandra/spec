@@ -1,0 +1,38 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix earl: <https://www.w3.org/ns/earl#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pentandra: <https://pentandra.com/company#> .
+@prefix scearl: <https://w3id.org/scholarly-commons/scearl#> .
+
+<https://w3id.org/scholarly-commons/scearl#>
+  a owl:Ontology, voaf:Vocabulary ;
+  dcterms:title "Scholary Commons Evaluation Language"@en ;
+  rdfs:label "Scholarly Commons Evaluation Language"@en ;
+  dcterms:description "An extension of EARL used to measure compliance with tools for scholarly communication"@en ;
+  rdfs:isDefinedBy scearl: ;
+  cc:license <http://creativecommons.org/licenses/by/4.0/> ;
+  cc:attributionName "FORCE11 Scholarly Commons Working Group" ;
+  cc:attributionURL <https://force11.org/group/scholarly-commons-working-group> ;
+  vann:preferredNamespacePrefix "scearl" ;
+  vann:preferredNamespaceUri "https://w3id.org/research/cases#" ;
+  dcterms:rights "Copyright © Scholarly Commons Community" ;
+  dcterms:creator pentandra:chris-chapman ;
+  owl:versionInfo "0.0.1" ;
+  voaf:hasEquivalencesWith earl: .
+  
+scearl:Principle
+  a owl:Class ;
+  rdfs:subClassOf earl:TestRequirement ;
+  rdfs:isDefinedBy scearl: ;
+  rdfs:label "Principle"@en ;
+  rdfs:comment "A principle of the scholarly commons against which to evaluate."@en ;
+  vs:term_status "stable" .
