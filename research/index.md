@@ -2,7 +2,6 @@
 title: Specifications for Open Research
 description: Specifications for open research on the World Wide Web.
 ---
-# Specifications for Open Research
 
 The foundations for open research on the Web, because if it's not on the Web, it doesn’t exist ;-).
 
