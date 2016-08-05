@@ -9,7 +9,7 @@
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix pentandra: <https://pentandra.com/company/#> .
+@prefix pentandra: <https://pentandra.com/company#> .
 @prefix rcases: <https://w3id.org/research/cases#> .
 
 <https://w3id.org/research/cases#>
