@@ -1,18 +1,18 @@
 @prefix example-project: <http://example.org/example-project/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rcases: <https://w3id.org/research/cases#> .
 @prefix wikipedia: <https://en.wikipedia.org/wiki/> .
 
 example-project: a rcases:ResearchContext ;
-  dcterms:creator example-project:user1 .
+  dc:creator example-project:user1 .
 
 example-project:question1 a rcases:Question ;
   rcases:text "Who was Leonardo da Vinci?"@en .
 
 example-project:rcase1 a rcases:ResearchCase ;
-  dcterms:creator example-project:user1 ;
+  dc:creator example-project:user1 ;
   rcases:intent example-project:question1 ;
   rcases:context example-project: ;
   rcases:acceptedConclusion example-project:conclusion1 .

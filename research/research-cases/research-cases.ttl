@@ -1,7 +1,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
@@ -14,9 +14,9 @@
 
 <https://w3id.org/research/cases#>
   a owl:Ontology, voaf:Vocabulary ;
-  dcterms:title "Research Cases Core Vocabulary"@en ;
+  dc:title "Research Cases Core Vocabulary"@en ;
   rdfs:label "Research Cases Core Vocabulary"@en ;
-  dcterms:description """The Research Cases vocabulary is a lightweight, task-oriented framework for open research utilizing the Open Web Platform. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.
+  dc:description """The Research Cases vocabulary is a lightweight, task-oriented framework for open research utilizing the Open Web Platform. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.
 
   Research cases are intended to be powerful enough to describe the most complex and intricate of research problems, and simple enough to be useful for informal research that could be thought of more as proactive learning. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines."""@en ;
   rdfs:isDefinedBy rcases: ;
@@ -26,10 +26,10 @@
   cc:attributionURL <https://researchcases.org> ;
   vann:preferredNamespacePrefix "rcases" ;
   vann:preferredNamespaceUri "https://w3id.org/research/cases#" ;
-  dcterms:rights "Copyright © Research Cases Community" ;
-  dcterms:creator pentandra:chris-chapman ;
-  dcterms:contributor pentandra:katie-chapman ;
-  dcterms:publisher pentandra:company ;
+  dc:rights "Copyright © Research Cases Community" ;
+  dc:creator pentandra:chris-chapman ;
+  dc:contributor pentandra:katie-chapman ;
+  dc:publisher pentandra:company ;
   owl:versionInfo "0.3.0" ;
   voaf:hasEquivalencesWith <http://purl.org/mp/> ;
   voaf:similar <http://purl.org/mp/> .

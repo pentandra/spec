@@ -6,7 +6,7 @@ var relode = (function(jsonld) {
   
   var framingContext = {    
     "cc": "http://creativecommons.org/ns#",
-    "dcterms": "http://purl.org/dc/terms",
+    "dc": "http://purl.org/dc/terms",
     "owl": "http://www.w3.org/2002/07/owl#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
@@ -21,12 +21,12 @@ var relode = (function(jsonld) {
     "rdfs:subClassOf": { "@type": "@id", "@container": "@set" },
     "rdfs:subPropertyOf": { "@type": "@id", "@container": "@set" },
     "rdfs:seeAlso": { "@type": "@id" },
-    "creator": { "@id": "dcterms:creator", "@type": "@id" },
-    "contributor": { "@id": "dcterms:contributor", "@type": "@id" },
-    "publisher": { "@id": "dcterms:publisher", "@type": "@id" },
-    "title": { "@id": "dcterms:title", "@container": "@language" },
-    "description": { "@id": "dcterms:description", "@container": "@language" },
-    "rights": { "@id": "dcterms:rights" },
+    "creator": { "@id": "dc:creator", "@type": "@id" },
+    "contributor": { "@id": "dc:contributor", "@type": "@id" },
+    "publisher": { "@id": "dc:publisher", "@type": "@id" },
+    "title": { "@id": "dc:title", "@container": "@language" },
+    "description": { "@id": "dc:description", "@container": "@language" },
+    "rights": { "@id": "dc:rights" },
     "status": "vs:term_status",
     "moreInfo": { "@id": "vs:moreinfo", "@type": "@id" }
   };
