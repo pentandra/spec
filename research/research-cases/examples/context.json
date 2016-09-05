@@ -1,9 +1,0 @@
-{
- "@context": [
-   "http://www.w3.org/ns/anno.jsonld",
-   {
-     "@base": "https://pentandra.com/research/research-cases/examples/#",
-     "rcases": "https://w3id.org/research/cases#"
-   }
- ]
-}
