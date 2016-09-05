@@ -9,6 +9,6 @@ started, are important to us, and to which we are actively contributing or
 incubating.
 
 * [Knowledge Design specifications](knowledge-design/)
-* [Scholary Commons specifications](scholarly-commons/)
+* [Scholarly Commons specifications](scholarly-commons/)
 * [Dynamic machine interface specifications](dmi/)
 * [Business specifications](business/)
