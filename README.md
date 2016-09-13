@@ -60,7 +60,7 @@ not an incremental improvement of the current system of scholarship and
 science, but a ground-up redesign of the entire system, from every perspective.
 
 * [FORCE11 Scholarly Commons Working Group](https://www.force11.org/group/scholarly-commons-working-group)
-* [Reimagining Research Communications](https://pentandra.com/blog/reimagining-research-communications/)
+<!-- * [Reimagining Research Communications](https://pentandra.com/blog/reimagining-research-communications/) -->
 
 ## Contributing
 
