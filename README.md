@@ -6,19 +6,21 @@ Mostly work-in-process specifications, at various stages of development.
 
 ### Knowledge Design
 
-[Research Cases Data Model (W3C Unofficial Draft)](playground/knowledge-design/research-cases/index.html)
+* [Research Cases Data Model (W3C Unofficial Draft)](playground/knowledge-design/research-cases/index.html)
 
-: Research Cases are a way to partition research conceptually into _cases_,
+  Research Cases are a way to partition research conceptually into _cases_,
   each case organized around a question. They are designed for iterative,
   real-time research publication, and encourage open collaboration and
   discourse throughout the research process.
-: We're at the early stages of creating this ontology, and it needs more
+
+  We're at the early stages of creating this ontology, and it needs more
   thought and examples, but the general idea is sane.
-: We would like to see it become the default way of doing research.
 
-[Research Cases Ontology (Turtle)](playground/knowledge-design/research-cases/rcases.ttl)
+  We would like to see it become the default way of doing research.
 
-: The Research Cases ontology, playground edition.
+* [Research Cases Ontology (Turtle)](playground/knowledge-design/research-cases/rcases.ttl)
+
+  The Research Cases ontology, playground edition.
 
 ### Scholarly Commons
 
