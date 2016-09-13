@@ -1,5 +1,9 @@
 # Specifications
 
+The specifications, vocabularies, ontologies, and examples in this repository
+are designed to enrich our abilities to share knowledge, opinion, and
+experience in our collective quest for greater light and understanding.
+
 > — Everything written symbols can say has already passed by. They are like
 > tracks left by animals. That is why the masters of meditation refuse to
 > accept that writings are final. The aim is to reach true being by means of
@@ -14,13 +18,11 @@
 >
 > Kimura Kyũho, _Kenjutsu Fushigi Hen_, 1768
 
-The specifications, vocabularies, ontologies, and examples in this repository
-are designed to enrich our abilities to share knowledge, opinion, and
-experience in our collective quest for greater light and understanding.
-
 These specifications are not intended to stand alone, isolated and independent,
 but to be refined over time through use in web applications and open research
-systems and platforms. They are designed for practical, everyday use.
+systems and platforms. We use them in the software we are creating, and we hope
+they will be used by others as well. They are designed for practical, everyday
+use.
 
 ## Vocabularies & Goals
 
@@ -48,12 +50,12 @@ systems and platforms. They are designed for practical, everyday use.
 
 ### Scholarly Commons
 
-The Scholarly Commons is not a website, nor a platform or organization, but an
-information space based on common agreement of standards and principles. Partly
-it is already there, with many current services, policies and standards already
-fitting in, but in many respects we are also still a long way off.
+The Scholarly Commons is not an incremental improvement of the current system
+of scholarship and science, but a ground-up redesign of the entire system, from
+every perspective.
 
 [FORCE11 Scholarly Commons Working Group](https://www.force11.org/group/scholarly-commons-working-group)
+[Reimagining Research Communications](https://pentandra.com/blog/reimagining-research-communications/)
 
 ## Contributing
 
