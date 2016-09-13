@@ -52,9 +52,12 @@ use.
 
 ### Scholarly Commons
 
-The Scholarly Commons is not an incremental improvement of the current system
-of scholarship and science, but a ground-up redesign of the entire system, from
-every perspective.
+The Scholarly Commons is not a website, nor a platform or organization, but the
+convergence around a set of principles, standards,and best practices that
+govern how research artifacts (narrative, code, data, workflows) should be
+handled for maximum human and machine-based access. The Scholarly Commons is
+not an incremental improvement of the current system of scholarship and
+science, but a ground-up redesign of the entire system, from every perspective.
 
 * [FORCE11 Scholarly Commons Working Group](https://www.force11.org/group/scholarly-commons-working-group)
 * [Reimagining Research Communications](https://pentandra.com/blog/reimagining-research-communications/)
