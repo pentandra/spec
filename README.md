@@ -53,9 +53,9 @@ use.
 ### Scholarly Commons
 
 The Scholarly Commons is not a website, nor a platform or organization, but the
-convergence around a set of principles, standards,and best practices that
-govern how research artifacts (narrative, code, data, workflows) should be
-handled for maximum human and machine-based access. The Scholarly Commons is
+convergence around a set of principles, standards, and best practices that
+govern how research artifacts (narrative, code, data, workflows, etc.) should
+be handled for maximum human and machine-based access. The Scholarly Commons is
 not an incremental improvement of the current system of scholarship and
 science, but a ground-up redesign of the entire system, from every perspective.
 
