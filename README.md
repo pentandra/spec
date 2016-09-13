@@ -35,14 +35,19 @@ fitting in, but in many respects we are also still a long way off.
 ## Contributing
 
 
+## License
+
+All specifications, vocabularies, ontologies, examples within this repository
+are licensed under a [CC0 license]. Feel free to use any way you like.
 
 ## Pipeline
 
 These specifications are pulled into the publication pipeline for the
 [LifePreserver project][lifepreserver] as a git submodule. If you are only
 contributing to the specifications herein, you should only need to fork and
-contribute to [this repository] to collaborate (that was the entire purpose in
-separating the specifications from the main project this way).
+contribute to [this repository] to collaborate (this was the primary motivation
+behind separating these specifications from the main project this way).
 
 [lifepreserver]: https://github.com/pentandra/lifepreserver
 [this repository]: https://github.com/pentandra/specifications
+[CC0 license]: https://creativecommons.org/publicdomain/zero/1.0/
