@@ -19,7 +19,7 @@ Mostly work-in-process specifications, at various stages of development.
   We would like to see Research Cases become the default way of ~~publishing~~
   doing research.
 
-  See http://researchcases.org/ for more background.
+  See https://researchcases.org/ for more background.
 
 * [Research Cases Ontology (Turtle)](playground/knowledge-design/research-cases/rcases.ttl)
 
