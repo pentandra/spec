@@ -4,20 +4,25 @@ The specifications, vocabularies, ontologies, and examples in this repository
 are designed to enrich our abilities to share knowledge, opinion, and
 experience in our collective quest for greater light and understanding.
 
+> — Everything written symbols can say has already passed by. They are like
+> tracks left by animals. That is why the masters of meditation refuse to
+> accept that writings are final. The aim is to reach true being by means of
+> those tracks, those letters, those signs—but reality itself is not a sign,
+> and it leaves no tracks. It doesn’t come to us by way of letters or words. We
+> can go toward it, by following those words and letters back to what they came
+> from. But so long as we are preoccupied with symbols, theories and opinions,
+> we will fail to reach the principle.  
+> — But when we give up symbols and opinions, aren’t we left in the utter
+> nothingness of being?  
+> — Yes.
+>
+> Kimura Kyũho, _Kenjutsu Fushigi Hen_, 1768
+
 These specifications are not intended to stand alone, isolated and independent,
 but to be refined over time through use in web applications and open research
 systems and platforms. We use them in the software we are creating, and we hope
 they will be used by others as well. They are designed for practical, everyday
 use.
-
-<figure style="max-width: 40em">
-  <blockquote>
-    <p>— Everything written symbols can say has already passed by. They are like tracks left by animals. That is why the masters of meditation refuse to accept that writings are final. The aim is to reach true being by means of those tracks, those letters, those signs—but reality itself is not a sign, and it leaves no tracks. It doesn’t come to us by way of letters or words. We can go toward it, by following those words and letters back to what they came from. But so long as we are preoccupied with symbols, theories and opinions, we will fail to reach the principle.</p>
-    <p>— But when we give up symbols and opinions, aren’t we left in the utter nothingness of being?</p>
-    <p>— Yes.</p>
-  </blockquote>
-  <figcaption>Kimura Kyũho, <cite lang="ja">Kenjutsu Fushigi Hen</cite>, 1768</figcaption>
-</figure>
 
 ## Vocabularies & Goals
 
