@@ -9,9 +9,10 @@ Mostly work-in-process specifications, at various stages of development.
 * [Research Cases Data Model (W3C Unofficial Draft)](playground/knowledge-design/research-cases/index.html)
 
   Research Cases are a way to partition research conceptually into _cases_,
-  each case organized around a question, or some sort of cognitive discordance.
-  They are designed for iterative, real-time research publication, and
-  encourage open collaboration and discourse throughout the research process.
+  each case organized around a question (or some other sort of cognitive
+  discordance). They are designed for iterative, real-time research
+  publication, and encourage open collaboration and discourse throughout the
+  research process.
 
   We're at the early stages of creating this ontology, and it needs more
   thought and examples, but, in general, the idea is sane.
