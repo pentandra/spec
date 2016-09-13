@@ -1,10 +1,24 @@
 # Specifications
 
-Mostly work-in-process specifications, at various stages of development.
+
 
 ## Vocabularies & Goals
 
 ### Knowledge Design
+
+> — Everything written symbols can say has already passed by. They are like
+> tracks left by animals. That is why the masters of meditation refuse to
+> accept that writings are final. The aim is to reach true being by means of
+> those tracks, those letters, those signs—but reality itself is not a sign,
+> and it leaves no tracks. It doesn’t come to us by way of letters or words. We
+> can go toward it, by following those words and letters back to what they came
+> from. But so long as we are preoccupied with symbols, theories and opinions,
+> we will fail to reach the principle.
+> — But when we give up symbols and opinions, aren’t we left in the utter
+> nothingness of being?
+> — Yes.
+>
+> Kimura Kyũho, _Kenjutsu Fushigi Hen_, 1768
 
 * [Research Cases Data Model (W3C Unofficial Draft)](playground/knowledge-design/research-cases/index.html)
 
