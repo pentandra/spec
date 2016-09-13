@@ -14,9 +14,10 @@ Mostly work-in-process specifications, at various stages of development.
   discourse throughout the research process.
 
   We're at the early stages of creating this ontology, and it needs more
-  thought and examples, but the general idea is sane.
+  thought and examples, but, in general, the idea is sane.
 
-  We would like to see it become the default way of doing research.
+  We would like to see Research Cases become the default way of ~~publishing~~
+  doing research.
 
 * [Research Cases Ontology (Turtle)](playground/knowledge-design/research-cases/rcases.ttl)
 
