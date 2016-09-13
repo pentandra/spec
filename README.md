@@ -37,9 +37,9 @@ fitting in, but in many respects we are also still a long way off.
 
 ## Contributing
 
-This repository uses [Git Flow] to manage development and release activity. All
-submission _must_ be on a feature branch based on the _develop_ branch to ease
-staging and integration.
+This repository uses the lightweight [GitHub Flow] to manage development and
+release activity. All submission _must_ be on a feature branch based on the
+_master_ branch to ease staging and integration.
 
 * Do your best to adhere to the existing coding conventions and idioms.
 * Don't use hard tabs, and don't leave trailing whitespace on any line. Before committing, run `git diff --check` to make sure of this.
@@ -61,4 +61,4 @@ behind separating these specifications from the main project this way).
 [lifepreserver]: https://github.com/pentandra/lifepreserver
 [this repository]: https://github.com/pentandra/specifications
 [CC0 license]: https://creativecommons.org/publicdomain/zero/1.0/
-[Git Flow]: https://github.com/nvie/gitflow
+[GitHub Flow]: https://guides.github.com/introduction/flow/
