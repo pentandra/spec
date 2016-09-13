@@ -1,11 +1,5 @@
 # Specifications
 
-
-
-## Vocabularies & Goals
-
-### Knowledge Design
-
 > — Everything written symbols can say has already passed by. They are like
 > tracks left by animals. That is why the masters of meditation refuse to
 > accept that writings are final. The aim is to reach true being by means of
@@ -19,6 +13,18 @@
 > — Yes.
 >
 > Kimura Kyũho, _Kenjutsu Fushigi Hen_, 1768
+
+The specifications, vocabularies, ontologies, and examples in this repository
+are designed to enrich our abilities to share knowledge, opinion, and
+experience in our collective quest for greater light and understanding.
+
+These specifications are not intended to stand alone, isolated and independent,
+but to be refined over time through use in web applications and open research
+systems and platforms, and designed for practical, everyday use.
+
+## Vocabularies & Goals
+
+### Knowledge Design
 
 * [Research Cases Data Model (W3C Unofficial Draft)](playground/knowledge-design/research-cases/index.html)
 
