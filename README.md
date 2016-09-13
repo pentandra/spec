@@ -38,8 +38,8 @@ fitting in, but in many respects we are also still a long way off.
 ## Contributing
 
 This repository uses the lightweight [GitHub Flow] to manage development and
-release activity. All submission _must_ be on a feature branch based on the
-_master_ branch to ease staging and integration.
+release activity. All submissions _must_ be on a feature branch based on the
+_master_ branch to ease review and integration.
 
 * Do your best to adhere to the existing coding conventions and idioms.
 * Don't use hard tabs, and don't leave trailing whitespace on any line. Before committing, run `git diff --check` to make sure of this.
