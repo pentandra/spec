@@ -28,7 +28,7 @@
   publication, and encourage open collaboration and discourse throughout the
   research process.
 
-  We're at the early stages of creating this ontology, and it needs more
+  We’re at the early stages of creating this ontology, and it needs more
   thought and examples, but, in general, the idea is sane.
 
   We would like to see Research Cases become the default way of ~~publishing~~
@@ -56,7 +56,7 @@ release activity. All submissions _must_ be on a feature branch based on the
 _master_ branch to ease review and integration.
 
 * Do your best to adhere to the existing coding conventions and idioms.
-* Don't use hard tabs, and don't leave trailing whitespace on any line. Before committing, run `git diff --check` to make sure of this.
+* Don’t use hard tabs, and don’t leave trailing whitespace on any line. Before committing, run `git diff --check` to make sure of this.
 
 ## License
 
