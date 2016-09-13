@@ -41,7 +41,8 @@ staging and integration.
 ## License
 
 All specifications, vocabularies, ontologies, examples within this repository
-are licensed under a [CC0 license]. Feel free to use any way you like.
+are licensed under a [CC0 license], unless specified otherwise. Feel free to
+use any way you like.
 
 ## Pipeline
 
