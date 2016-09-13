@@ -4,6 +4,12 @@ The specifications, vocabularies, ontologies, and examples in this repository
 are designed to enrich our abilities to share knowledge, opinion, and
 experience in our collective quest for greater light and understanding.
 
+These specifications are not intended to stand alone, isolated and independent,
+but to be refined over time through use in web applications and open research
+systems and platforms. We use them in the software we are creating, and we hope
+they will be used by others as well. They are designed for practical, everyday
+use.
+
 > — Everything written symbols can say has already passed by. They are like
 > tracks left by animals. That is why the masters of meditation refuse to
 > accept that writings are final. The aim is to reach true being by means of
@@ -16,13 +22,7 @@ experience in our collective quest for greater light and understanding.
 > nothingness of being?  
 > — Yes.
 >
-> Kimura Kyũho, _Kenjutsu Fushigi Hen_, 1768
-
-These specifications are not intended to stand alone, isolated and independent,
-but to be refined over time through use in web applications and open research
-systems and platforms. We use them in the software we are creating, and we hope
-they will be used by others as well. They are designed for practical, everyday
-use.
+> Kimura Kyūho, _Kenjutsu Fushigi Hen_, 1768
 
 ## Vocabularies & Goals
 
