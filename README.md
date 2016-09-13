@@ -20,7 +20,7 @@ experience in our collective quest for greater light and understanding.
 
 These specifications are not intended to stand alone, isolated and independent,
 but to be refined over time through use in web applications and open research
-systems and platforms, and designed for practical, everyday use.
+systems and platforms. They are designed for practical, everyday use.
 
 ## Vocabularies & Goals
 
