@@ -10,6 +10,10 @@ systems and platforms. We use them in the software we are creating, and we hope
 they will be used by others as well. They are designed for practical, everyday
 use.
 
+## Vocabularies & Goals
+
+### Knowledge Design
+
 > — Everything written symbols can say has already passed by. They are like
 > tracks left by animals. That is why the masters of meditation refuse to
 > accept that writings are final. The aim is to reach true being by means of
@@ -25,10 +29,6 @@ use.
 > — Yes.
 >
 > Kimura Kyūho, _Kenjutsu Fushigi Hen_, 1768
-
-## Vocabularies & Goals
-
-### Knowledge Design
 
 * [Research Cases Data Model (W3C Unofficial Draft)](playground/knowledge-design/research-cases/index.html)
 
