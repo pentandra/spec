@@ -4,11 +4,10 @@ The specifications, vocabularies, ontologies, and examples in this repository
 are designed to enrich our abilities to share knowledge, opinion, and
 experience in our collective quest for greater light and understanding.
 
-These specifications are not intended to stand alone, isolated and independent,
-but to be refined over time through use in web applications and open research
-systems and platforms. We use them in the software we are creating, and we hope
-they will be used by others as well. They are designed for practical, everyday
-use.
+These specifications are not only theoretical in nature, but are designed for
+specific situations and interactions in web applications and open research
+systems and platforms. We use and refine them in the software we are creating,
+and we hope they will prove useful to others as well.
 
 ## Vocabularies & Goals
 
