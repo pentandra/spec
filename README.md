@@ -29,7 +29,7 @@ and we hope they will prove useful to others as well.
 >
 > Kimura Kyūho, _Kenjutsu Fushigi Hen_, 1768
 
-* [Research Cases Data Model (W3C Unofficial Draft)](playground/knowledge-design/research-cases/index.html)
+* [Research Cases Data Model (W3C Unofficial Draft)](knowledge-design/research-cases/index.html)
 
   Research Cases are a way to partition research conceptually into _cases_,
   each case organized around a question (or some other sort of cognitive
@@ -45,7 +45,7 @@ and we hope they will prove useful to others as well.
 
   See https://researchcases.org/ for more background.
 
-* [Research Cases Ontology (Turtle)](playground/knowledge-design/research-cases/rcases.ttl)
+* [Research Cases Ontology (Turtle)](knowledge-design/research-cases/rcases.ttl)
 
   The Research Cases ontology, playground edition.
 
