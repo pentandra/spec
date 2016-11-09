@@ -54,15 +54,15 @@
 
       .nanotabs ul { padding: 0; margin-top: 0.5em; font-size: 0.8em; }
       .nanotabs li { display: inline-block; list-style: none; }
-      .nanotabs a { display: block; padding: 0.4em 0.8em; border-radius: 2em; background: #fcfaee; color: #b9ab2d; text-decoration: none; }
-      .nanotabs a:hover { background: #fffce5; color: #550; }
-      .nanotabs a.selected { background: #fff; }
+      .nanotabs a[href] { display: block; padding: 0.4em 0.8em; border-radius: 2em; background: #fcfaee; color: #b9ab2d; text-decoration: none; }
+      .nanotabs a[href]:hover { background: #fffce5; color: #550; }
+      .nanotabs a[href].selected { background: #fff; }
 
       .syntaxmenu { border: 1px dotted black; padding: 0.5em; }
       .syntaxmenu.nanotabs ul { font-size: inherit; }
-      .syntaxmenu.nanotabs a { background: #e0cb52; color: #fff; }
-      .syntaxmenu.nanotabs a:hover { background: #e0cb52; color: #fff; }
-      .syntaxmenu.nanotabs a.selected { background: #c83500; }
+      .syntaxmenu.nanotabs a[href] { background: #e0cb52; color: #fff; }
+      .syntaxmenu.nanotabs a[href]:hover { background: #e0cb52; color: #fff; }
+      .syntaxmenu.nanotabs a[href].selected { background: #c83500; }
 
     </style>
   </head>
