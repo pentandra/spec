@@ -1,7 +1,3 @@
----
-base_uri: "https://w3id.org/research/cases#"
----
-
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -14,22 +10,22 @@ base_uri: "https://w3id.org/research/cases#"
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix pentandra: <https://pentandra.com/company#> .
-@prefix rcases: <https://w3id.org/research/cases#> .
+@prefix rio: <https://w3id.org/rio#> .
 
-<https://w3id.org/research/cases#>
+<https://w3id.org/rio#>
   a owl:Ontology, voaf:Vocabulary ;
-  dc:title "Research Cases Core Vocabulary"@en ;
-  rdfs:label "Research Cases Core Vocabulary"@en ;
-  dc:description """The Research Cases vocabulary is a lightweight, task-oriented framework for open research utilizing the Open Web Platform. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.
+  dc:title "Research Intent Ontology"@en ;
+  rdfs:label "Research Intent Ontology"@en ;
+  dc:description """The Research Intent Ontology is a lightweight, task-oriented framework for open research utilizing the Open Web Platform. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.
 
   Research cases are intended to be powerful enough to describe the most complex and intricate of research problems, and simple enough to be useful for informal research that could be thought of more as proactive learning. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines."""@en ;
-  rdfs:isDefinedBy rcases: ;
-  rdfs:seeAlso <https://researchcases.org/>, <https://pentandra.com/spec/research/research-cases/> ;
+  rdfs:isDefinedBy rio: ;
+  rdfs:seeAlso <https://researchcases.org/>, <https://pentandra.com/solutions/research-intent-ontology/> ;
   cc:license <http://creativecommons.org/licenses/by/4.0/> ;
   cc:attributionName "Research Cases Community" ;
   cc:attributionURL <https://researchcases.org> ;
-  vann:preferredNamespacePrefix "rcases" ;
-  vann:preferredNamespaceUri "https://w3id.org/research/cases#" ;
+  vann:preferredNamespacePrefix "rio" ;
+  vann:preferredNamespaceUri "https://w3id.org/rio#" ;
   dc:rights "Copyright © Research Cases Community" ;
   dc:creator pentandra:chris-chapman ;
   dc:contributor pentandra:katie-chapman ;
@@ -38,16 +34,30 @@ base_uri: "https://w3id.org/research/cases#"
   voaf:hasEquivalencesWith <http://purl.org/mp/> ;
   voaf:similar <http://purl.org/mp/> .
 
-rcases:LearningContext
+rio:ResearchArtifact
   a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
-  rdfs:label "Learning Context"@en ;
-  rdfs:comment "Whatever is being studied, searched, browsed, measured, etc. in order for a human or machine to learn something."@en ;
-  vs:term_status "stable" .
+  rdfs:isDefinedBy rio: ;
+  rdfs:label "Research Artifact"@en ;
+  rdfs:comment "An output of a research process."@en ;
+  vs:term_status "testing" .
 
-rcases:ResearchContext
+rio:ResearchAffordance
   a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:isDefinedBy rio: ;
+  rdfs:label "Research Affordance"@en ;
+  rdfs:comment "Something that affords research to be done."@en ;
+  vs:term_status "testing" .
+
+rio:ResearchObject
+  a owl:Class ;
+  rdfs:isDefinedBy rio: ;
+  rdfs:label "Research Object"@en ;
+  rdfs:comment "Whatever is being studied, searched, browsed, measured, etc. in order for a human or machine."@en ;
+  vs:term_status "testing" .
+
+rio:ResearchContext
+  a owl:Class ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "Research Context"@en ;
   rdfs:label "Контекст Дослідження"@uk ;
   rdfs:comment "A collection of research cases that are related somehow. A research context."@en ;
@@ -55,152 +65,152 @@ rcases:ResearchContext
 # Preliminary research needs to add sources directly to a project, because
 # there may not be a question worth asking yet.
 
-rcases:ResearchCase
+rio:ResearchCase
   a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:isDefinedBy rio: ;
   rdfs:subClassOf prov:Plan ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
   rdfs:comment "An explicit focus on a single question, encompassing everything leading to its conclusion. Also could be thought of as an affordance to research, or an articulated intention to find an answer to a question. The fundamental unit of research."@en ;
   vs:term_status "stable" .
 
-rcases:Analysis
+rio:Analysis
   a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "Analysis"@en ;
   rdfs:label "Аналіз"@uk ;
   rdfs:comment "Some sort of presentation of the evidence. Could be a domain-specific representation."@en ;
   vs:term_status "testing" .
 
-rcases:Evidence
+rio:Evidence
   a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "Evidence"@en ;
   rdfs:label "Свідоцтво"@uk ;
   rdfs:comment "Information that could be used, in whole or in part, directly or indirectly, to answer a question, or that has bearing on the answer to a question. Evidence only exists in the context of a question."@en ;
   vs:term_status "testing" ;
   vs:moreinfo <https://pentandra.com/research/process/#dfn:evidence> .
 
-rcases:Information
+rio:Information
   a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "Information"@en ;
   rdfs:label "Інформація"@uk ;
   rdfs:comment "Data with context and meaning. Much of the stuff on the document web is information."@en ;
   vs:term_status "testing" ;
   vs:moreinfo <https://pentandra.com/research/process/#dfn:information> .
 
-rcases:Conclusion
+rio:Conclusion
   a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
-  rdfs:subClassOf rcases:Information ;
+  rdfs:isDefinedBy rio: ;
+  rdfs:subClassOf rio:Information ;
   rdfs:label "Conclusion"@en ;
   rdfs:label "Висновок"@uk ;
   rdfs:comment "An answer to a research question."@en ;
   vs:term_status "testing" .
 
-rcases:Trajectory
+rio:Trajectory
   a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "Trajectory"@en ;
   rdfs:label "траєкторія"@uk ;
   rdfs:comment "The trajectory is the path that the researcher moves along as research progresses. The researcher's trajectory is adjusted constantly in highly idiosyncratic ways. This term supports the intuition that all researchers have different levels of knowledge and experience, and will eventually (hopefully) converge on truth."@en ;
   vs:term_status "unstable" ;
   vs:moreinfo <http://psztajn.ced.ncsu.edu/ltbi/?page_id=1577> .
 
-rcases:Question
+rio:Question
   a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "Question"@en ;
   rdfs:label "Питання"@uk ;
   rdfs:comment "A research question. Represents the direction that the researcher intends to take the research. The next thing that needs to be explored, or direction that the research needs to go."@en ;
   vs:term_status "stable" .
 
-rcases:Hypothesis
+rio:Hypothesis
   a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
-  rdfs:subClassOf rcases:Conclusion ;
+  rdfs:isDefinedBy rio: ;
+  rdfs:subClassOf rio:Conclusion ;
   rdfs:label "Hypothesis"@en ;
   rdfs:label "Гіпотеза"@uk ;
   rdfs:comment "A statement to test. A possible, though unproven, answer to a research question."@en ;
   vs:term_status "testing" .
 
-rcases:Researcher
+rio:Researcher
   a owl:Class ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:isDefinedBy rio: ;
   rdfs:subClassOf prov:Agent ;
   rdfs:label "Researcher"@en ;
   rdfs:label "Дослідник"@uk ;
   rdfs:comment "A person who researches"@en ;
   vs:term_status "testing" .
 
-rcases:question
+rio:question
   a owl:ObjectProperty ;
-  rdfs:domain rcases:ResearchCase ;
-  rdfs:range rcases:Question ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:domain rio:ResearchCase ;
+  rdfs:range rio:Question ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "question"@en ;
   rdfs:label "питання"@uk ;
   rdfs:comment "The question the researcher is intending to answer next. The aim the researcher is taking for his, her, or its next step. The angle of inclination that will determine the trajectory that the research will take."@en ;
-  rdfs:seeAlso rcases:Trajectory ;
+  rdfs:seeAlso rio:Trajectory ;
   vs:term_status "stable" .
 
 # Each research case has only one question.
-rcases:question a owl:FunctionalProperty .
+rio:question a owl:FunctionalProperty .
 
-rcases:triggeredBy
+rio:triggeredBy
   a owl:ObjectProperty ;
-  rdfs:domain rcases:Question ;
-  rdfs:range rcases:LearningContext ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:domain rio:Question ;
+  rdfs:range rio:LearningContext ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "triggered by"@en ;
   rdfs:comment "The learning context, if any, that prompted or triggered this question."@en ;
   vs:term_status "testing" .
 
-rcases:conclusion
+rio:conclusion
   a owl:ObjectProperty ;
-  rdfs:domain rcases:Analysis ;
-  rdfs:range rcases:Conclusion ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:domain rio:Analysis ;
+  rdfs:range rio:Conclusion ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "conclusion"@en ;
   rdfs:comment "The conclusion of an analytical process that provides an answer to the question in this research case."@en ;
   vs:term_status "testing" .
 
-rcases:acceptedConclusion
+rio:acceptedConclusion
   a owl:ObjectProperty ;
-  rdfs:domain rcases:ResearchCase ;
-  rdfs:range rcases:Conclusion ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:domain rio:ResearchCase ;
+  rdfs:range rio:Conclusion ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "accepted conclusion"@en ;
   rdfs:comment "The currently accepted conclusion to the question in this research case."@en ;
   vs:term_status "stable" .
 
 # There is functionally one accepted conclusion per research case.
-rcases:acceptedConclusion a owl:FunctionalProperty .
+rio:acceptedConclusion a owl:FunctionalProperty .
 
-rcases:analysis
+rio:analysis
   a owl:ObjectProperty ;
-  rdfs:domain rcases:ResearchCase ;
-  rdfs:range rcases:Analysis ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:domain rio:ResearchCase ;
+  rdfs:range rio:Analysis ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "analysis"@en ;
   rdfs:comment "An analysis of evidence pertinent to the question in this research case."@en ;
   vs:term_status "stable" .
 
-rcases:evidence
+rio:evidence
   a owl:ObjectProperty ;
-  rdfs:domain rcases:Analysis ; # Or is it a property of the research case?
-  rdfs:range rcases:Evidence ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:domain rio:Analysis ; # Or is it a property of the research case?
+  rdfs:range rio:Evidence ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "evidence"@en ;
   rdfs:comment "A bit of evidence used in an analysis."@en ;
   vs:term_status "testing" .
 
-rcases:source
+rio:source
   a owl:ObjectProperty ;
-  rdfs:domain rcases:Information ;
-#  rdfs:range rcases:LearningContext ;
-  rdfs:isDefinedBy rcases: ;
+  rdfs:domain rio:Information ;
+#  rdfs:range rio:LearningContext ;
+  rdfs:isDefinedBy rio: ;
   rdfs:label "source"@en ;
   rdfs:comment "The source of the information."@en ;
   vs:term_status "unstable" .

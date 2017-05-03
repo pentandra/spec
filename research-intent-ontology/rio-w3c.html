@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Research Cases Core Data Model</title>
+    <title>Research Intent Ontology</title>
     <script src="respec-w3c-extensions.js" class="remove"></script>
     <script src="/js/jsonld.js" class="remove"></script>
     <script src="relode.js" class="remove"></script>
@@ -10,12 +10,12 @@
     <script class="remove">
       var respecConfig = {
           specStatus: "unofficial",
-          shortName: "research-cases",
+          shortName: "research-intent-ontology",
           subtitle: "A vocabulary for open research on the Web",
 
           copyrightStart: "2014",
 
-          edDraftURI: "https://pentandra.com/solutions/specifications/research-cases/",
+          edDraftURI: "<%= path_to(@item, global: true) %>",
           editors:  [
               { name: "Chris Chapman", /*url: "http://cman.ch",*/ w3cid: "61593", company: "Pentandra", companyURL: "https://pentandra.com/" },
           ],
@@ -24,15 +24,15 @@
             key: "Version history",
             data: [{
               value: "Commit history",
-              href: "https://github.com/pentandra/specifications/commits/master/research/research-cases"
+              href: "https://github.com/pentandra/specifications/commits/master/research-intent-ontology"
             }]
           }],
 
           alternateFormats: [
-            { uri: "rcases.ttl", label: "Turtle" },
-            { uri: "rcases.jsonld", label: "JSON-LD" },
-            { uri: "rcases.rdf", label: "RDF/XML" },
-            { uri: "rcases.html", label: "HTML5/RDFa" },
+            { uri: "rio.ttl", label: "Turtle" },
+            { uri: "rio.jsonld", label: "JSON-LD" },
+            { uri: "rio.rdf", label: "RDF/XML" },
+            { uri: "rio.html", label: "HTML5/RDFa" },
           ],
           localBiblio: localBibliography,
           doRDFa: false // Let's do our own for now...
@@ -66,15 +66,15 @@
 
     </style>
   </head>
-  <body typeof="schema:TechArticle fabio:TechnicalStandard" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# rdfa: http://www.w3.org/ns/rdfa# vs: http://www.w3.org/2003/06/sw-vocab-status/ns# foaf: http://xmlns.com/foaf/0.1/ dc: http://purl.org/dc/terms/ voaf: http://purl.org/vocommons/voaf# prov: http://www.w3.org/ns/prov# schema: http://schema.org/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ fabio: http://purl.org/spar/fabio# rcases: https://w3id.org/research/cases#">
+  <body typeof="schema:TechArticle fabio:TechnicalStandard" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# rdfa: http://www.w3.org/ns/rdfa# vs: http://www.w3.org/2003/06/sw-vocab-status/ns# foaf: http://xmlns.com/foaf/0.1/ dc: http://purl.org/dc/terms/ voaf: http://purl.org/vocommons/voaf# prov: http://www.w3.org/ns/prov# schema: http://schema.org/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ fabio: http://purl.org/spar/fabio# rio: https://w3id.org/rio#">
 
     <section id="abstract" resource="#abstract" property="dc:hasPart" typeof="doco:Abstract">
       <div property="schema:description">
-        <div about="[rcases:]" property="rdfs:comment">
+        <div about="[rio:]" property="rdfs:comment">
 
-          <p>The Research Cases vocabulary is a lightweight, task-oriented framework for open research utilizing the <a href="https://en.wikipedia.org/wiki/Open_Web_Platform">Open Web Platform</a>. Research cases partition research into manageable units, and make explicit the chain of questions that goes through the researcher's mind as research progresses.</p>
+          <p>The Research Intent Ontology is a lightweight, task-oriented framework for open research utilizing the <a href="https://en.wikipedia.org/wiki/Open_Web_Platform">Open Web Platform</a>. The Research Intent Ontology partition research into manageable units, called <dfn>research cases</dfn>, that make explicit the chain of questions that goes through the researcher's mind as research progresses.</p>
 
-          <p>Research cases are intended to be powerful enough to describe the most complex and intricate of research problems, and simple enough to be useful for informal research that could be thought of more as proactive learning. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines.</p>
+          <p>Research cases are intended to be powerful enough to describe the most complex and intricate of research problems, and simple enough to be useful for informal research that could be thought of more as proactive learning. Research cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines.</p>
 
         </div>
       </div>
@@ -131,9 +131,9 @@
 
     <section class="informative">
 
-      <h2>Research Cases Overview</h2>
+      <h2>Research Intent Ontology Overview</h2>
 
-      <p>Research cases are a data model and ontology that can be used across a wide variety of tools to organize the process of learning and the creation of knowledge. Much like a <a href="https://en.wikipedia.org/wiki/Version_control"><abbr title="Version Control System">VCS</abbr></a> provides a scaffolding of provenance, attribution, and context around the incremental development process of a software codebase, research cases provide a similar scaffolding around the process of knowledge creation. This specification builds upon the efforts of the <a href="http://www.w3.org/TR/prov-overview/">PROV</a> [[prov-overview]] and <a href="http://www.w3.org/annotation/">Web Annotation</a> [[!annotation-model]] communities.</p>
+      <p>The Research Intent Ontology can be used across a wide variety of tools to organize the process of learning and the creation of knowledge. Much like a <a href="https://en.wikipedia.org/wiki/Version_control"><abbr title="Version Control System">VCS</abbr></a> provides a scaffolding of provenance, attribution, and context around the incremental development process of a software codebase, research cases provide a similar scaffolding around the process of knowledge creation. This specification builds upon the efforts of the <a href="http://www.w3.org/TR/prov-overview/">PROV</a> [[prov-overview]] and <a href="http://www.w3.org/annotation/">Web Annotation</a> [[!annotation-model]] communities.</p>
 
       <section>
         
@@ -184,14 +184,14 @@
           <aside title="Who was Leonardo da Vinci?" class="example">
             <div class="ttl">
               <pre class="highlight" title="Who was Leonardo da Vinci? (Turtle syntax)">
-&lt;http://example.org/question1&gt; a rcases:Question ;
-  rcases:text "Who was Leonardo da Vinci?"@en .
+&lt;http://example.org/question1&gt; a rio:Question ;
+  rio:text "Who was Leonardo da Vinci?"@en .
               </pre>
             </div>
             <div class="jsonld">
               <pre class="highlight" title="Who was Leonardo da Vinci? (JSON-LD syntax)">
 {
-  "@context": "https://pentandra.com/spec/research/research-cases/examples/context.json",
+  "@context": "https://pentandra.com/solutions/research-intent-ontology/examples/context.json",
   "@id": "http://example.org/question1",
   "@type": "Question",
   "text": {
@@ -209,7 +209,7 @@
             </div>
             <div class="rdfa">
               <pre class="highlight" title="Who was Leonardo da Vinci? (RDFa syntax)">
-&lt;p resource="#question1" typeof="rcases:Question"&gt;Who was Leonardo da Vinci?&lt;/p&gt; .
+&lt;p resource="#question1" typeof="rio:Question"&gt;Who was Leonardo da Vinci?&lt;/p&gt; .
               </pre>
             </div>
           </aside>
@@ -233,13 +233,13 @@
           <aside title="A Research Context" class="example">
             <div class="ttl">
               <pre class="highlight" title="A Research Context (Turtle)">
-&lt;http://example.org/project1&gt; a rcases:ResearchContext .
+&lt;http://example.org/project1&gt; a rio:ResearchContext .
               </pre>
             </div>
             <div class="jsonld">
               <pre class="highlight" title="A Research Context (JSON-LD)">
 {
-  "@context": "https://pentandra.com/spec/research/research-cases/examples/context.json",
+  "@context": "https://pentandra.com/solutions/research-intent-ontology/examples/context.json",
   "@id": "http://example.org/project1",
   "@type": "ResearchContext"
 }
@@ -254,7 +254,7 @@
             </div>
             <div class="rdfa">
               <pre class="highlight" title="A Research Context (HTML/RDFa)">
-&lt;h1 resource="#project1" typeof="rcases:ResearchContext"&gt;Research Project: &lt;span property="dc:title"&gt;Leonardo da Vinci&lt;/span&gt;&lt;/h1&gt; .
+&lt;h1 resource="#project1" typeof="rio:ResearchContext"&gt;Research Project: &lt;span property="dc:title"&gt;Leonardo da Vinci&lt;/span&gt;&lt;/h1&gt; .
               </pre>
             </div>
           </aside>
@@ -265,7 +265,7 @@
 
     </section>
 
-    <section id="cross-reference" property="foaf:primaryTopic" resource="[rcases:]" typeof="owl:Ontology voaf:Vocabulary">
+    <section id="cross-reference" property="foaf:primaryTopic" resource="[rio:]" typeof="owl:Ontology voaf:Vocabulary">
 
       <h2>Vocabulary Cross-Reference</h2>
 
@@ -308,9 +308,9 @@
             <td>The <abbr title="Open Annotation Data Model">OA</abbr> namespace [[!annotation-model]]</td>
           </tr>
           <tr>
-            <td><code>rcases</code></td>
-            <td><code>https://w3id.org/research/cases#</code></td>
-            <td>The Research Cases namespace (this specification)</td>
+            <td><code>rio</code></td>
+            <td><code>https://w3id.org/rio#</code></td>
+            <td>The Research Intent Ontology namespace (this specification)</td>
           </tr>
           <tr>
             <td>(others)</td>
@@ -373,7 +373,7 @@
 
         <h2>Micropublications</h2>
 
-        <p><a about="[rcases:]" property="voaf:similar" href="http://purl.org/mp/">Micropublications</a> [[mp]] is a model and ontology developed by Tim Clark, Paolo Ciccarese, and Carole Goble for claims, evidence, arguments and annotations in biomedical communications.</p>
+        <p><a about="[rio:]" property="voaf:similar" href="http://purl.org/mp/">Micropublications</a> [[mp]] is a model and ontology developed by Tim Clark, Paolo Ciccarese, and Carole Goble for claims, evidence, arguments and annotations in biomedical communications.</p>
 
       </section>
 
@@ -391,7 +391,7 @@
     <script class="remove">
 
       window.addEventListener('DOMContentLoaded', function() {
-        relode.init('rcases.jsonld', 'cross-reference');
+        relode.init('rio.jsonld', 'cross-reference');
       });
 
     </script>
