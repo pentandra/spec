@@ -38,7 +38,7 @@ rio:ResearchArtifact
   a owl:Class ;
   rdfs:isDefinedBy rio: ;
   rdfs:label "Research Artifact"@en ;
-  rdfs:comment "An output of a research process."@en ;
+  rdfs:comment "The static output of a research process."@en ;
   vs:term_status "testing" .
 
 rio:ResearchAffordance
