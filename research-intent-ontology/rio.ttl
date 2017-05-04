@@ -161,10 +161,10 @@ rio:question a owl:FunctionalProperty .
 rio:triggeredBy
   a owl:ObjectProperty ;
   rdfs:domain rio:Question ;
-  rdfs:range rio:LearningContext ;
+  rdfs:range rio:ResearchObject ;
   rdfs:isDefinedBy rio: ;
   rdfs:label "triggered by"@en ;
-  rdfs:comment "The learning context, if any, that prompted or triggered this question."@en ;
+  rdfs:comment "The research object, if any, that prompted or triggered this question."@en ;
   vs:term_status "testing" .
 
 rio:conclusion
