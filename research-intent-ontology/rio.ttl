@@ -52,7 +52,7 @@ rio:ResearchObject
   a owl:Class ;
   rdfs:isDefinedBy rio: ;
   rdfs:label "Research Object"@en ;
-  rdfs:comment "Whatever is being studied, searched, browsed, measured, etc. in order for a human or machine."@en ;
+  rdfs:comment "The object of research, i.e. whatever is being studied, searched, browsed, measured, etc. by a human or machine."@en ;
   vs:term_status "testing" .
 
 rio:ResearchContext
@@ -164,7 +164,7 @@ rio:triggeredBy
   rdfs:range rio:ResearchObject ;
   rdfs:isDefinedBy rio: ;
   rdfs:label "triggered by"@en ;
-  rdfs:comment "The research object, if any, that prompted or triggered this question."@en ;
+  rdfs:comment "Whatever prompted or triggered this question."@en ;
   vs:term_status "testing" .
 
 rio:conclusion
