@@ -68,7 +68,7 @@ rio:ResearchContext
 rio:ResearchCase
   a owl:Class ;
   rdfs:isDefinedBy rio: ;
-  rdfs:subClassOf prov:Plan ;
+  rdfs:subClassOf rio:ResearchContext ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
   rdfs:comment "An explicit focus on a single question, encompassing everything leading to its conclusion. Also could be thought of as an affordance to research, or an articulated intention to find an answer to a question. The fundamental unit of research."@en ;
