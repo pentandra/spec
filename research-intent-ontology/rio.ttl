@@ -1,16 +1,16 @@
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cc: <http://creativecommons.org/ns#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pentandra: <https://pentandra.com/company#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rio: <https://w3id.org/rio#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix cc: <http://creativecommons.org/ns#> .
-@prefix voaf: <http://purl.org/vocommons/voaf#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix pentandra: <https://pentandra.com/company#> .
-@prefix rio: <https://w3id.org/rio#> .
 
 <https://w3id.org/rio#>
   a owl:Ontology, voaf:Vocabulary ;
