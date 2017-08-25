@@ -6,7 +6,11 @@
     <script src="respec-w3c-extensions.js" class="remove"></script>
     <script src="/js/jsonld.js" class="remove"></script>
     <script src="relode.js" class="remove"></script>
+
+    <!-- Grab W3C's respec; fall back to local if offline -->
     <script src="https://www.w3.org/Tools/respec/respec-w3c-common" async class="remove"></script>
+    <script>window.respecVersion || document.write('<script src="/js/respec-w3c-common.js" async class="remove"><\/script>')</script>
+
     <script class="remove">
       var respecConfig = {
           specStatus: "unofficial",
