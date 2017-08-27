@@ -336,7 +336,7 @@ var relode = (function(jsonld) {
     options = options || {};
 
     if (!('base' in options)) {
-      options.base = document.location.protocol + "//" + document.location.host + document.location.pathname;
+      options.base = document.location.protocol + "//" + document.location.host + document.location.pathname.replace(/[^\/]*$/, '');
     }
     if (!('documentLoader' in options)) {
       options.documentLoader = jsonld.documentLoaders.xhr();
