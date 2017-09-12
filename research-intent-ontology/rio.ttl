@@ -1,6 +1,7 @@
 @prefix cc: <http://creativecommons.org/ns#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix pentandra: <https://pentandra.com/company#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -48,9 +49,18 @@ rio:ResearchAffordance
   rdfs:comment "Something that affords research to be done."@en ;
   vs:term_status "testing" .
 
+rio:SpecificResource
+  a owl:Class ;
+  rdfs:isDefinedBy rio: ;
+  rdfs:subClassOf oa:ResourceSelection ;
+  rdfs:label "Specific Resource"@en ;
+  rdfs:comment "Instances of the SpecificResource class identify part of another resource, as used for research."@en ;
+  vs:term_status "testing" .
+
 rio:ResearchObject
   a owl:Class ;
   rdfs:isDefinedBy rio: ;
+  rdfs:subClassOf rio:SpecificResource ;
   rdfs:label "Research Object"@en ;
   rdfs:comment "The object of research, i.e. whatever is being studied, searched, browsed, measured, etc. by a human or machine."@en ;
   vs:term_status "testing" .
