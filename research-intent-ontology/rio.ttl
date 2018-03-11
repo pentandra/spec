@@ -21,7 +21,7 @@
 
   Research cases are intended to be powerful enough to describe the most complex and intricate of research problems, and simple enough to be useful for informal research that could be thought of more as proactive learning. Research Cases make knowledge creation explicit and allow research and knowledge to be built upon and shared openly and in context across platforms and research disciplines."""@en ;
   rdfs:isDefinedBy rio: ;
-  rdfs:seeAlso <https://researchcases.org/>, <https://pentandra.com/solutions/research-intent-ontology/> ;
+  rdfs:seeAlso <https://pentandra.com/solutions/research-cases/>, <https://pentandra.com/solutions/research-intent-ontology/> ;
   cc:license <http://creativecommons.org/licenses/by/4.0/> ;
   cc:attributionName "Research Cases Community" ;
   cc:attributionURL <https://researchcases.org> ;
