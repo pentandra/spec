@@ -49,6 +49,13 @@ rio:ResearchAffordance
   rdfs:comment "Something that affords research to be done."@en ;
   vs:term_status "testing" .
 
+rio:ResearchPrompt
+  a owl:Class ;
+  rdfs:isDefinedBy rio: ;
+  rdfs:label "Research Prompt"@en ;
+  rdfs:comment "A research prompt, such as a question to explore or hypothesis to test."@en ;
+  vs:term_status "testing" .
+
 rio:SpecificResource
   a owl:Class ;
   rdfs:isDefinedBy rio: ;
@@ -131,6 +138,7 @@ rio:Trajectory
 rio:Question
   a owl:Class ;
   rdfs:isDefinedBy rio: ;
+  rdfs:subClassOf rio:ResearchPrompt ;
   rdfs:label "Question"@en ;
   rdfs:label "Питання"@uk ;
   rdfs:comment "A research question. Represents the direction that the researcher intends to take the research. The next thing that needs to be explored, or direction that the research needs to go."@en ;
@@ -139,7 +147,7 @@ rio:Question
 rio:Hypothesis
   a owl:Class ;
   rdfs:isDefinedBy rio: ;
-  rdfs:subClassOf rio:Conclusion ;
+  rdfs:subClassOf rio:ResearchPrompt ;
   rdfs:label "Hypothesis"@en ;
   rdfs:label "Гіпотеза"@uk ;
   rdfs:comment "A statement to test. A possible, though unproven, answer to a research question."@en ;
