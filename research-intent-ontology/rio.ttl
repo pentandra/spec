@@ -8,6 +8,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rio: <https://w3id.org/rio#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
@@ -34,6 +35,13 @@
   owl:versionInfo "0.3.0" ;
   voaf:hasEquivalencesWith <http://purl.org/mp/> ;
   voaf:similar <http://purl.org/mp/> .
+
+rio:ResearchEvent
+  a owl:Class ;
+  rdfs:isDefinedBy rio: ;
+  rdfs:label "Research Event"@en ;
+  rdfs:comment "A generic event that furthered the research process. Intended to be subclassed into more specific events."@en ;
+  vs:term_status "testing" .
 
 rio:ResearchArtifact
   a owl:Class ;
@@ -88,7 +96,7 @@ rio:ResearchCase
   rdfs:subClassOf rio:ResearchContext ;
   rdfs:label "Research Case"@en ;
   rdfs:label "Випадок Дослідження"@uk ;
-  rdfs:comment "An explicit focus on a single question, encompassing everything leading to its conclusion. Also could be thought of as an affordance to research, or an articulated intention to find an answer to a question. The fundamental unit of research."@en ;
+  rdfs:comment "An explicit focus on a single question, encompassing everything leading to its conclusion. Also could be thought of as an affordance to research, or an articulated intention to find an answer to a question. A fundamental unit of research."@en ;
   vs:term_status "stable" .
 
 rio:Analysis
@@ -159,22 +167,23 @@ rio:Researcher
   rdfs:subClassOf prov:Agent ;
   rdfs:label "Researcher"@en ;
   rdfs:label "Дослідник"@uk ;
-  rdfs:comment "A person who researches"@en ;
+  rdfs:label "Forscher"@de ;
+  rdfs:comment "A person or agent who researches"@en ;
   vs:term_status "testing" .
 
-rio:question
+rio:prompt
   a owl:ObjectProperty ;
   rdfs:domain rio:ResearchCase ;
-  rdfs:range rio:Question ;
+  rdfs:range rio:ResearchPrompt ;
   rdfs:isDefinedBy rio: ;
-  rdfs:label "question"@en ;
-  rdfs:label "питання"@uk ;
-  rdfs:comment "The question the researcher is intending to answer next. The aim the researcher is taking for his, her, or its next step. The angle of inclination that will determine the trajectory that the research will take."@en ;
-  rdfs:seeAlso rio:Trajectory ;
+  rdfs:label "prompt"@en ;
+  rdfs:label "підказка"@uk ;
+  rdfs:label "Prompt"@de
+  rdfs:comment "The aim of the researcher for the given research case."@en ;
   vs:term_status "stable" .
 
-# Each research case has only one question.
-rio:question a owl:FunctionalProperty .
+# Each research case has only one prompt.
+rio:prompt a owl:FunctionalProperty .
 
 rio:triggeredBy
   a owl:ObjectProperty ;
