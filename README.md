@@ -29,25 +29,19 @@ and we hope they will prove useful to others as well.
 >
 > Kimura Kyūho, _Kenjutsu Fushigi Hen_, 1768
 
-* [Research Cases Data Model (W3C Unofficial Draft)](research-cases/index.html)
+* [Research Intent Ontology (W3C Unofficial Draft)](research-intent-ontology/index.html)
 
-  Research Cases are a way to partition research conceptually into _cases_,
-  each case organized around a question (or some other sort of cognitive
-  discordance). They are designed for iterative, real-time research
-  publication, and encourage open collaboration and discourse throughout the
-  research process.
+  The Research Intent Ontology is designed to encourage open collaboration and
+  structured discourse throughout the research process. It serves as the
+  foundational ontology for describing the context of research across many
+  methodological approaches.
 
-  We’re at the early stages of creating this ontology, and it needs more
-  thought and examples, but, in general, the idea is sane.
+  We’re at the early stages of creating this ontology. Expect frequent
+  incompatible changes.
 
-  We would like to see Research Cases become the default way of ~~publishing~~
-  doing research.
+* [Research Intent Ontology (Turtle)](research-intent-ontology/rio.ttl)
 
-  See https://researchcases.org/ for more background.
-
-* [Research Cases Ontology (Turtle)](research-cases/rcases.ttl)
-
-  The Research Cases ontology, playground edition.
+  The Research Intent Ontology, playground edition.
 
 ### Scholarly Commons
 
