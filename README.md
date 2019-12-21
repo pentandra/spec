@@ -29,7 +29,7 @@ and we hope they will prove useful to others as well.
 >
 > Kimura Kyūho, _Kenjutsu Fushigi Hen_, 1768
 
-* [Research Intent Ontology (W3C Unofficial Draft)](research-intent-ontology/index.html)
+* Research Intent Ontology ([W3C Unofficial Draft](research-intent-ontology/index.html), [Turtle](research-intent-ontology/rio.ttl))
 
   The Research Intent Ontology is designed to encourage open collaboration and
   structured discourse throughout the research process. It serves as the
@@ -38,10 +38,6 @@ and we hope they will prove useful to others as well.
 
   We’re at the early stages of creating this ontology. Expect frequent
   incompatible changes.
-
-* [Research Intent Ontology (Turtle)](research-intent-ontology/rio.ttl)
-
-  The Research Intent Ontology, playground edition.
 
 ### Scholarly Commons
 
